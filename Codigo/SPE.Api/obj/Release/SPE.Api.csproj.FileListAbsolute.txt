@@ -1,0 +1,12 @@
+C:\Users\Sergio Minei\Descargas\mod3_kit_integracion_net\DemoIntegracion\DemoIntegracion\SPE.Api\bin\Release\SPE.Api.dll
+C:\Users\Sergio Minei\Descargas\mod3_kit_integracion_net\DemoIntegracion\DemoIntegracion\SPE.Api\bin\Release\SPE.Api.pdb
+C:\Users\Sergio Minei\Descargas\mod3_kit_integracion_net\DemoIntegracion\DemoIntegracion\SPE.Api\bin\Release\BinaryNotes.dll
+C:\Users\Sergio Minei\Descargas\mod3_kit_integracion_net\DemoIntegracion\DemoIntegracion\SPE.Api\obj\Release\SPE.Api.csprojResolveAssemblyReference.cache
+C:\Users\Sergio Minei\Descargas\mod3_kit_integracion_net\DemoIntegracion\DemoIntegracion\SPE.Api\obj\Release\SPE.Api.dll
+C:\Users\Sergio Minei\Descargas\mod3_kit_integracion_net\DemoIntegracion\DemoIntegracion\SPE.Api\obj\Release\SPE.Api.pdb
+C:\Users\Sergio Minei\Desktop\Tu Importas\eCommerce\trunk\Tu Importas Shop\SPE.Api\bin\Release\SPE.Api.dll
+C:\Users\Sergio Minei\Desktop\Tu Importas\eCommerce\trunk\Tu Importas Shop\SPE.Api\bin\Release\SPE.Api.pdb
+C:\Users\Sergio Minei\Desktop\Tu Importas\eCommerce\trunk\Tu Importas Shop\SPE.Api\bin\Release\BinaryNotes.dll
+C:\Users\Sergio Minei\Desktop\Tu Importas\eCommerce\trunk\Tu Importas Shop\SPE.Api\obj\Release\SPE.Api.csprojResolveAssemblyReference.cache
+C:\Users\Sergio Minei\Desktop\Tu Importas\eCommerce\trunk\Tu Importas Shop\SPE.Api\obj\Release\SPE.Api.dll
+C:\Users\Sergio Minei\Desktop\Tu Importas\eCommerce\trunk\Tu Importas Shop\SPE.Api\obj\Release\SPE.Api.pdb
