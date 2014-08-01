@@ -25,19 +25,19 @@
 					<asp:BoundField DataField="Fecha_Compra" HeaderText="Fecha" ItemStyle-HorizontalAlign="Center"/>
 					<asp:BoundField DataField="Nombre_Forma_Pago" HeaderText="Forma de Pago" ItemStyle-HorizontalAlign="Center"/>
 					<asp:BoundField DataField="Total" HeaderText="Monto (S/.)" ItemStyle-HorizontalAlign="Center"/>
-					<asp:BoundField DataField="Nombre_Usuario" HeaderText="Usuario" ItemStyle-HorizontalAlign="Center"/>
+					<asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="Usuario">
+						<ItemTemplate>
+							<a href="#" onclick="VerUsuario(<%#Eval("Id_Usuario")%>)"><%#Eval("Nombre_Usuario")%></a>
+						</ItemTemplate>
+					</asp:TemplateField>
 					<%--<asp:BoundField DataField="Nombre_Estado" HeaderText="Estado" ItemStyle-HorizontalAlign="Center"/>--%>
 					<asp:TemplateField HeaderText="Estado" ItemStyle-HorizontalAlign="Center">
 						<ItemTemplate>
-							<%--<asp:ImageButton ID="ibtnEditar" runat="server" height="25" width="25" CausesValidation="false" CommandName="Edicion" CommandArgument='<%#Eval("Id_Pedido")%>' ImageUrl='/images/cambio.png' OnClientClick="Loading();" />  --%>
-							<%--<asp:LinkButton runat="server" CommandArgument='<%#Eval("Id_Pedido")%>'>Ver</asp:LinkButton>--%>
 							<a href="#" onclick="CambiarEstado(<%#Eval("Id_Pedido")%>,<%#Eval("estado")%>)"><%#Eval("Nombre_Estado")%></a>
 						</ItemTemplate>
 					</asp:TemplateField>
-					<asp:TemplateField HeaderText="Editar" ItemStyle-HorizontalAlign="Center">
+					<asp:TemplateField ItemStyle-HorizontalAlign="Center">
 						<ItemTemplate>
-							<%--<asp:ImageButton ID="ibtnEditar" runat="server" height="25" width="25" CausesValidation="false" CommandName="Edicion" CommandArgument='<%#Eval("Id_Pedido")%>' ImageUrl='/images/cambio.png' OnClientClick="Loading();" />  --%>
-							<%--<asp:LinkButton runat="server" CommandArgument='<%#Eval("Id_Pedido")%>'>Ver</asp:LinkButton>--%>
 							<a href="#" onclick="VerPedido(<%#Eval("Id_Pedido")%>)">Ver</a>
 						</ItemTemplate>
 					</asp:TemplateField>
@@ -60,6 +60,45 @@
 				<br />Esta opción cambia el estado de un pedido a entregado. <br /><br />CUIDADO: Esta opción es irreversible.<br /><br />
 			<%--</div>--%>
 			<center><asp:Button runat="server" ID="btnCambiarEstado" Text="ENTREGADO" CssClass="btn btn-primary input-block-level bold higher" OnClick="btnCambiarEstado_Click"/></center><br />
+		</div>
+	</div>
+
+	<div id="usuarioModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="usuarioModal" aria-hidden="true" style="width:400px;left:47%;">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3 id="usuarioModalLabel"><span class="light">Datos del</span> Usuario</h3>
+		</div>
+		<div class="modal-body" style="overflow-y:visible;">
+			<table style="font-size:11pt;" align="center">
+				<tr>
+					<td class="negrita">Usuario:</td>
+					<td id="tdUsuario" style="padding-left:10px;"></td>
+				</tr>
+				<tr>
+					<td class="negrita">Nombre:</td>
+					<td id="tdUsuarioNombre" style="padding-left:10px;"></td>
+				</tr>
+				<tr>
+					<td class="negrita">DNI:</td>
+					<td id="tdUsuarioDni" style="padding-left:10px;"></td>
+				</tr>
+				<tr>
+					<td class="negrita">Teléfono:</td>
+					<td id="tdUsuarioTelefono" style="padding-left:10px;"></td>
+				</tr>
+				<tr>
+					<td class="negrita">Celular:</td>
+					<td id="tdUsuarioCelular" style="padding-left:10px;"></td>
+				</tr>
+				<tr>
+					<td class="negrita">EMail:</td>
+					<td id="tdUsuarioEMail" style="padding-left:10px;"></td>
+				</tr>
+				<tr>
+					<td class="negrita">Activo:</td>
+					<td id="tdUsuarioActivo" style="padding-left:10px;"></td>
+				</tr>
+			</table>
 		</div>
 	</div>
 
@@ -145,12 +184,45 @@
 
 		function CambiarEstado(idPedido, estado)
 		{
-		    if (estado == 2) {
-		        $("#<%=hdIdPedidoSel.ClientID%>").val(idPedido);
-		        $('#estadoModal').modal('show');
-		    }
-		    else
-		        jAlert("Lo sentimos, solo se puede cambiar el estado a ENTREGADO a un pedido en estado PAGADO", "Cambiar Estado");
+			if (estado == 2) {
+				$("#<%=hdIdPedidoSel.ClientID%>").val(idPedido);
+				$('#estadoModal').modal('show');
+			}
+			else
+				jAlert("Lo sentimos, solo se puede cambiar el estado a ENTREGADO a un pedido en estado PAGADO", "Cambiar Estado");
+		}
+
+		function VerUsuario(idUsuario)
+		{
+			$.ajax
+			({
+				type: "POST",
+				url: pageUrl + "/VerUsuario",
+				data: "{'idUsuario': '" + idUsuario + "'}",
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+				success: function (response) {
+					$('#tdUsuario').text(response.d.Usuario);
+					$('#tdUsuarioNombre').text(response.d.Nombre_Completo);
+					$('#tdUsuarioDni').text(response.d.Dni);
+					if (response.d.Telefono == null)
+						$('#tdUsuarioTelefono').text('-');
+					else
+						$('#tdUsuarioTelefono').text(response.d.Telefono);
+					if (response.d.Celular == null)
+						$('#tdUsuarioCelular').text('-');
+					else
+						$('#tdUsuarioCelular').text(response.d.Celular);
+					$('#tdUsuarioEMail').text(response.d.Email);
+					$('#tdUsuarioActivo').text(response.d.Activo);
+
+					$('#usuarioModal').modal('show');
+				},
+				error: function (response) {
+					MostrarError();
+				}
+			});
+			
 		}
 
 		function VerPedido(idOrden) {

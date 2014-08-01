@@ -62,6 +62,24 @@ namespace TuImportas.eShop.PL.Web.administrador
             }
         }
 
+        [WebMethod]
+        public static UsuarioBE VerUsuario(int idUsuario)
+        {
+            UsuarioBC objUsuarioBC = new UsuarioBC();
+
+            try
+            {
+                UsuarioBE objUsuarioBE = objUsuarioBC.Get_Usuario(idUsuario);
+
+                return objUsuarioBE;
+            }
+            catch (Exception ex)
+            {
+                LogFile.EscribirLog(ex);
+                throw;
+            }
+        }
+
         private static string GetProductoItem(Pedido_ProductoBE objPedido_ProductoBE)
         {
             string itemCarrito = "";
