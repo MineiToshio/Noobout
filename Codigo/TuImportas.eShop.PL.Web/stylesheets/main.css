@@ -1823,3 +1823,7 @@ label { font-weight: bold; color: #333333; }
 }
 
 .italic { font-style: italic; }
+
+.content_admin {
+	padding:0 30px;
+}

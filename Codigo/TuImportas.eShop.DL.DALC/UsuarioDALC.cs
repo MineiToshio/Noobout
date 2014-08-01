@@ -196,7 +196,7 @@ namespace TuImportas.eShop.DL.DALC
                                 objUsuarioBE.Telefono = dr["telefono"] != DBNull.Value ? dr["telefono"].ToString() : null;
                                 objUsuarioBE.Usuario = dr["usuario"].ToString();
                                 objUsuarioBE.Nombre_Completo = objUsuarioBE.Nombre + " " + objUsuarioBE.Apellido_Paterno + (objUsuarioBE.Apellido_Materno != null ? " " + objUsuarioBE.Apellido_Materno : "");
-                                objUsuarioBE.Img_Habilitado = "/images/" + (objUsuarioBE.Activo ? "checkbox_checked.png" : "checkbox_unchecked.png");
+                                objUsuarioBE.Img_Habilitado = "/images/" + ((Boolean)objUsuarioBE.Activo ? "checkbox_checked.png" : "checkbox_unchecked.png");
                                 objUsuarioBE.Rol = objUsuarioBE.Id_Rol == (int)Rol.Admin ? "Admin" : "Usuario";
 
                                 lstUsuarioBE.Add(objUsuarioBE);
@@ -208,6 +208,77 @@ namespace TuImportas.eShop.DL.DALC
                 return lstUsuarioBE;
             }
             catch(Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<UsuarioBE> Get_Usuario_Buscar(UsuarioBE objUsuarioBE)
+        {
+            String cadena;
+            String sql = "Usuario_Buscar";
+            SqlParameter[] arrParameters = new SqlParameter[7];
+            List<UsuarioBE> lstUsuarioBE = null;
+
+            try
+            {
+                cadena = Tool.GetCadenaConexion();
+
+                using (SqlConnection conn = new SqlConnection(cadena))
+                {
+                    using (SqlCommand cmd = conn.CreateCommand())
+                    {
+                        cmd.CommandText = sql;
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        arrParameters[0] = new SqlParameter("@usuario", objUsuarioBE.Usuario);
+                        arrParameters[1] = new SqlParameter("@nombre", objUsuarioBE.Nombre);
+                        arrParameters[2] = new SqlParameter("@apellido_paterno", objUsuarioBE.Apellido_Paterno);
+                        arrParameters[3] = new SqlParameter("@apellido_materno", objUsuarioBE.Apellido_Materno);
+                        arrParameters[4] = new SqlParameter("@dni", objUsuarioBE.Dni);
+                        arrParameters[5] = new SqlParameter("@activo", objUsuarioBE.Activo);
+                        arrParameters[6] = new SqlParameter("@email", objUsuarioBE.Email);
+
+                        for (int i = 0; i < arrParameters.Length; i++)
+                            cmd.Parameters.Add(arrParameters[i]);
+
+                        cmd.Connection.Open();
+
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                if (lstUsuarioBE == null)
+                                    lstUsuarioBE = new List<UsuarioBE>();
+
+                                objUsuarioBE = new UsuarioBE();
+                                objUsuarioBE.Activo = Convert.ToBoolean(dr["activo"]);
+                                objUsuarioBE.Apellido_Materno = dr["apellido_materno"] != DBNull.Value ? dr["apellido_materno"].ToString() : null;
+                                objUsuarioBE.Apellido_Paterno = dr["apellido_paterno"].ToString();
+                                objUsuarioBE.Celular = dr["celular"] != DBNull.Value ? dr["celular"].ToString() : null;
+                                objUsuarioBE.Dni = dr["dni"].ToString();
+                                objUsuarioBE.Email = dr["email"].ToString();
+                                objUsuarioBE.Fecha_Creacion = Convert.ToDateTime(dr["fecha_creacion"]);
+                                objUsuarioBE.Fecha_Nacimiento = dr["fecha_nacimiento"] != DBNull.Value ? (DateTime?)Convert.ToDateTime(dr["fecha_nacimiento"]) : null;
+                                objUsuarioBE.Id_Rol = Convert.ToInt32(dr["id_rol"]);
+                                objUsuarioBE.Id_Usuario = Convert.ToInt32(dr["id_usuario"]);
+                                objUsuarioBE.Nombre = dr["nombre"].ToString();
+                                objUsuarioBE.Password = dr["password"].ToString();
+                                objUsuarioBE.Telefono = dr["telefono"] != DBNull.Value ? dr["telefono"].ToString() : null;
+                                objUsuarioBE.Usuario = dr["usuario"].ToString();
+                                objUsuarioBE.Nombre_Completo = objUsuarioBE.Nombre + " " + objUsuarioBE.Apellido_Paterno + (objUsuarioBE.Apellido_Materno != null ? " " + objUsuarioBE.Apellido_Materno : "");
+                                objUsuarioBE.Img_Habilitado = "/images/" + ((Boolean)objUsuarioBE.Activo ? "checkbox_checked.png" : "checkbox_unchecked.png");
+                                objUsuarioBE.Rol = objUsuarioBE.Id_Rol == (int)Rol.Admin ? "Admin" : "Usuario";
+
+                                lstUsuarioBE.Add(objUsuarioBE);
+                            }
+                        }
+                    }
+                }
+
+                return lstUsuarioBE;
+            }
+            catch (Exception)
             {
                 throw;
             }

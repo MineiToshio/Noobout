@@ -33,11 +33,13 @@
 	text-align: center;
 	font-size: 10pt;
 	font-family: 'Open Sans';
+	cursor:default;
 }  
 .gridview th a { color: #CFCFCF; text-decoration: none; text-decoration: underline; cursor:pointer; } 
 
 .gridview .alt { background: #fcfcfc; }  
-.gridview .pgr { background: #799ADF; color: #000000; border: solid 1px #c1c1c1;}  
+.gridview .pgr { background: #799ADF; color: #000000; border: solid 1px #c1c1c1;}
+.gridview .pgr:hover, .gridview .pgr table:hover { background: #799ADF; cursor:default;}
 .gridview .pgr table { margin: 5px 0; }  
 .gridview .pgr td {   
 	border-width: 0;   

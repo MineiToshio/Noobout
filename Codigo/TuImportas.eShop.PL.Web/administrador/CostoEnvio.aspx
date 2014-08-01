@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="bodyContent" runat="server">
     <br />
-    <div class="span12">
+    <div class="content_admin">
         <asp:ScriptManager runat="server" ID="sm"></asp:ScriptManager>
         <div class="underlined push-down-30">
             <h3><span class="light">Administrar</span> Costos de Envío</h3>

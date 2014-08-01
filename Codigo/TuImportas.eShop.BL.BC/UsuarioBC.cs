@@ -59,6 +59,18 @@ namespace TuImportas.eShop.BL.BC
             }
         }
 
+        public List<UsuarioBE> Get_Usuario_Buscar(UsuarioBE objUsuarioBE)
+        {
+            try
+            {
+                return objUsuarioDALC.Get_Usuario_Buscar(objUsuarioBE);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public UsuarioBE Get_Usuario(Int32 id_usuario)
         {
             try

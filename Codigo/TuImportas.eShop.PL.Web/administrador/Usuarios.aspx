@@ -3,11 +3,61 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="bodyContent" runat="server">
     <br />
-    <div class="span12">
+    <div class="content_admin">
         <div class="underlined push-down-30">
             <h3><span class="light">Administrar</span> Usuarios</h3>
         </div>
         <center>
+            <table>
+                <tr>
+                    <td>
+                        <label class="control-label" for="txtUsuarioBuscar">Usuario:</label>
+                        <asp:TextBox runat="server" ID="txtUsuarioBuscar"></asp:TextBox>
+                    </td>
+                    <td width="50px"></td>
+                    <td>
+                        <label class="control-label" for="txtUsuarioNombreBuscar">Nombre:</label>
+                        <asp:TextBox runat="server" ID="txtUsuarioNombreBuscar"></asp:TextBox>
+                    </td>
+                    <td width="50px"></td>
+                    <td>
+                        <label class="control-label" for="txtUsuarioApellidoPBuscar">Apellido Paterno:</label>
+                        <asp:TextBox runat="server" ID="txtUsuarioApellidoPBuscar"></asp:TextBox>
+                    </td>
+                    <td width="50px"></td>
+                    <td>
+                        <label class="control-label" for="txtUsuarioApellidoMBuscar">Apellido Materno:</label>
+                        <asp:TextBox runat="server" ID="txtUsuarioApellidoMBuscar"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    
+                    
+                    <td>
+                        <label class="control-label" for="txtUsuarioDniBuscar">DNI:</label>
+                        <asp:TextBox runat="server" ID="txtUsuarioDniBuscar"></asp:TextBox>
+                    </td>
+                    <td width="50px"></td>
+                    <td>
+                        <label class="control-label" for="txtUsuarioEMailBuscar">EMail:</label>
+                        <asp:TextBox runat="server" ID="txtUsuarioEMailBuscar"></asp:TextBox>
+                    </td>
+                    <td width="50px"></td>
+                    <td>
+                        <label class="control-label" for="ddlActivoBuscar">Activo: </label>
+                        <asp:DropDownList runat="server" ID="ddlActivoBuscar" Width="70px">
+                            <asp:ListItem Value="-1">--</asp:ListItem>
+                            <asp:ListItem Value="1">Si</asp:ListItem>
+                            <asp:ListItem Value="0">No</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                    <td width="50px"></td>
+                    <td align="right">
+                        <asp:Button runat="server" ID="btnBuscar" Text="Buscar" CssClass="btn btn-primary higher bold" OnClick="btnBuscar_Click"/>
+                    </td>
+                </tr>
+            </table>
+
             <asp:Button runat="server" ID="btnAgregarProducto" Text="Agregar Usuario" CssClass="btn btn-primary higher bold" PostBackUrl="~/administrador/Usuario.aspx"/>
 
             <asp:GridView ID="gvUsuarios" runat="server"

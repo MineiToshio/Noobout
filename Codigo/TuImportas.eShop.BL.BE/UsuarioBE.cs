@@ -5,9 +5,10 @@ using System.Text;
 
 namespace TuImportas.eShop.BL.BE
 {
+    [Serializable]
     public class UsuarioBE
     {
-        public Boolean Activo { get; set; }
+        public Boolean? Activo { get; set; }
         public String Apellido_Materno { get; set; }
         public String Apellido_Paterno { get; set; }
         public String Celular { get; set; }
