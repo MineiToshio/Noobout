@@ -59,6 +59,7 @@
   <ItemGroup>
     <Content Include="Acerca.aspx" />
     <Content Include="Activar.aspx" />
+    <Content Include="administrador\Botones_Inicio.aspx" />
     <Content Include="administrador\Categorias.aspx" />
     <Content Include="administrador\Colores.aspx" />
     <Content Include="administrador\Contrasena.aspx" />
@@ -760,6 +761,13 @@
     </Compile>
     <Compile Include="Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="administrador\Botones_Inicio.aspx.cs">
+      <DependentUpon>Botones_Inicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="administrador\Botones_Inicio.aspx.designer.cs">
+      <DependentUpon>Botones_Inicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="administrador\Categorias.aspx.cs">
       <DependentUpon>Categorias.aspx</DependentUpon>
