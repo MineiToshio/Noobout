@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Boton_InicioDALC.cs" />
     <Compile Include="CarritoDALC.cs" />
     <Compile Include="Carrito_ProductoDALC.cs" />
     <Compile Include="CategoriaDALC.cs" />

@@ -224,11 +224,11 @@ namespace TuImportas.eShop.BL.BC
             }
         }
 
-        public List<ProductoBE> Get_Producto_Buscar(string busqueda)
+        public List<ProductoBE> Get_Producto_Buscar(string nombre, bool? activo)
         {
             try
             {
-                return objProductoDALC.Get_Producto_Buscar(busqueda);
+                return objProductoDALC.Get_Producto_Buscar(nombre, activo);
             }
             catch (Exception)
             {

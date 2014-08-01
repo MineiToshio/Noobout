@@ -976,3 +976,45 @@ StackTrace:    en System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbC
    en TuImportas.eShop.PL.Web.eshop.Page_Load(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\eCommerce\trunk\Tu Importas Shop\TuImportas.eShop.PL.Web\eshop.Master.cs:línea 24
 Día/Hora: 19/06/2014 04:15:19 p.m.
 ===========================================================================================
+Tipo: System.Data.SqlClient.SqlException
+Mensaje: Could not find stored procedure 'Boton_Inicio_Select'.
+Fuente: .Net SqlClient Data Provider
+StackTrace:    en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader()
+   en TuImportas.eShop.DL.DALC.Boton_InicioDALC.Select_Boton_Inicio() en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.DL.DALC\Boton_InicioDALC.cs:línea 131
+   en TuImportas.eShop.BL.BC.Boton_InicioBC.Select_Boton_Inicio() en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.BL.BC\Boton_InicioBC.cs:línea 46
+   en TuImportas.eShop.PL.Web.Inicio.CargarBotones() en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Inicio.aspx.cs:línea 55
+   en TuImportas.eShop.PL.Web.Inicio.Page_Load(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Inicio.aspx.cs:línea 22
+Día/Hora: 31/07/2014 06:07:28 p.m.
+===========================================================================================
+Tipo: System.Data.SqlClient.SqlException
+Mensaje: Could not find stored procedure 'Boton_Inicio_Select'.
+Fuente: .Net SqlClient Data Provider
+StackTrace:    en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader()
+   en TuImportas.eShop.DL.DALC.Boton_InicioDALC.Select_Boton_Inicio() en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.DL.DALC\Boton_InicioDALC.cs:línea 131
+   en TuImportas.eShop.BL.BC.Boton_InicioBC.Select_Boton_Inicio() en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.BL.BC\Boton_InicioBC.cs:línea 46
+   en TuImportas.eShop.PL.Web.Inicio.CargarBotones() en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Inicio.aspx.cs:línea 55
+   en TuImportas.eShop.PL.Web.Inicio.Page_Load(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Inicio.aspx.cs:línea 22
+Día/Hora: 31/07/2014 06:09:12 p.m.
+===========================================================================================

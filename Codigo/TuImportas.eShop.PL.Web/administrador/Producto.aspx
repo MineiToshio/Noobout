@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Producto.aspx.cs" Inherits="TuImportas.eShop.PL.Web.administrador.Producto" ValidateRequest="false" EnableEventValidation="false"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="headerContent" runat="server">
+    <link href="/stylesheets/flipswitch.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="bodyContent" runat="server">
     <br />
@@ -25,7 +26,16 @@
                     <div class="control-group">
                         <label class="control-label" for="chkDestacado">Producto Destacado</label>
                         <div class="controls">
-                            <asp:CheckBox runat="server" ID="chkDestacado" ClientIDMode="Static" />
+                            <%--<asp:CheckBox runat="server" ID="chkDestacado" ClientIDMode="Static" />--%>
+                            <div class="onoffswitch">
+                                <%--<asp:CheckBox runat="server" ID="chkDestacado" ClientIDMode="Static" name="onoffswitch" class="onoffswitch-checkbox" Checked/>--%>
+                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="chkDestacado" checked runat="server" ClientIDMode="Static">
+                                <label class="onoffswitch-label" for="chkDestacado">
+                                    <span class="onoffswitch-inner"></span>
+                                    <span class="onoffswitch-switch"></span>
+                                </label>
+                            </div>
+
                         </div>
                     </div>
                     <div class="control-group">

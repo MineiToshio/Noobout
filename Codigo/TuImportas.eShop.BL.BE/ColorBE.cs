@@ -5,6 +5,7 @@ using System.Text;
 
 namespace TuImportas.eShop.BL.BE
 {
+    [Serializable]
     public class ColorBE
     {
         public String Descripcion { get; set; }

@@ -13,6 +13,87 @@ namespace TuImportas.eShop.PL.Web {
     public partial class Inicio {
         
         /// <summary>
+        /// lnkBotonInicio1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkBotonInicio1;
+        
+        /// <summary>
+        /// lblBotonInicio1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBotonInicio1;
+        
+        /// <summary>
+        /// lblBotonInicioDesc1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBotonInicioDesc1;
+        
+        /// <summary>
+        /// lnkBotonInicio2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkBotonInicio2;
+        
+        /// <summary>
+        /// lblBotonInicio2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBotonInicio2;
+        
+        /// <summary>
+        /// lblBotonInicioDesc2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBotonInicioDesc2;
+        
+        /// <summary>
+        /// lnkBotonInicio3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkBotonInicio3;
+        
+        /// <summary>
+        /// lblBotonInicio3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBotonInicio3;
+        
+        /// <summary>
+        /// lblBotonInicioDesc3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBotonInicioDesc3;
+        
+        /// <summary>
         /// pnlDestacados control.
         /// </summary>
         /// <remarks>

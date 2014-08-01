@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Boton_InicioBC.cs" />
     <Compile Include="CarritoBC.cs" />
     <Compile Include="Carrito_ProductoBC.cs" />
     <Compile Include="CategoriaBC.cs" />

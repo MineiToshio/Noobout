@@ -8,8 +8,29 @@
             <h3><span class="light">Administrar</span> Productos</h3>
         </div>
         <center>
-            <asp:Button runat="server" ID="btnAgregarProducto" Text="Agregar Producto" CssClass="btn btn-primary higher bold" PostBackUrl="~/administrador/Producto.aspx"/>
+            <table>
+                <tr>
+                    <td>
+                        <label class="control-label" for="txtNombreBuscar">Producto:</label>
+                        <asp:TextBox runat="server" ID="txtNombreBuscar"></asp:TextBox>
+                    </td>
+                    <td width="50px"></td>
+                    <td>
+                        <label class="control-label" for="ddlActivoBuscar">Activo: </label>
+                        <asp:DropDownList runat="server" ID="ddlActivoBuscar" Width="70px">
+                            <asp:ListItem Value="-1">--</asp:ListItem>
+                            <asp:ListItem Value="1">Si</asp:ListItem>
+                            <asp:ListItem Value="0">No</asp:ListItem>
+                        </asp:DropDownList>
 
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" align="right"><asp:Button runat="server" ID="btnBuscar" Text="Buscar" CssClass="btn btn-primary higher bold" OnClick="btnBuscar_Click"/></td>
+                </tr>
+            </table>
+            
+            <asp:Button runat="server" ID="btnAgregarProducto" Text="Agregar Producto" CssClass="btn btn-primary higher bold" PostBackUrl="~/administrador/Producto.aspx"/>
             <asp:GridView ID="gvProductos" runat="server"
                 AutoGenerateColumns="False"
                 DataKeyNames="Id_Producto"
@@ -22,8 +43,14 @@
                     <center><asp:Label ID="lMensajes" runat="server" Font-Size="9pt" ForeColor="#00639E" Text="[No se encontraron productos]"></asp:Label></center>
                 </EmptyDataTemplate>
                 <Columns>
+                    <asp:TemplateField ItemStyle-HorizontalAlign="Center">
+                        <ItemTemplate>
+                            <asp:Image runat="server" ID="imgProducto" ImageUrl='<%#Eval("Ruta_Img_Principal")%>' Width="40px" Height="40px"/>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:BoundField DataField="Nombre" HeaderText="Producto"/>
-                    <asp:BoundField DataField="Precio" HeaderText="Precio"/>
+                    <asp:BoundField DataField="Precio" HeaderText="Precio" ItemStyle-HorizontalAlign="Center"/>
+                    <asp:BoundField DataField="Cantidad_Vendidos" HeaderText="Cantidad<br/>Vendidos" HtmlEncode="false" ItemStyle-HorizontalAlign="Center"/>
                     <asp:TemplateField HeaderText="Habilitado" ItemStyle-HorizontalAlign="Center">
                         <ItemTemplate>
                             <asp:ImageButton ID="ibtnHabilitado" runat="server" height="25" width="25" CausesValidation="false" CommandName="Habilitado" CommandArgument='<%#Eval("Id_Producto")%>' ImageUrl='<%#Eval("Img_Habilitado")%>' OnClientClick="Loading();"/>  

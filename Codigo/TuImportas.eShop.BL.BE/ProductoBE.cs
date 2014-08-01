@@ -5,6 +5,7 @@ using System.Text;
 
 namespace TuImportas.eShop.BL.BE
 {
+    [Serializable]
     public class ProductoBE
     {
         public Boolean Activo { get; set; }
@@ -28,6 +29,7 @@ namespace TuImportas.eShop.BL.BE
         public string Caracteristica_Tecnica { get; set; }
         public string Youtube { get; set; }
         public string Img_Habilitado { get; set; }
+        public string Ruta_Img_Principal { get; set; }
         public ProductoBE()
         {
             lstImagen_ProductoBE = new List<Imagen_ProductoBE>();

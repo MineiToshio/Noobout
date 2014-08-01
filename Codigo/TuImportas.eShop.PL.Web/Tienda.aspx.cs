@@ -68,7 +68,7 @@ namespace TuImportas.eShop.PL.Web
 
             try
             {
-                lstProductoBE = objProductoBC.Get_Producto_Buscar(cadena);
+                lstProductoBE = objProductoBC.Get_Producto_Buscar(cadena, true);
 
                 MostrarProductos(lstProductoBE);
             }

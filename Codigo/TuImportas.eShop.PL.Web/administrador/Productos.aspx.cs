@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TuImportas.eShop.BL.BC;
+using TuImportas.eShop.BL.BE;
 
 namespace TuImportas.eShop.PL.Web.administrador
 {
@@ -16,7 +17,7 @@ namespace TuImportas.eShop.PL.Web.administrador
             {
                 if (Tools.EsAdmin())
                 {
-                    LlenarProductos();
+                    LlenarProductosTodos();
                 }
             }
         }
@@ -27,8 +28,24 @@ namespace TuImportas.eShop.PL.Web.administrador
 
             try
             {
-                gvProductos.DataSource = objProductoBC.Select_Producto();
+                gvProductos.DataSource = ViewState["PRODUCTOS"];
                 gvProductos.DataBind();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        private void LlenarProductosTodos()
+        { 
+            ProductoBC objProductoBC = new ProductoBC();
+
+            try
+            {
+                ViewState["PRODUCTOS"] = objProductoBC.Select_Producto();
+                LlenarProductos();
             }
             catch (Exception)
             {
@@ -45,6 +62,20 @@ namespace TuImportas.eShop.PL.Web.administrador
 
                 objProductoBC.Update_Producto_Activo(Convert.ToInt32(e.CommandArgument));
 
+                List<ProductoBE> lstProductoBE = (List<ProductoBE>)ViewState["PRODUCTOS"];
+
+                for (int i = 0; i < lstProductoBE.Count; i++)
+                {
+                    if (lstProductoBE[i].Id_Producto == Convert.ToInt32(e.CommandArgument))
+                    {
+                        lstProductoBE[i].Activo = !lstProductoBE[i].Activo;
+                        lstProductoBE[i].Img_Habilitado = "/images/" + (lstProductoBE[i].Activo ? "checkbox_checked.png" : "checkbox_unchecked.png");
+                        break;
+                    }
+                }
+
+                ViewState["PRODUCTOS"] = lstProductoBE;
+
                 LlenarProductos();
             }
             else if (e.CommandName.Equals("Edicion"))
@@ -56,6 +87,23 @@ namespace TuImportas.eShop.PL.Web.administrador
         protected void gvProductos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvProductos.PageIndex = e.NewPageIndex;
+            LlenarProductos();
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            ProductoBC objProductoBC = new ProductoBC();
+
+            bool? activo;
+
+            switch (ddlActivoBuscar.SelectedValue)
+            {
+                case "0": activo = false; break;
+                case "1": activo = true; break;
+                default: activo = null; break;
+            }
+
+            ViewState["PRODUCTOS"] = objProductoBC.Get_Producto_Buscar(txtNombreBuscar.Text.Trim(), activo);
             LlenarProductos();
         }
     }

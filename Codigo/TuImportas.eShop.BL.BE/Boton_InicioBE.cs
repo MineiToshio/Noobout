@@ -5,12 +5,11 @@ using System.Text;
 
 namespace TuImportas.eShop.BL.BE
 {
-    [Serializable]
-    public class CategoriaBE
+    public class Boton_InicioBE
     {
         public String Descripcion { get; set; }
-        public Int32 Id_Categoria { get; set; }
+        public Int32 Id_Boton_Inicio { get; set; }
         public String Nombre { get; set; }
-        public int? Id_Padre { get; set; }
+        public String Url { get; set; }
     }
 }

@@ -19,11 +19,40 @@ namespace TuImportas.eShop.PL.Web
                 //if (!Page.IsPostBack)
                 //{
                     CargarProducto();
+                    CargarBotones();
                 //}
             }
             catch (Exception ex)
             {
                 Tools.Error(GetType(), this, ex);
+            }
+        }
+
+        private void CargarBotones()
+        {
+            Boton_InicioBC objBoton_InicioBC = new Boton_InicioBC();
+            List<Boton_InicioBE> lstBoton_InicioBE = new List<Boton_InicioBE>();
+
+            try
+            {
+                lstBoton_InicioBE = objBoton_InicioBC.Select_Boton_Inicio();
+
+                lnkBotonInicio1.HRef = lstBoton_InicioBE[0].Url;
+                lblBotonInicio1.Text = lstBoton_InicioBE[0].Nombre;
+                lblBotonInicioDesc1.Text = lstBoton_InicioBE[0].Descripcion;
+
+                lnkBotonInicio2.HRef = lstBoton_InicioBE[1].Url;
+                lblBotonInicio2.Text = lstBoton_InicioBE[1].Nombre;
+                lblBotonInicioDesc2.Text = lstBoton_InicioBE[1].Descripcion;
+
+                lnkBotonInicio3.HRef = lstBoton_InicioBE[2].Url;
+                lblBotonInicio3.Text = lstBoton_InicioBE[2].Nombre;
+                lblBotonInicioDesc3.Text = lstBoton_InicioBE[2].Descripcion;
+            }
+            catch (Exception)
+            {
+                
+                throw;
             }
         }
 

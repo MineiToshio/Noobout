@@ -192,6 +192,7 @@ namespace TuImportas.eShop.DL.DALC
                                 objProductoBE.Cantidad_Vendidos = Convert.ToInt32(dr["cantidad_vendidos"]);
                                 objProductoBE.Descripcion = dr["descripcion"].ToString();
                                 objProductoBE.Img_Habilitado = "/images/" + (objProductoBE.Activo ? "checkbox_checked.png" : "checkbox_unchecked.png");
+                                objProductoBE.Ruta_Img_Principal = "/images/productos/" + dr["nombre_imagen"].ToString();
 
                                 objImagen_ProductoBE = new Imagen_ProductoBE();
                                 objImagen_ProductoBE.Id_Imagen = Convert.ToInt32(dr["id_imagen"]);
@@ -280,6 +281,7 @@ namespace TuImportas.eShop.DL.DALC
                                 objProductoBE.Activo = Convert.ToBoolean(dr["activo"]);
                                 objProductoBE.Descripcion_Corta = dr["descripcion_corta"].ToString();
                                 objProductoBE.Descuento = dr["descuento"] != DBNull.Value ? (Decimal?)Convert.ToDecimal(dr["descuento"]) : null;
+                                objProductoBE.Destacado = Convert.ToBoolean(dr["destacado"]);
                                 objProductoBE.Detalle = dr["detalle"].ToString();
                                 objProductoBE.Fecha_Creacion = Convert.ToDateTime(dr["fecha_creacion"]);
                                 objProductoBE.Fecha_Modificacion = Convert.ToDateTime(dr["fecha_modificacion"]);
@@ -749,7 +751,7 @@ namespace TuImportas.eShop.DL.DALC
             }
         }
 
-        public List<ProductoBE> Get_Producto_Buscar(string busqueda)
+        public List<ProductoBE> Get_Producto_Buscar(string nombre, bool? activo) 
         {
             String cadena;
             String sql = "Producto_Buscar";
@@ -758,7 +760,7 @@ namespace TuImportas.eShop.DL.DALC
             Imagen_ProductoBE objImagen_ProductoBE = null;
             ColorBE objColorBE = null;
             CategoriaBE objCategoriaBE = null;
-            SqlParameter[] arrParameters = new SqlParameter[1];
+            SqlParameter[] arrParameters = new SqlParameter[2];
 
             try
             {
@@ -771,7 +773,8 @@ namespace TuImportas.eShop.DL.DALC
                         cmd.CommandText = sql;
                         cmd.CommandType = CommandType.StoredProcedure;
 
-                        arrParameters[0] = new SqlParameter("@busqueda", busqueda);
+                        arrParameters[0] = new SqlParameter("@nombre", nombre);
+                        arrParameters[1] = new SqlParameter("@activo", activo);
 
                         for (int i = 0; i < arrParameters.Length; i++)
                             cmd.Parameters.Add(arrParameters[i]);
@@ -800,6 +803,8 @@ namespace TuImportas.eShop.DL.DALC
                                 objProductoBE.Destacado = Convert.ToBoolean(dr["destacado"]);
                                 objProductoBE.Cantidad_Vendidos = Convert.ToInt32(dr["cantidad_vendidos"]);
                                 objProductoBE.Descripcion = dr["descripcion"].ToString();
+                                objProductoBE.Img_Habilitado = "/images/" + (objProductoBE.Activo ? "checkbox_checked.png" : "checkbox_unchecked.png");
+                                objProductoBE.Ruta_Img_Principal = "/images/productos/" + dr["nombre_imagen"].ToString();
 
                                 objImagen_ProductoBE = new Imagen_ProductoBE();
                                 objImagen_ProductoBE.Id_Imagen = Convert.ToInt32(dr["id_imagen"]);

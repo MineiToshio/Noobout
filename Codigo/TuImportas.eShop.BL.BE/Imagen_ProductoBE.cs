@@ -5,6 +5,7 @@ using System.Text;
 
 namespace TuImportas.eShop.BL.BE
 {
+    [Serializable]
     public class Imagen_ProductoBE
     {
         public Int32 Id_Imagen { get; set; }

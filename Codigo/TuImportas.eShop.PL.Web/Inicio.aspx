@@ -276,21 +276,21 @@
                     <!--  ==========  -->
                     <div class="row">
                         <div class="span4">
-                            <a href="#" class="btn btn-block banner" id="panelPromociones">
-                                <span class="title">OFERTAS <span class="light">DE LA SEMANA</span></span>
-                                <em>en digital/prepago y merchandising</em>
+                            <a class="btn btn-block banner" runat="server" id="lnkBotonInicio1">
+                                <asp:Label runat="server" ID="lblBotonInicio1" class="title"></asp:Label>
+                                <asp:label runat="server" CssClass="italic" ID="lblBotonInicioDesc1"></asp:label>
                             </a>
                         </div>
                         <div class="span4">
-                            <a href="#formaEnvioModal" data-toggle="modal" data-dismiss="modal" class="btn btn-block colored banner"> 
-                                <span class="title">MODOS DE <span class="light">ENVÍOS</span></span>
-                                <em>elige el modo de envío que te convenga</em>
+                            <a data-toggle="modal" data-dismiss="modal" class="btn btn-block colored banner" id="lnkBotonInicio2" runat="server">
+                                <asp:Label runat="server" ID="lblBotonInicio2" class="title"></asp:Label>
+                                <asp:label runat="server" CssClass="italic" ID="lblBotonInicioDesc2"></asp:label>
                             </a>
                         </div>
                         <div class="span4">
-                            <a href="#" class="btn btn-block banner" id="panelNuevos">
-                                <span class="title">PRODUCTOS <span class="light">NUEVOS</span></span>
-                                <em>mira las últimas novedades en nuestro catálogo</em>
+                            <a class="btn btn-block banner" runat="server" id="lnkBotonInicio3">
+                                <asp:Label runat="server" ID="lblBotonInicio3" class="title"></asp:Label>
+                                <asp:label runat="server" CssClass="italic" ID="lblBotonInicioDesc3"></asp:label>
                             </a>
                         </div>
                     </div> <!-- /three banners -->

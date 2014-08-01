@@ -541,6 +541,7 @@
     <Content Include="js\jquery.alerts-1.1\jquery.alerts.js" />
     <Content Include="js\jquery.blockUI.js" />
     <Content Include="js\jquery.carouFredSel-6.2.1-packed.js" />
+    <Content Include="js\jquery.jpanelmenu.min.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\jquery.numeric.js" />
     <Content Include="js\jquery.validationEngine-es.js" />
@@ -707,6 +708,7 @@
     <Content Include="RecuperarPass.aspx" />
     <Content Include="stylesheets\animate-custom.css" />
     <Content Include="stylesheets\bootstrap.css" />
+    <Content Include="stylesheets\flipswitch.css" />
     <Content Include="stylesheets\font-awesome.css" />
     <Content Include="stylesheets\fonts\BebasNeue-webfont.svg" />
     <Content Include="stylesheets\fonts\Dharma Type Font License.txt" />
@@ -716,6 +718,8 @@
     <Content Include="stylesheets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="stylesheets\grass-green.css" />
     <Content Include="stylesheets\gray.css" />
+    <Content Include="stylesheets\gridview.css" />
+    <Content Include="stylesheets\jpanelmenu.css" />
     <Content Include="stylesheets\login.css" />
     <Content Include="stylesheets\main.css" />
     <Content Include="stylesheets\menu.css" />
@@ -1172,7 +1176,6 @@
     <Content Include="assets\zocial\css\zocial-regular-webfont.ttf" />
     <Content Include="assets\zocial\css\zocial-regular-webfont.woff" />
     <Content Include="assets\zocial\README.md" />
-    <Content Include="images\.gitignore" />
     <Content Include="incl\send-email.php" />
     <Content Include="js\bootstrap-tour\.git" />
     <Content Include="js\bootstrap-tour\.gitignore" />
@@ -1301,7 +1304,6 @@
     <Content Include="lib\_master.scss" />
     <Content Include="lib\_media.scss" />
     <Content Include="lib\_variables.scss" />
-    <Content Include="stylesheets\.gitignore" />
     <Content Include="Admin.Master" />
     <Content Include="js\ckeditor\skins\moono\readme.md" />
     <Content Include="claves\SPE_PublicKey.1pz" />

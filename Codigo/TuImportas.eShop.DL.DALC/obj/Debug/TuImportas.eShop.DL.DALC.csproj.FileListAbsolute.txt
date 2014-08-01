@@ -5,3 +5,10 @@ C:\Users\Sergio Minei\Desktop\Tu Importas\eCommerce\trunk\Tu Importas Shop\TuImp
 C:\Users\Sergio Minei\Desktop\Tu Importas\eCommerce\trunk\Tu Importas Shop\TuImportas.eShop.DL.DALC\obj\Debug\TuImportas.eShop.DL.DALC.csprojResolveAssemblyReference.cache
 C:\Users\Sergio Minei\Desktop\Tu Importas\eCommerce\trunk\Tu Importas Shop\TuImportas.eShop.DL.DALC\obj\Debug\TuImportas.eShop.DL.DALC.dll
 C:\Users\Sergio Minei\Desktop\Tu Importas\eCommerce\trunk\Tu Importas Shop\TuImportas.eShop.DL.DALC\obj\Debug\TuImportas.eShop.DL.DALC.pdb
+C:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.DL.DALC\bin\Debug\TuImportas.eShop.DL.DALC.dll
+C:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.DL.DALC\bin\Debug\TuImportas.eShop.DL.DALC.pdb
+C:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.DL.DALC\bin\Debug\TuImportas.eShop.BL.BE.dll
+C:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.DL.DALC\bin\Debug\TuImportas.eShop.BL.BE.pdb
+C:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.DL.DALC\obj\Debug\TuImportas.eShop.DL.DALC.csprojResolveAssemblyReference.cache
+C:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.DL.DALC\obj\Debug\TuImportas.eShop.DL.DALC.dll
+C:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.DL.DALC\obj\Debug\TuImportas.eShop.DL.DALC.pdb

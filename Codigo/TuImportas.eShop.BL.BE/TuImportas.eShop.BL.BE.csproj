@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Boton_InicioBE.cs" />
     <Compile Include="CarritoBE.cs" />
     <Compile Include="Carrito_ProductoBE.cs" />
     <Compile Include="CategoriaBE.cs" />

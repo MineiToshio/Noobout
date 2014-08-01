@@ -1687,50 +1687,6 @@ label { font-weight: bold; color: #333333; }
 	text-align: right;
 }
 
-.gridview
-{
-   padding: 0;
-   /*margin: 0;*/
-   border: 1px solid #333;
-   font-family: "Verdana, Arial, Helvetica, sans-serif, Trebuchet MS";
-   font-size: 0.9em; 
-	background-color: #DEE4FF;   
-	margin: 5px 0 10px 0;
-}  
-.gridview td {   
-	padding: 2px;   
-	border: solid 1px #c1c1c1;   
-	color: #575757;
-	font-size: 8pt;
-	font-family: Verdana;
-}  
-
-.gridview th {   
-	padding: 4px 2px;
-	color: #CFCFCF;
-	background: #3B7AD9;
-	border: solid 1px #c1c1c1;
-	font-weight: bold;
-	text-align: center;
-	font-size: 10pt;
-	font-family: Verdana;
-}  
-.gridview th a { color: #CFCFCF; text-decoration: none; text-decoration: underline; cursor:pointer; } 
-
-.gridview .alt { background: #fcfcfc; }  
-.gridview .pgr { background: #799ADF; color: #000000; border: solid 1px #c1c1c1;}  
-.gridview .pgr table { margin: 5px 0; }  
-.gridview .pgr td {   
-	border-width: 0;   
-	padding: 0 6px;   
-	font-weight: bold;   
-	color: #fff;
-	line-height: 12px;
-	font-family: Verdana;
- }     
-.gridview .pgr a { color: #666666; text-decoration: none; }  
-.gridview .pgr a:hover { color: #000; text-decoration: none; }
-
 .img-admin-product {
 	width: 150px;
 	height: 150px;
@@ -1865,3 +1821,5 @@ label { font-weight: bold; color: #333333; }
 	text-align:center !important;
 	padding:5px !important;
 }
+
+.italic { font-style: italic; }
