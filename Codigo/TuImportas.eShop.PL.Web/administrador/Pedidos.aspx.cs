@@ -15,7 +15,18 @@ namespace TuImportas.eShop.PL.Web.administrador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            LlenarPedidos();
+            try
+            {
+                if (!Page.IsPostBack)
+                {
+                    LlenarPedidosTodos();
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
         }
 
         protected void gvPedidos_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -29,13 +40,29 @@ namespace TuImportas.eShop.PL.Web.administrador
 
             try
             {
-                gvPedidos.DataSource = objPedidoBC.Select_Pedido();
+                gvPedidos.DataSource = ViewState["PEDIDOS"];
                 gvPedidos.DataBind();
             }
             catch (Exception)
             {
                 throw;
             }
+        }
+
+        private void LlenarPedidosTodos()
+        { 
+            PedidoBC objPedidoBC = new PedidoBC();
+
+            try
+            {
+                ViewState["PEDIDOS"] = objPedidoBC.Select_Pedido();
+                LlenarPedidos();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            
         }
 
         [WebMethod]
@@ -122,6 +149,27 @@ namespace TuImportas.eShop.PL.Web.administrador
             catch (Exception)
             {
 
+                throw;
+            }
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            PedidoBC objPedidoBC = new PedidoBC();
+
+            try
+            {
+                ViewState["PEDIDOS"] = objPedidoBC.Get_Pedido_Buscar(
+                    !string.IsNullOrEmpty(txtPedidoFechaInicioBuscar.Text.Trim()) ? (DateTime?)Convert.ToDateTime(txtPedidoFechaInicioBuscar.Text.Trim()) : null,
+                    !string.IsNullOrEmpty(txtPedidoFechaFinBuscar.Text.Trim()) ? (DateTime?)Convert.ToDateTime(txtPedidoFechaFinBuscar.Text.Trim()) : null, 
+                    txtPedidoUsuarioBuscar.Text.Trim(), 
+                    ddlPedidoEstadoBuscar.SelectedValue != "-1" ? (int?)Convert.ToInt32(ddlPedidoEstadoBuscar.SelectedValue) : null);
+
+                LlenarPedidos();
+            }
+            catch (Exception)
+            {
+                
                 throw;
             }
         }

@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Pedidos.aspx.cs" Inherits="TuImportas.eShop.PL.Web.administrador.Pedidos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="headerContent" runat="server">
+	<link rel="stylesheet" href="/stylesheets/metallic.css" type="text/css"/>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="bodyContent" runat="server">
 	<asp:HiddenField runat="server" ID="hdIdPedidoSel"/>
@@ -9,6 +10,38 @@
 			<h3><span class="light">Administrar</span> Pedidos</h3>
 		</div>
 		<center>
+			<table>
+				<tr>
+					<td>
+						<label class="control-label" for="txtPedidoFechaInicioBuscar">Fecha de Compra Inicio:</label>
+						<asp:TextBox runat="server" ID="txtPedidoFechaInicioBuscar" CssClass="datepicker" style="cursor:pointer;"></asp:TextBox>
+					</td>
+					<td width="50px"></td>
+					<td>
+						<label class="control-label" for="txtPedidoFechaFinBuscar">Fecha de Compra Fin:</label>
+						<asp:TextBox runat="server" ID="txtPedidoFechaFinBuscar" CssClass="datepicker"></asp:TextBox>
+					</td>
+					<td width="50px"></td>
+					<td>
+						<label class="control-label" for="txtPedidoUsuarioBuscar">Usuario:</label>
+						<asp:TextBox runat="server" ID="txtPedidoUsuarioBuscar"></asp:TextBox>
+					</td>
+					<td width="50px"></td>
+					<td>
+						<label class="control-label" for="ddlPedidoEstadoBuscar">Estado:</label>
+						<asp:DropDownList runat="server" ID="ddlPedidoEstadoBuscar" Width="100px">
+							<asp:ListItem Value="-1">Todos</asp:ListItem>
+							<asp:ListItem Value="1">Pedido</asp:ListItem>
+							<asp:ListItem Value="2">Pagado</asp:ListItem>
+							<asp:ListItem Value="3">Expirado</asp:ListItem>
+							<asp:ListItem Value="4">Entregado</asp:ListItem>
+						</asp:DropDownList>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="7" align="right"><asp:Button runat="server" ID="btnBuscar" Text="Buscar" CssClass="btn btn-primary higher bold" OnClick="btnBuscar_Click"/></td>
+				</tr>
+			</table>
 			<asp:GridView ID="gvPedidos" runat="server"
 				AutoGenerateColumns="False"
 				DataKeyNames="Id_Pedido"
@@ -179,6 +212,7 @@
 	</div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="footerContent" runat="server">
+	<script src="/js/zebra_datepicker.js" type="text/javascript"></script>
 	<script>
 		var pageUrl = '<%=ResolveUrl("Pedidos.aspx")%>'
 
@@ -263,5 +297,10 @@
 				}
 			});
 		}
+
+		$(function () {
+			//$(".datepicker").datepicker({ dateFormat: 'dd/mm/yy' });
+		    $('.datepicker').Zebra_DatePicker({ format: 'd/m/Y' });
+		});
 	</script>
 </asp:Content>

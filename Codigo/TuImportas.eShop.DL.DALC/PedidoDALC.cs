@@ -609,5 +609,79 @@ namespace TuImportas.eShop.DL.DALC
                 throw;
             }
         }
+
+        public List<PedidoBE> Get_Pedido_Buscar(DateTime? fechaCompraInicio, DateTime? fechaCompraFin, string usuario, int? estado)
+        {
+            String cadena;
+            String sql = "Pedido_Buscar";
+            PedidoBE objPedidoBE = null;
+            List<PedidoBE> lstPedidoBE = null;
+            SqlParameter[] arrParameters = new SqlParameter[4];
+
+            try
+            {
+                cadena = Tool.GetCadenaConexion();
+
+                using (SqlConnection conn = new SqlConnection(cadena))
+                {
+                    using (SqlCommand cmd = conn.CreateCommand())
+                    {
+                        cmd.CommandText = sql;
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        arrParameters[0] = new SqlParameter("@fecha_compra_inicio", fechaCompraInicio);
+                        arrParameters[1] = new SqlParameter("@fecha_compra_fin", fechaCompraFin);
+                        arrParameters[2] = new SqlParameter("@usuario", usuario);
+                        arrParameters[3] = new SqlParameter("@estado", estado);
+
+                        for (int i = 0; i < arrParameters.Length; i++)
+                            cmd.Parameters.Add(arrParameters[i]);
+
+                        cmd.Connection.Open();
+
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                if (lstPedidoBE == null)
+                                    lstPedidoBE = new List<PedidoBE>();
+
+                                objPedidoBE = new PedidoBE();
+                                objPedidoBE.Fecha_Compra = Convert.ToDateTime(dr["fecha_compra"]);
+                                objPedidoBE.Id_Forma_Pago = dr["id_forma_pago"] != DBNull.Value ? (Int32?)Convert.ToInt32(dr["id_forma_pago"]) : null;
+                                objPedidoBE.Id_Pedido = Convert.ToInt32(dr["id_pedido"]);
+                                objPedidoBE.Id_Usuario = Convert.ToInt32(dr["id_usuario"]);
+                                objPedidoBE.Total = Convert.ToDecimal(dr["total"]);
+                                objPedidoBE.Precio_Envio = Convert.ToDecimal(dr["precio_envio"]);
+                                objPedidoBE.Subtotal = Convert.ToDecimal(dr["subtotal"]);
+                                objPedidoBE.Id_Tipo_Recibo = Convert.ToInt32(dr["id_tipo_recibo"]);
+                                objPedidoBE.Razon_Social = dr["razon_social"] != DBNull.Value ? dr["razon_social"].ToString() : null;
+                                objPedidoBE.Ruc = dr["ruc"] != DBNull.Value ? dr["ruc"].ToString() : null;
+                                objPedidoBE.Nombre_Forma_Pago = dr["Nombre_Forma_Pago"].ToString();
+                                objPedidoBE.Nombre_Tipo_Recibo = dr["Nombre_Tipo_Recibo"].ToString();
+                                objPedidoBE.Estado = Convert.ToInt32(dr["estado"]);
+                                objPedidoBE.Nombre_Usuario = dr["Nombre_Usuario"].ToString();
+
+                                switch (objPedidoBE.Estado)
+                                {
+                                    case (int)EstadoPedido.Pedido: objPedidoBE.Nombre_Estado = "Pedido"; break;
+                                    case (int)EstadoPedido.Pagado: objPedidoBE.Nombre_Estado = "Pagado"; break;
+                                    case (int)EstadoPedido.Expirado: objPedidoBE.Nombre_Estado = "Expirado"; break;
+                                    case (int)EstadoPedido.Entregado: objPedidoBE.Nombre_Estado = "Entregado"; break;
+                                }
+
+                                lstPedidoBE.Add(objPedidoBE);
+                            }
+                        }
+                    }
+                }
+
+                return lstPedidoBE;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

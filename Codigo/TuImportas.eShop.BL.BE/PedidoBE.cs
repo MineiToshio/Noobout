@@ -5,6 +5,7 @@ using System.Text;
 
 namespace TuImportas.eShop.BL.BE
 {
+    [Serializable]
     public class PedidoBE
     {
         public DateTime Fecha_Compra { get; set; }

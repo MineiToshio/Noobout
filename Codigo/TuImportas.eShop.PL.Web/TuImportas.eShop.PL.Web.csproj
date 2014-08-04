@@ -702,6 +702,7 @@
     <Content Include="js\underscore\test\vendor\runner.js" />
     <Content Include="js\underscore\underscore-min.js" />
     <Content Include="js\underscore\underscore.js" />
+    <Content Include="js\zebra_datepicker.js" />
     <Content Include="Mision.aspx" />
     <Content Include="Nosotros.aspx" />
     <Content Include="PagoEfectivo.aspx" />
@@ -724,6 +725,11 @@
     <Content Include="stylesheets\login.css" />
     <Content Include="stylesheets\main.css" />
     <Content Include="stylesheets\menu.css" />
+    <Content Include="stylesheets\metallic.css" />
+    <Content Include="stylesheets\metallic\default-date.png" />
+    <Content Include="stylesheets\metallic\disabled-date.png" />
+    <Content Include="stylesheets\metallic\header.png" />
+    <Content Include="stylesheets\metallic\selected-date.png" />
     <Content Include="stylesheets\oil-green.css" />
     <Content Include="stylesheets\responsive.css" />
     <Content Include="stylesheets\validationEngine.jquery.css" />
@@ -1333,6 +1339,7 @@
     <Content Include="stylesheets\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="stylesheets\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="stylesheets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="stylesheets\metallic\Thumbs.db" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

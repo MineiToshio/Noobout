@@ -5,6 +5,7 @@ using System.Text;
 
 namespace TuImportas.eShop.BL.BE
 {
+    [Serializable]
     public class Pedido_ProductoBE
     {
         public Int32 Cantidad { get; set; }

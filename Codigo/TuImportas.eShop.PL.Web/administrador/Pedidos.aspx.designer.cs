@@ -22,6 +22,51 @@ namespace TuImportas.eShop.PL.Web.administrador {
         protected global::System.Web.UI.WebControls.HiddenField hdIdPedidoSel;
         
         /// <summary>
+        /// txtPedidoFechaInicioBuscar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPedidoFechaInicioBuscar;
+        
+        /// <summary>
+        /// txtPedidoFechaFinBuscar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPedidoFechaFinBuscar;
+        
+        /// <summary>
+        /// txtPedidoUsuarioBuscar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPedidoUsuarioBuscar;
+        
+        /// <summary>
+        /// ddlPedidoEstadoBuscar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPedidoEstadoBuscar;
+        
+        /// <summary>
+        /// btnBuscar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBuscar;
+        
+        /// <summary>
         /// gvPedidos control.
         /// </summary>
         /// <remarks>

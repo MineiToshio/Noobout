@@ -31,8 +31,6 @@
                     </td>
                 </tr>
                 <tr>
-                    
-                    
                     <td>
                         <label class="control-label" for="txtUsuarioDniBuscar">DNI:</label>
                         <asp:TextBox runat="server" ID="txtUsuarioDniBuscar"></asp:TextBox>

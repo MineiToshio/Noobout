@@ -68,6 +68,20 @@ namespace TuImportas.eShop.PL.Web.administrador
 
                 objUsuarioBC.Update_Activo_Usuario(Convert.ToInt32(e.CommandArgument));
 
+                List<UsuarioBE> lstUsuarioBE = (List<UsuarioBE>)ViewState["USUARIOS"];
+
+                for (int i = 0; i < lstUsuarioBE.Count; i++)
+                {
+                    if (lstUsuarioBE[i].Id_Usuario == Convert.ToInt32(e.CommandArgument))
+                    {
+                        lstUsuarioBE[i].Activo = !lstUsuarioBE[i].Activo;
+                        lstUsuarioBE[i].Img_Habilitado = "/images/" + ((bool)lstUsuarioBE[i].Activo ? "checkbox_checked.png" : "checkbox_unchecked.png");
+                        break;
+                    }
+                }
+
+                ViewState["PRODUCTOS"] = lstUsuarioBE;
+
                 LlenarUsuarios();
             }
             else if (e.CommandName.Equals("Edicion"))

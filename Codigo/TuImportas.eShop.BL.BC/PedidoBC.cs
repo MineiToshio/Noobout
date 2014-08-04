@@ -83,6 +83,18 @@ namespace TuImportas.eShop.BL.BC
             }
         }
 
+        public List<PedidoBE> Get_Pedido_Buscar(DateTime? fechaCompraInicio, DateTime? fechaCompraFin, string usuario, int? estado)
+        {
+            try
+            {
+                return objPedidoDALC.Get_Pedido_Buscar(fechaCompraInicio, fechaCompraFin, usuario, estado);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public List<PedidoBE> Select_Pedido_Usuario(int idUsuario)
         {
             try
