@@ -3,3 +3,8 @@ C:\Users\Sergio Minei\Desktop\Tu Importas\eCommerce\trunk\Tu Importas Shop\TuImp
 C:\Users\Sergio Minei\Desktop\Tu Importas\eCommerce\trunk\Tu Importas Shop\TuImportas.eShop.BL.Helper\obj\Debug\TuImportas.eShop.BL.Helper.csprojResolveAssemblyReference.cache
 C:\Users\Sergio Minei\Desktop\Tu Importas\eCommerce\trunk\Tu Importas Shop\TuImportas.eShop.BL.Helper\obj\Debug\TuImportas.eShop.BL.Helper.dll
 C:\Users\Sergio Minei\Desktop\Tu Importas\eCommerce\trunk\Tu Importas Shop\TuImportas.eShop.BL.Helper\obj\Debug\TuImportas.eShop.BL.Helper.pdb
+C:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.BL.Helper\bin\Debug\TuImportas.eShop.BL.Helper.dll
+C:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.BL.Helper\bin\Debug\TuImportas.eShop.BL.Helper.pdb
+C:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.BL.Helper\obj\Debug\TuImportas.eShop.BL.Helper.csprojResolveAssemblyReference.cache
+C:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.BL.Helper\obj\Debug\TuImportas.eShop.BL.Helper.dll
+C:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.BL.Helper\obj\Debug\TuImportas.eShop.BL.Helper.pdb

@@ -64,15 +64,17 @@
                 CssClass="gridview"
                 PagerStyle-CssClass="pgr"
                 AlternatingRowStyle-CssClass="alt"
-                ShowHeader="true" OnRowCommand="gvUsuarios_RowCommand">
+                ShowHeader="true" OnRowCommand="gvUsuarios_RowCommand"
+                AllowSorting="true"
+                OnSorting="gvUsuarios_Sorting">
                 <EmptyDataTemplate>
                     <center><asp:Label ID="lMensajes" runat="server" Font-Size="9pt" ForeColor="#00639E" Text="[No se encontraron productos]"></asp:Label></center>
                 </EmptyDataTemplate>
                 <Columns>
-                    <asp:BoundField DataField="Usuario" HeaderText="Usuario"/>
-                    <asp:BoundField DataField="Nombre_Completo" HeaderText="Nombre"/>
-                    <asp:BoundField DataField="Dni" HeaderText="DNI"/>
-                    <asp:BoundField DataField="Rol" HeaderText="Rol"/>
+                    <asp:BoundField DataField="Usuario" HeaderText="Usuario" SortExpression="Usuario"/>
+                    <asp:BoundField DataField="Nombre_Completo" HeaderText="Nombre" SortExpression="Nombre_Completo"/>
+                    <asp:BoundField DataField="Dni" HeaderText="DNI" SortExpression="Dni"/>
+                    <asp:BoundField DataField="Rol" HeaderText="Rol" SortExpression="Rol"/>
                     <asp:TemplateField HeaderText="Habilitado" ItemStyle-HorizontalAlign="Center">
                         <ItemTemplate>
                             <asp:ImageButton ID="ibtnHabilitado" runat="server" height="25" width="25" CausesValidation="false" CommandName="Habilitado" CommandArgument='<%#Eval("Id_Usuario")%>' ImageUrl='<%#Eval("Img_Habilitado")%>' OnClientClick="Loading();"/>  

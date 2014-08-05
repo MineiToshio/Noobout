@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 using TuImportas.eShop.BL.BC;
 using TuImportas.eShop.BL.BE;
 using TuImportas.eShop.BL.Helper;
@@ -298,6 +299,23 @@ namespace TuImportas.eShop.PL.Web
                 
                 throw;
             }
+        }
+
+        public static void MostrarGridSortDirection(GridView grid, string sortExpression, string sortDirection)
+        {
+            Image sortImage = new Image();
+            sortImage.ImageUrl = "/images/" + (sortDirection == "Asc" ? "arrow_asc.png" : "arrow_desc.png");
+            int columnIndex = 0;
+            foreach (DataControlFieldHeaderCell headerCell in grid.HeaderRow.Cells)
+            {
+                if (headerCell.ContainingField.SortExpression == sortExpression)
+                {
+                    columnIndex = grid.HeaderRow.Cells.GetCellIndex(headerCell);
+                    break;
+                }
+            }
+
+            grid.HeaderRow.Cells[columnIndex].Controls.Add(sortImage);
         }
     }
 }

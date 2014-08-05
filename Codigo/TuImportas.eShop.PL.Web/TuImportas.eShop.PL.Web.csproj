@@ -321,6 +321,8 @@
     <Content Include="images\social\facebook.png" />
     <Content Include="images\social\googleplusalt.png" />
     <Content Include="images\social\twitter.png" />
+    <Content Include="images\arrow_asc.png" />
+    <Content Include="images\arrow_desc.png" />
     <Content Include="images\webmarket.png" />
     <Content Include="Inicio.aspx" />
     <Content Include="js\bootstrap-tour\build\css\bootstrap-tour.css" />

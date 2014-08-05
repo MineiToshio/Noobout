@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TuImportas.eShop.BL.BC;
 using TuImportas.eShop.BL.BE;
+using TuImportas.eShop.BL.Helper;
+using System.Linq;
 
 namespace TuImportas.eShop.PL.Web.administrador
 {
@@ -120,5 +121,25 @@ namespace TuImportas.eShop.PL.Web.administrador
                 throw;
             }
         }
+
+        protected void gvUsuarios_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            //List<UsuarioBE> lstUsuarioBE = (List<UsuarioBE>)ViewState["USUARIOS"];
+
+            //if (lstUsuarioBE != null)
+            //{
+            //    Admin masterPage = (Admin)Page.Master;
+            //    string sortDirection = masterPage.GetSortDirection(e.SortExpression);
+            //    ViewState["USUARIOS"] = lstUsuarioBE.AsQueryable().OrderBy(e.SortExpression + " " + sortDirection).ToList();
+
+            //    LlenarUsuarios();
+
+            //    Tools.MostrarGridSortDirection(gvUsuarios, e.SortExpression, sortDirection);
+            //}
+            Admin masterPage = (Admin)Page.Master;
+            ViewState["USUARIOS"] = masterPage.SortGrid<UsuarioBE>(gvUsuarios, e.SortExpression, (List<UsuarioBE>)ViewState["USUARIOS"]);
+        }
+
+        
     }
 }
