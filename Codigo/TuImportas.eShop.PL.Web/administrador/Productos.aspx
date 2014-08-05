@@ -38,7 +38,7 @@
                 PagerStyle-CssClass="pgr"
                 AlternatingRowStyle-CssClass="alt"
                 ShowHeader="true" OnRowCommand="gvProductos_RowCommand"
-                AllowPaging="true" PageSize="15" OnPageIndexChanging="gvProductos_PageIndexChanging">
+                AllowPaging="true" PageSize="15" OnPageIndexChanging="gvProductos_PageIndexChanging" AllowSorting="true" OnSorting="gvProductos_Sorting">
                 <EmptyDataTemplate>
                     <center><asp:Label ID="lMensajes" runat="server" Font-Size="9pt" ForeColor="#00639E" Text="[No se encontraron productos]"></asp:Label></center>
                 </EmptyDataTemplate>
@@ -48,9 +48,9 @@
                             <asp:Image runat="server" ID="imgProducto" ImageUrl='<%#Eval("Ruta_Img_Principal")%>' Width="40px" Height="40px"/>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="Nombre" HeaderText="Producto"/>
-                    <asp:BoundField DataField="Precio" HeaderText="Precio" ItemStyle-HorizontalAlign="Center"/>
-                    <asp:BoundField DataField="Cantidad_Vendidos" HeaderText="Cantidad<br/>Vendidos" HtmlEncode="false" ItemStyle-HorizontalAlign="Center"/>
+                    <asp:BoundField DataField="Nombre" HeaderText="Producto" SortExpression="Nombre"/>
+                    <asp:BoundField DataField="Precio" HeaderText="Precio" ItemStyle-HorizontalAlign="Center" SortExpression="Precio"/>
+                    <asp:BoundField DataField="Cantidad_Vendidos" HeaderText="Cantidad<br/>Vendidos" HtmlEncode="false" ItemStyle-HorizontalAlign="Center" SortExpression="Cantidad_Vendidos"/>
                     <asp:TemplateField HeaderText="Habilitado" ItemStyle-HorizontalAlign="Center">
                         <ItemTemplate>
                             <asp:ImageButton ID="ibtnHabilitado" runat="server" height="25" width="25" CausesValidation="false" CommandName="Habilitado" CommandArgument='<%#Eval("Id_Producto")%>' ImageUrl='<%#Eval("Img_Habilitado")%>' OnClientClick="Loading();"/>  

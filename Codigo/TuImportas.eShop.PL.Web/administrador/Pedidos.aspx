@@ -49,22 +49,22 @@
 				PagerStyle-CssClass="pgr"
 				AlternatingRowStyle-CssClass="alt"
 				ShowHeader="true" OnRowCommand="gvPedidos_RowCommand"
-				AllowPaging="true" PageSize="15" OnPageIndexChanging="gvPedidos_PageIndexChanging">
+				AllowPaging="true" PageSize="15" OnPageIndexChanging="gvPedidos_PageIndexChanging" AllowSorting="true" OnSorting="gvPedidos_Sorting">
 				<EmptyDataTemplate>
 					<center><asp:Label ID="lMensajes" runat="server" Font-Size="9pt" ForeColor="#00639E" Text="[No se encontraron pedidos]"></asp:Label></center>
 				</EmptyDataTemplate>
 				<Columns>
-					<asp:BoundField DataField="Id_Pedido" HeaderText="Pedido N°" ItemStyle-HorizontalAlign="Center"/>
-					<asp:BoundField DataField="Fecha_Compra" HeaderText="Fecha" ItemStyle-HorizontalAlign="Center"/>
-					<asp:BoundField DataField="Nombre_Forma_Pago" HeaderText="Forma de Pago" ItemStyle-HorizontalAlign="Center"/>
-					<asp:BoundField DataField="Total" HeaderText="Monto (S/.)" ItemStyle-HorizontalAlign="Center"/>
-					<asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="Usuario">
+					<asp:BoundField DataField="Id_Pedido" HeaderText="Pedido N°" ItemStyle-HorizontalAlign="Center" SortExpression="Id_Pedido"/>
+					<asp:BoundField DataField="Fecha_Compra" HeaderText="Fecha" ItemStyle-HorizontalAlign="Center" SortExpression="Fecha_Compra"/>
+					<asp:BoundField DataField="Nombre_Forma_Pago" HeaderText="Forma de Pago" ItemStyle-HorizontalAlign="Center" SortExpression="Nombre_Forma_Pago"/>
+					<asp:BoundField DataField="Total" HeaderText="Monto (S/.)" ItemStyle-HorizontalAlign="Center" SortExpression="Total"/>
+					<asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="Usuario" SortExpression="Nombre_Usuario">
 						<ItemTemplate>
 							<a href="#" onclick="VerUsuario(<%#Eval("Id_Usuario")%>)"><%#Eval("Nombre_Usuario")%></a>
 						</ItemTemplate>
 					</asp:TemplateField>
 					<%--<asp:BoundField DataField="Nombre_Estado" HeaderText="Estado" ItemStyle-HorizontalAlign="Center"/>--%>
-					<asp:TemplateField HeaderText="Estado" ItemStyle-HorizontalAlign="Center">
+					<asp:TemplateField HeaderText="Estado" ItemStyle-HorizontalAlign="Center" SortExpression="Estado">
 						<ItemTemplate>
 							<a href="#" onclick="CambiarEstado(<%#Eval("Id_Pedido")%>,<%#Eval("estado")%>)"><%#Eval("Nombre_Estado")%></a>
 						</ItemTemplate>

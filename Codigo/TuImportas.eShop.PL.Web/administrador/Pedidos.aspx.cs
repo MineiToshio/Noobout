@@ -173,5 +173,11 @@ namespace TuImportas.eShop.PL.Web.administrador
                 throw;
             }
         }
+
+        protected void gvPedidos_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            Admin masterPage = (Admin)Page.Master;
+            ViewState["PEDIDOS"] = masterPage.SortGrid<PedidoBE>(gvPedidos, e.SortExpression, (List<PedidoBE>)ViewState["PEDIDOS"]);
+        }
     }
 }

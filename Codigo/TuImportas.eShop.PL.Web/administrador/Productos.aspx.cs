@@ -106,5 +106,11 @@ namespace TuImportas.eShop.PL.Web.administrador
             ViewState["PRODUCTOS"] = objProductoBC.Get_Producto_Buscar(txtNombreBuscar.Text.Trim(), activo);
             LlenarProductos();
         }
+
+        protected void gvProductos_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            Admin masterPage = (Admin)Page.Master;
+            ViewState["PRODUCTOS"] = masterPage.SortGrid<ProductoBE>(gvProductos, e.SortExpression, (List<ProductoBE>)ViewState["PRODUCTOS"]);
+        }
     }
 }
