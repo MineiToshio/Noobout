@@ -20,11 +20,36 @@ namespace TuImportas.eShop.PL.Web
                 //{
                     CargarProducto();
                     CargarBotones();
+                    CargarSlider();
                 //}
             }
             catch (Exception ex)
             {
                 Tools.Error(GetType(), this, ex);
+            }
+        }
+
+        private void CargarSlider()
+        {
+            SliderBC objSliderBC = new SliderBC();
+            List<SliderBE> lstSliderBE = new List<SliderBE>();
+            Literal literal = null;
+
+            try
+            {
+                lstSliderBE = objSliderBC.Select_Slider();
+
+                foreach (SliderBE s in lstSliderBE)
+                {
+                    literal = new Literal();
+                    literal.Text = Tools.MostrarSlider(s);
+                    ulSlider.Controls.Add(literal);
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
             }
         }
 

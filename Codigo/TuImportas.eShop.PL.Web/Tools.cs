@@ -129,6 +129,37 @@ namespace TuImportas.eShop.PL.Web
             }
         }
 
+        public static string MostrarSlider(SliderBE objSliderBE)
+        {
+            try
+            {
+                String control = "";
+
+                control += "<li data-transition=\"premium-random\" data-slotamount=\"3\">";
+                control += "<img src=\"/images/sliders/" + objSliderBE.Background + "\" alt=\"slider img\" width=\"1400\" height=\"377\" />";
+                control += "<div class=\"caption lfb ltb\" data-x=\"800\" data-y=\"50\" data-speed=\"1000\" data-start=\"1000\" data-easing=\"easeInOutCubic\">";
+                control += "<img src=\"/images/sliders/" + objSliderBE.Imagen + "\" alt=\"woman\" width=\"361\" height=\"374\" />";
+                control += "</div>";
+                control += "<div class=\"caption lfl big_theme\" data-x=\"120\" data-y=\"120\" data-speed=\"1000\" data-start=\"500\" data-easing=\"easeInOutBack\">";
+                control += objSliderBE.Nombre;
+                control += "</div>";
+                control += "<div class=\"caption lfl small_theme\" data-x=\"120\" data-y=\"190\" data-speed=\"1000\" data-start=\"700\" data-easing=\"easeInOutBack\">";
+                control += objSliderBE.Descripcion;
+                control += "</div>";
+                control += "<a href=\"features.html\" class=\"caption lfl btn btn-primary btn_theme\" data-x=\"120\" data-y=\"260\" data-speed=\"1000\" data-start=\"900\" data-easing=\"easeInOutBack\">";
+                control += objSliderBE.Boton;
+                control += "</a>";
+                control += "</li>";
+
+                return control;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public static void AñadirFavoritos(int idProducto)
         {
             WhishlistBC objWhishlistBC = new WhishlistBC();

@@ -26,8 +26,15 @@
 .gridview th {   
 	padding: 4px 6px;
 	color: #CFCFCF;
-	background: #333333;
-	/*border: solid 1px #c1c1c1;*/
+	/*background: #333333;*/
+	background: #5b5e63; /* Old browsers */
+	background: -moz-linear-gradient(top, #5b5e63 20%, #1f1f1f 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(20%,#5b5e63), color-stop(100%,#1f1f1f)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #5b5e63 20%,#1f1f1f 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #5b5e63 20%,#1f1f1f 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #5b5e63 20%,#1f1f1f 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #5b5e63 20%,#1f1f1f 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5b5e63', endColorstr='#1f1f1f',GradientType=0 ); /* IE6-9 */
 	border: 0;
 	font-weight: bold;
 	text-align: center;
