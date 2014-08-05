@@ -5,7 +5,7 @@
    border: 1px solid #dadada;
    font-family: 'Open Sans';
    font-size: 0.9em; 
-	background-color: #f9faff;   
+	background-color: #e3e3e3;   
 	margin: 5px 0 10px 0;
 }  
 .gridview td {   
@@ -19,14 +19,14 @@
 }
 
 .gridview tr:hover {
-	background-color: #e6e6e6;
+	background-color: #cecece;
 	cursor:pointer;
 }
 
 .gridview th {   
 	padding: 4px 6px;
 	color: #CFCFCF;
-	background: #3B7AD9;
+	background: #333333;
 	/*border: solid 1px #c1c1c1;*/
 	border: 0;
 	font-weight: bold;
@@ -37,9 +37,9 @@
 }  
 .gridview th a { color: #CFCFCF; text-decoration: none; text-decoration: underline; cursor:pointer; } 
 
-.gridview .alt { background: #fcfcfc; }  
-.gridview .pgr { background: #799ADF; color: #000000; border: solid 1px #c1c1c1;}
-.gridview .pgr:hover, .gridview .pgr table:hover { background: #799ADF; cursor:default;}
+.gridview .alt { background: #dddddd; }  
+.gridview .pgr { background: #333333; color: #000000; border: solid 1px #c1c1c1;}
+.gridview .pgr:hover, .gridview .pgr table:hover { background: #333333; cursor:default;}
 .gridview .pgr table { margin: 5px 0; }  
 .gridview .pgr td {   
 	border-width: 0;   
@@ -48,6 +48,7 @@
 	color: #fff;
 	line-height: 12px;
 	font-family: 'Open Sans';
+	background: #333333; 
  }     
 .gridview .pgr a { color: #666666; text-decoration: none; }  
 .gridview .pgr a:hover { color: #000; text-decoration: none; }

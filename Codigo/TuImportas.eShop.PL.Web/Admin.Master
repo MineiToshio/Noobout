@@ -60,7 +60,7 @@
 				<div class="clear"></div>
 			</div>
 		</header>
-		<div class="content">
+		<div class="content foot-light ">
 			<asp:ContentPlaceHolder ID="bodyContent" runat="server"></asp:ContentPlaceHolder>
 		</div>
 	</div>

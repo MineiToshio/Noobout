@@ -31,7 +31,7 @@
         </div>
         <div class="control-group">
             <div class="controls">
-                <input id="btnGuardarContrasena" type="button" value="GUARDAR" class="btn btn-primary higher bold" onclick="CambiarContrasena();" />
+                <input id="btnGuardarContrasena" type="button" value="GUARDAR" class="btn btn-dark higher bold" onclick="CambiarContrasena();" />
             </div>
         </div>
     </div>

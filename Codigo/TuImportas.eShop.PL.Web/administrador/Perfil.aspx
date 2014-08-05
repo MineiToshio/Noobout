@@ -57,7 +57,7 @@
 		</div>
 		<div class="control-group">
 			<div class="controls">
-				<input id="btnGuardarInfPersonal" type="button" value="GUARDAR" class="btn btn-primary higher bold" onclick="ActualizarDatos();" />
+				<input id="btnGuardarInfPersonal" type="button" value="GUARDAR" class="btn btn-dark higher bold" onclick="ActualizarDatos();" />
 				<%--<asp:Button runat="server" ID="btnGuardar" Text="GUARDAR" CssClass="btn btn-primary higher bold" OnClick="btnGuardar_Click"/>--%>
 			</div>
 		</div>

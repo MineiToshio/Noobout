@@ -50,12 +50,12 @@ ol, ul {
 }*/
 header{
 	position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+	top: 0;
+	left: 0;
+	width: 100%;
 	background-color: #333;
 	opacity:0.9;
-    z-index: 1499;
+	z-index: 1499;
 }
 
 .logo {

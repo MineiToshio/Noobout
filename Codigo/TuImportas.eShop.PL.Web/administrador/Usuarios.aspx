@@ -51,12 +51,12 @@
                     </td>
                     <td width="50px"></td>
                     <td align="right">
-                        <asp:Button runat="server" ID="btnBuscar" Text="Buscar" CssClass="btn btn-primary higher bold" OnClick="btnBuscar_Click"/>
+                        <asp:Button runat="server" ID="btnBuscar" Text="Buscar" CssClass="btn btn-dark higher bold" OnClick="btnBuscar_Click"/>
                     </td>
                 </tr>
             </table>
 
-            <asp:Button runat="server" ID="btnAgregarProducto" Text="Agregar Usuario" CssClass="btn btn-primary higher bold" PostBackUrl="~/administrador/Usuario.aspx"/>
+            <asp:Button runat="server" ID="btnAgregarProducto" Text="Agregar Usuario" CssClass="btn btn-dark higher bold" PostBackUrl="~/administrador/Usuario.aspx"/>
 
             <asp:GridView ID="gvUsuarios" runat="server"
                 AutoGenerateColumns="False"

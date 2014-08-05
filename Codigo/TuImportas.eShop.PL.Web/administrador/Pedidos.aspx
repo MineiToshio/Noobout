@@ -39,7 +39,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="7" align="right"><asp:Button runat="server" ID="btnBuscar" Text="Buscar" CssClass="btn btn-primary higher bold" OnClick="btnBuscar_Click"/></td>
+					<td colspan="7" align="right"><asp:Button runat="server" ID="btnBuscar" Text="Buscar" CssClass="btn btn-dark higher bold" OnClick="btnBuscar_Click"/></td>
 				</tr>
 			</table>
 			<asp:GridView ID="gvPedidos" runat="server"

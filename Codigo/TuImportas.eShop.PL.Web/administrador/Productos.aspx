@@ -26,11 +26,11 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="3" align="right"><asp:Button runat="server" ID="btnBuscar" Text="Buscar" CssClass="btn btn-primary higher bold" OnClick="btnBuscar_Click"/></td>
+                    <td colspan="3" align="right"><asp:Button runat="server" ID="btnBuscar" Text="Buscar" CssClass="btn btn-dark higher bold" OnClick="btnBuscar_Click"/></td>
                 </tr>
             </table>
             
-            <asp:Button runat="server" ID="btnAgregarProducto" Text="Agregar Producto" CssClass="btn btn-primary higher bold" PostBackUrl="~/administrador/Producto.aspx"/>
+            <asp:Button runat="server" ID="btnAgregarProducto" Text="Agregar Producto" CssClass="btn btn-dark higher bold" PostBackUrl="~/administrador/Producto.aspx"/>
             <asp:GridView ID="gvProductos" runat="server"
                 AutoGenerateColumns="False"
                 DataKeyNames="Id_Producto"

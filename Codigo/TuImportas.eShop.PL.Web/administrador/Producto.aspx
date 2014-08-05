@@ -58,13 +58,13 @@
                                     <td rowspan="2">
                                         <asp:ListBox runat="server" ID="lbCategoriaPartida"></asp:ListBox>
                                     </td>
-                                    <td><input value=">" id="btnCategoriaDerecha" type="button" class="right-categoria"/></td>
+                                    <td><input value=">" id="btnCategoriaDerecha" type="button" class="btn btn-dark right-categoria"/></td>
                                     <td rowspan="2">
                                         <asp:ListBox runat="server" ID="lbCategoriaDestino" CssClass="validate[required]" ClientIDMode="Static"></asp:ListBox>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><input value="<" id="btnCategoriaIzquierda" type="button" class="left-categoria"/></td>
+                                    <td><input value="<" id="btnCategoriaIzquierda" type="button" class="btn btn-dark left-categoria"/></td>
                                 </tr>
                             </table>
                         </div>
@@ -188,8 +188,8 @@
                     </div>
                     <div class="control-group">
                         <div class="controls">
-                            <asp:Button runat="server" id="btnGuardar" Text="GUARDAR" class="btn btn-primary higher bold" OnClick="btnGuardar_Click" OnClientClick="return Guardar();"/>
-                            <asp:Button runat="server" id="btnRegresar" Text="REGRESAR" class="btn btn-primary higher bold" PostBackUrl="~/administrador/Productos.aspx"/>
+                            <asp:Button runat="server" id="btnGuardar" Text="GUARDAR" class="btn btn-dark higher bold" OnClick="btnGuardar_Click" OnClientClick="return Guardar();"/>
+                            <asp:Button runat="server" id="btnRegresar" Text="REGRESAR" class="btn btn-dark higher bold" PostBackUrl="~/administrador/Productos.aspx"/>
                             <%--<input type="button" value="GUARDAR2" onclick="$('#divProducto').validationEngine('validate')" class="btn btn-primary higher bold"/>--%>
                         </div>
                     </div>
@@ -214,7 +214,7 @@
                 </div>
             </div>
             <center>
-                <asp:Button Text="GUARDAR" runat="server" ID="btnGuardarImagen" class="btn btn-primary input-block-level bold higher" OnClick="btnGuardarImagen_Click"/>
+                <asp:Button Text="GUARDAR" runat="server" ID="btnGuardarImagen" class="btn btn-dark input-block-level bold higher" OnClick="btnGuardarImagen_Click"/>
             </center>
         </div>
     </div>

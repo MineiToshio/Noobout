@@ -81,8 +81,8 @@
         </div>
         <div class="control-group">
             <div class="controls">
-                <asp:Button runat="server" id="btnRegresar" Text="REGRESAR" class="btn btn-danger higher bold" PostBackUrl="~/administrador/Usuarios.aspx"/>
-                <input id="btnGuardarInfPersonal" type="button" value="GUARDAR" class="btn btn-success higher bold" onclick="Guardar();" />
+                <asp:Button runat="server" id="btnRegresar" Text="REGRESAR" class="btn btn-dark higher bold" PostBackUrl="~/administrador/Usuarios.aspx"/>
+                <input id="btnGuardarInfPersonal" type="button" value="GUARDAR" class="btn btn-dark higher bold" onclick="Guardar();" />
                 <%--<asp:Button runat="server" ID="btnGuardar" Text="GUARDAR" CssClass="btn btn-primary higher bold" OnClick="btnGuardar_Click"/>--%>
             </div>
         </div>
