@@ -156,7 +156,6 @@ namespace TuImportas.eShop.PL.Web.administrador
 
                         string path = MapPath(PATH_IMG_BACK);
                         File.Delete(path + Path.GetFileName(rutaImagen));
-                        Cache.Remove(path + Path.GetFileName(rutaImagen));
                         fuNuevaImagen.SaveAs(path + nombre_img);
                     }
 

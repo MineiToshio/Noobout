@@ -28,7 +28,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Eliminar" ItemStyle-HorizontalAlign="Center">
                         <ItemTemplate>
-                            <asp:ImageButton ID="ibtnEliminar" runat="server" height="25" width="25" CausesValidation="false" CommandName="Edicion" CommandArgument='<%#Eval("Id_Slider")%>' ImageUrl='/images/recycle-bin.png' OnClientClick="return confirm('¿Está seguro que desea eliminar el registro?');" />  
+                            <asp:ImageButton ID="ibtnEliminar" runat="server" height="25" width="25" CausesValidation="false" CommandName="Eliminar" CommandArgument='<%#Eval("Id_Slider") + "," + Eval("Imagen") +  "," + Eval("Background")%>' ImageUrl='/images/recycle-bin.png' OnClientClick="return confirm('¿Está seguro que desea eliminar el registro?');" />  
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

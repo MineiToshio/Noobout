@@ -51,7 +51,7 @@
         <div class="control-group">
             <div class="controls">
                 <asp:Button runat="server" id="btnRegresar" Text="REGRESAR" class="btn btn-dark higher bold" PostBackUrl="~/administrador/Sliders.aspx"/>
-                <asp:Button runat="server" id="btnGuardar" Text="GUARDAR" class="btn btn-dark higher bold" OnClick="btnGuardar_Click"/>
+                <asp:Button runat="server" id="btnGuardar" Text="GUARDAR" class="btn btn-dark higher bold" OnClick="btnGuardar_Click" OnClientClick="return Guardar()"/>
             </div>
         </div>
     </div>
@@ -82,6 +82,10 @@
             $('#hdImagenCodigo').val(codigo);
             $('#hdRutaImagen').val($("#pnlImagen" + codigo).css("background-image"));
             $('#imagenModal').modal('show');
+        }
+
+        function Guardar() {
+            return $('#divDatosCuenta').validationEngine('validate')
         }
     </script>
 </asp:Content>
