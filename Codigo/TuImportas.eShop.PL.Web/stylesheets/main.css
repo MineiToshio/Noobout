@@ -80,7 +80,7 @@ i.box { display: -moz-inline-stack; display: inline-block; vertical-align: middl
 
 .black-clr { color: black; }
 
-.red-clr { color: #9d261d; }
+.red-clr { color: #f5756c; }
 
 .light-clr { color: #a6a6a6; }
 
@@ -987,7 +987,7 @@ label { font-weight: bold; color: #333333; }
 /* ========== */
 .modal { padding: 30px 40px 10px; width: 300px; margin-left: -190px; }
 
-.modal-header h3 { text-align: center; }
+.modal-header h3 { text-align: center; color:#34353e !important; }
 .modal-header [data-dismiss="modal"] { position: absolute; top: 12px; right: 20px; }
 
 .modal-body { padding: 20px 40px; }
@@ -1691,6 +1691,14 @@ label { font-weight: bold; color: #333333; }
 .modal-body .negrita {
 	font-size: 10pt;
 	text-align: right;
+}
+
+.img-no-stretch {
+	background-image: url("../images/no-image.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	cursor: pointer;
 }
 
 .img-admin-product {

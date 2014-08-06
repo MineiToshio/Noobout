@@ -71,6 +71,8 @@
     <Content Include="administrador\Perfil.aspx" />
     <Content Include="administrador\Producto.aspx" />
     <Content Include="administrador\Productos.aspx" />
+    <Content Include="administrador\Slider.aspx" />
+    <Content Include="administrador\Sliders.aspx" />
     <Content Include="administrador\Terminos.aspx" />
     <Content Include="administrador\Usuario.aspx" />
     <Content Include="administrador\Usuarios.aspx" />
@@ -316,8 +318,13 @@
     <Content Include="images\pago\paypal_icon.jpg" />
     <Content Include="images\plus-gray.png" />
     <Content Include="images\quienes_somos.png" />
+    <Content Include="images\recycle-bin.png" />
     <Content Include="images\shelf-ie8.png" />
     <Content Include="images\shelf.png" />
+    <Content Include="images\sliders\1.jpg" />
+    <Content Include="images\sliders\2.jpg" />
+    <Content Include="images\sliders\img1.png" />
+    <Content Include="images\sliders\img2.png" />
     <Content Include="images\social\facebook.png" />
     <Content Include="images\social\googleplusalt.png" />
     <Content Include="images\social\twitter.png" />
@@ -853,6 +860,20 @@
     </Compile>
     <Compile Include="administrador\Productos.aspx.designer.cs">
       <DependentUpon>Productos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="administrador\Slider.aspx.cs">
+      <DependentUpon>Slider.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="administrador\Slider.aspx.designer.cs">
+      <DependentUpon>Slider.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="administrador\Sliders.aspx.cs">
+      <DependentUpon>Sliders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="administrador\Sliders.aspx.designer.cs">
+      <DependentUpon>Sliders.aspx</DependentUpon>
     </Compile>
     <Compile Include="administrador\Terminos.aspx.cs">
       <DependentUpon>Terminos.aspx</DependentUpon>

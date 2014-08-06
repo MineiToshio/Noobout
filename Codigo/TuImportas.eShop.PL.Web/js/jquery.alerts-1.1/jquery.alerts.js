@@ -63,19 +63,19 @@
 			});
 		},
 
-        redirect: function (message, title, callback) {
-            if (title == null) title = 'Redirect';
-            $.alerts._show(title, message, null, 'redirect', function (result) {
-                if (callback) callback(result);
-            });
-        },
+		redirect: function (message, title, callback) {
+			if (title == null) title = 'Redirect';
+			$.alerts._show(title, message, null, 'redirect', function (result) {
+				if (callback) callback(result);
+			});
+		},
 
-        error: function (message, title, callback) {
-            if (title == null) title = 'Error';
-            $.alerts._show(title, message, null, 'error', function (result) {
-                if (callback) callback(result);
-            });
-        },
+		error: function (message, title, callback) {
+			if (title == null) title = 'Error';
+			$.alerts._show(title, message, null, 'error', function (result) {
+				if (callback) callback(result);
+			});
+		},
 
 		// Private methods
 		
@@ -86,9 +86,9 @@
 			
 			$("BODY").append(
 			  '<div id="popup_container">' +
-			    '<h1 id="popup_title"></h1>' +
-			    '<div id="popup_content">' +
-			      '<div id="popup_message"></div>' +
+				'<h1 id="popup_title"></h1>' +
+				'<div id="popup_content">' +
+				  '<div id="popup_message"></div>' +
 				'</div>' +
 			  '</div>');
 			
@@ -163,27 +163,27 @@
 					if( value ) $("#popup_prompt").val(value);
 					$("#popup_prompt").focus().select();
 				break;
-	            case 'redirect':
-	                $("#popup_message").after('<div id="popup_panel"><input type="button" value="' + $.alerts.okButton + '" id="popup_ok" /> </div>');
-	                $("#popup_ok").click(function () {
-	                    $.alerts._hide();
-	                    if (callback) callback(true);
-	                });
-	                $("#popup_ok").focus();
-	                $("#popup_ok").keypress(function (e) {
-	                    if (e.keyCode == 13) $("#popup_ok").trigger('click');
-	                });
-	            break;
-	            case 'error':
-	                $("#popup_message").after('<div id="popup_panel"><input type="button" value="' + $.alerts.okButton + '" id="popup_ok" /></div>');
-	                $("#popup_ok").click(function () {
-	                    $.alerts._hide();
-	                    callback(true);
-	                });
-	                $("#popup_ok").focus().keypress(function (e) {
-	                    if (e.keyCode == 13 || e.keyCode == 27) $("#popup_ok").trigger('click');
-	                });
-	            break;
+				case 'redirect':
+					$("#popup_message").after('<div id="popup_panel"><input type="button" value="' + $.alerts.okButton + '" id="popup_ok" /> </div>');
+					$("#popup_ok").click(function () {
+						$.alerts._hide();
+						if (callback) callback(true);
+					});
+					$("#popup_ok").focus();
+					$("#popup_ok").keypress(function (e) {
+						if (e.keyCode == 13) $("#popup_ok").trigger('click');
+					});
+				break;
+				case 'error':
+					$("#popup_message").after('<div id="popup_panel"><input type="button" value="' + $.alerts.okButton + '" id="popup_ok" /></div>');
+					$("#popup_ok").click(function () {
+						$.alerts._hide();
+						callback(true);
+					});
+					$("#popup_ok").focus().keypress(function (e) {
+						if (e.keyCode == 13 || e.keyCode == 27) $("#popup_ok").trigger('click');
+					});
+				break;
 			}
 			
 			// Make draggable
@@ -267,11 +267,11 @@
 		$.alerts.prompt(message, value, title, callback);
 	};
 
-    jRedirect = function (message, title, callback) {
-        $.alerts.redirect(message, title, callback);
-    };
+	jRedirect = function (message, title, callback) {
+		$.alerts.redirect(message, title, callback);
+	};
 
-    jError = function (message, title, callback) {
-        $.alerts.error(message, title, callback);
-    };
+	jError = function (message, title, callback) {
+		$.alerts.error(message, title, callback);
+	};
 })(jQuery);

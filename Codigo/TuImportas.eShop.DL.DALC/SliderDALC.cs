@@ -56,7 +56,7 @@ namespace TuImportas.eShop.DL.DALC
         {
             String cadena;
             String sql = "Slider_Update";
-            SqlParameter[] arrParameters = new SqlParameter[7];
+            SqlParameter[] arrParameters = new SqlParameter[5];
 
             try
             {
@@ -69,13 +69,11 @@ namespace TuImportas.eShop.DL.DALC
                         cmd.CommandText = sql;
                         cmd.CommandType = CommandType.StoredProcedure;
 
-                        arrParameters[0] = new SqlParameter("@background", objSliderBE.Background);
-                        arrParameters[1] = new SqlParameter("@boton", objSliderBE.Boton);
-                        arrParameters[2] = new SqlParameter("@descripcion", objSliderBE.Descripcion);
-                        arrParameters[3] = new SqlParameter("@id_slider", objSliderBE.Id_Slider);
-                        arrParameters[4] = new SqlParameter("@imagen", objSliderBE.Imagen);
-                        arrParameters[5] = new SqlParameter("@nombre", objSliderBE.Nombre);
-                        arrParameters[6] = new SqlParameter("@url", objSliderBE.Url);
+                        arrParameters[0] = new SqlParameter("@boton", objSliderBE.Boton);
+                        arrParameters[1] = new SqlParameter("@descripcion", objSliderBE.Descripcion);
+                        arrParameters[2] = new SqlParameter("@id_slider", objSliderBE.Id_Slider);
+                        arrParameters[3] = new SqlParameter("@nombre", objSliderBE.Nombre);
+                        arrParameters[4] = new SqlParameter("@url", objSliderBE.Url);
 
                         for (int i = 0; i < arrParameters.Length; i++)
                             cmd.Parameters.Add(arrParameters[i]);
@@ -86,6 +84,74 @@ namespace TuImportas.eShop.DL.DALC
                 }
             }
             catch(Exception)
+            {
+                throw;
+            }
+        }
+
+        public void Update_Slider_Background(SliderBE objSliderBE)
+        {
+            String cadena;
+            String sql = "Slider_Update_Background";
+            SqlParameter[] arrParameters = new SqlParameter[2];
+
+            try
+            {
+                cadena = Tool.GetCadenaConexion();
+
+                using (SqlConnection conn = new SqlConnection(cadena))
+                {
+                    using (SqlCommand cmd = conn.CreateCommand())
+                    {
+                        cmd.CommandText = sql;
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        arrParameters[0] = new SqlParameter("@background", objSliderBE.Background);
+                        arrParameters[1] = new SqlParameter("@id_slider", objSliderBE.Id_Slider);
+
+                        for (int i = 0; i < arrParameters.Length; i++)
+                            cmd.Parameters.Add(arrParameters[i]);
+
+                        cmd.Connection.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void Update_Slider_Imagen(SliderBE objSliderBE)
+        {
+            String cadena;
+            String sql = "Slider_Update_Imagen";
+            SqlParameter[] arrParameters = new SqlParameter[2];
+
+            try
+            {
+                cadena = Tool.GetCadenaConexion();
+
+                using (SqlConnection conn = new SqlConnection(cadena))
+                {
+                    using (SqlCommand cmd = conn.CreateCommand())
+                    {
+                        cmd.CommandText = sql;
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        arrParameters[0] = new SqlParameter("@imagen", objSliderBE.Imagen);
+                        arrParameters[1] = new SqlParameter("@id_slider", objSliderBE.Id_Slider);
+
+                        for (int i = 0; i < arrParameters.Length; i++)
+                            cmd.Parameters.Add(arrParameters[i]);
+
+                        cmd.Connection.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception)
             {
                 throw;
             }

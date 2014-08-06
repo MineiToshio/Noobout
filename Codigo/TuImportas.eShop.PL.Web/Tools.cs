@@ -146,7 +146,7 @@ namespace TuImportas.eShop.PL.Web
                 control += "<div class=\"caption lfl small_theme\" data-x=\"120\" data-y=\"190\" data-speed=\"1000\" data-start=\"700\" data-easing=\"easeInOutBack\">";
                 control += objSliderBE.Descripcion;
                 control += "</div>";
-                control += "<a href=\"features.html\" class=\"caption lfl btn btn-primary btn_theme\" data-x=\"120\" data-y=\"260\" data-speed=\"1000\" data-start=\"900\" data-easing=\"easeInOutBack\">";
+                control += "<a href=\"" + objSliderBE.Url + "\" class=\"caption lfl btn btn-primary btn_theme\" data-x=\"120\" data-y=\"260\" data-speed=\"1000\" data-start=\"900\" data-easing=\"easeInOutBack\">";
                 control += objSliderBE.Boton;
                 control += "</a>";
                 control += "</li>";

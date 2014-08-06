@@ -45,6 +45,7 @@
 								<li><a href="/administrador/OperadorLogistico.aspx"><i class="icon-money"></i> Costos de Envío</a></li>
 								<li><a href="/administrador/Pedidos.aspx"><i class="icon-gift"></i> Pedidos</a></li>
 								<li><a href="/administrador/Botones_Inicio.aspx"><i class="icon-gift"></i> Botones Inicio</a></li>
+								<li><a href="/administrador/Sliders.aspx"><i class="icon-gift"></i> Sliders</a></li>
 							</ul>
 						</li>
 						<li class="parent" style="line-height:0;">

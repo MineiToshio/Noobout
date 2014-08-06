@@ -333,7 +333,8 @@ namespace TuImportas.eShop.PL.Web.administrador
                         rutaImagen = rutaImagen.Remove(0, 5);
                         rutaImagen = rutaImagen.Remove(rutaImagen.Length - 1);
 
-                        objImagen_ProductoBE = AgregarImagen(fuNuevaImagen);
+                        bool esPrimero = (idPanel == "1" ? true : false);
+                        objImagen_ProductoBE = AgregarImagen(fuNuevaImagen, esPrimero);
                         objImagen_ProductoBE.Id_Producto = Convert.ToInt32(ViewState["ID_PRODUCTO"]);
 
                         string path = MapPath(PATH_IMG_PROD);
@@ -354,8 +355,11 @@ namespace TuImportas.eShop.PL.Web.administrador
                         Panel pnl = (Panel)pnlImagenActualizar.FindControl("pnlImagen" + idPanel);
                         pnl.Style.Add("background-image", "url('" + PATH_IMG_PROD + nombre_img + "')");
 
-                        LinkButton lnk = (LinkButton)pnlImagenActualizar.FindControl("lnkEliminarImagen" + idPanel);
-                        lnk.Visible = true;
+                        if (idPanel != "1")
+                        {
+                            LinkButton lnk = (LinkButton)pnlImagenActualizar.FindControl("lnkEliminarImagen" + idPanel);
+                            lnk.Visible = true;
+                        }
                     }
                 }
             }
