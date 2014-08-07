@@ -123,6 +123,40 @@ namespace TuImportas.eShop.DL.DALC
             }
         }
 
+        public void Update_Slider_Orden(SliderBE objSliderBE)
+        {
+            String cadena;
+            String sql = "Slider_Update_Orden";
+            SqlParameter[] arrParameters = new SqlParameter[2];
+
+            try
+            {
+                cadena = Tool.GetCadenaConexion();
+
+                using (SqlConnection conn = new SqlConnection(cadena))
+                {
+                    using (SqlCommand cmd = conn.CreateCommand())
+                    {
+                        cmd.CommandText = sql;
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        arrParameters[0] = new SqlParameter("@orden", objSliderBE.Orden);
+                        arrParameters[1] = new SqlParameter("@id_slider", objSliderBE.Id_Slider);
+
+                        for (int i = 0; i < arrParameters.Length; i++)
+                            cmd.Parameters.Add(arrParameters[i]);
+
+                        cmd.Connection.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public void Update_Slider_Imagen(SliderBE objSliderBE)
         {
             String cadena;
@@ -192,6 +226,7 @@ namespace TuImportas.eShop.DL.DALC
                                 objSliderBE.Imagen = dr["imagen"].ToString();
                                 objSliderBE.Nombre = dr["nombre"].ToString();
                                 objSliderBE.Url = dr["url"].ToString();
+                                objSliderBE.Orden = Convert.ToInt32(dr["orden"]);
 
                                 lstSliderBE.Add(objSliderBE);
                             }

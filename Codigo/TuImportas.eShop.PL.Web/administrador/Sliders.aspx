@@ -8,6 +8,7 @@
             <h3><span class="light">Administrar</span> Sliders</h3>
         </div>
         <center>
+            <asp:Button runat="server" ID="btnActualizarOrden" Text="Actualizar Orden" CssClass="btn btn-dark higher bold" OnClick="btnActualizarOrden_Click"/>
             <asp:Button runat="server" ID="btnAgregarSlider" Text="Agregar Slider" CssClass="btn btn-dark higher bold" PostBackUrl="~/administrador/Slider.aspx"/>
 
             <asp:GridView ID="gvSliders" runat="server"
@@ -21,6 +22,11 @@
                     <center><asp:Label ID="lMensajes" runat="server" Font-Size="9pt" ForeColor="#00639E" Text="[No se encontraron colores]"></asp:Label></center>
                 </EmptyDataTemplate>
                 <Columns>
+                    <asp:TemplateField HeaderText="Orden" ItemStyle-HorizontalAlign="Left">
+                        <ItemTemplate>
+                            <asp:TextBox runat="server" ID="txtOrden" Text='<%#Eval("Orden")%>' Width="20px" CssClass="positive-integer"></asp:TextBox>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="Nombre" ItemStyle-HorizontalAlign="Left">
                         <ItemTemplate>
                             <asp:LinkButton runat="server" ID="lnkNombre" Text='<%#Eval("Nombre")%>' PostBackUrl='<%#"Slider.aspx?id=" + Eval("Id_Slider")%>'></asp:LinkButton>

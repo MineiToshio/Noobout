@@ -59,6 +59,18 @@ namespace TuImportas.eShop.BL.BC
             }
         }
 
+        public void Update_Slider_Orden(SliderBE objSliderBE)
+        {
+            try
+            {
+                objSliderDALC.Update_Slider_Orden(objSliderBE);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public List<SliderBE> Select_Slider()
         {
             try

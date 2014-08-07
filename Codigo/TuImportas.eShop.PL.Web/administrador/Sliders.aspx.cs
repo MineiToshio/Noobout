@@ -65,5 +65,33 @@ namespace TuImportas.eShop.PL.Web.administrador
                 LlenarSlider();
             }
         }
+
+        protected void btnActualizarOrden_Click(object sender, EventArgs e)
+        {
+            SliderBC objSliderBC = new SliderBC();
+            SliderBE objSliderBE = new SliderBE();
+
+            try
+            {
+                for (int i = 0; i < gvSliders.Rows.Count; i++)
+                {
+                    TextBox txtOrden = (TextBox)gvSliders.Rows[i].FindControl("txtOrden");
+
+                    objSliderBE = new SliderBE();
+                    objSliderBE.Id_Slider = Convert.ToInt32(gvSliders.DataKeys[i].Value);
+                    objSliderBE.Orden = Convert.ToInt32(txtOrden.Text.Trim());
+
+                    objSliderBC.Update_Slider_Orden(objSliderBE);
+                }
+
+                //Tools.Alert("El orden se actualizó satisfactoriamente", "Cambiar Orden", GetType(), this);
+                LlenarSlider();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

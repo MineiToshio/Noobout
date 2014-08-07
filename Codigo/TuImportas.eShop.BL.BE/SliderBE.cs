@@ -14,5 +14,6 @@ namespace TuImportas.eShop.BL.BE
         public String Imagen { get; set; }
         public String Nombre { get; set; }
         public String Url { get; set; }
+        public int Orden { get; set; }
     }
 }
