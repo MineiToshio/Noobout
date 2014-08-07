@@ -26,6 +26,7 @@
                             <asp:LinkButton runat="server" ID="lnkNombre" Text='<%#Eval("Nombre")%>' PostBackUrl='<%#"Slider.aspx?id=" + Eval("Id_Slider")%>'></asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
+                    <asp:BoundField DataField="Descripcion" HeaderText="Descripcion"/>
                     <asp:TemplateField HeaderText="Eliminar" ItemStyle-HorizontalAlign="Center">
                         <ItemTemplate>
                             <asp:ImageButton ID="ibtnEliminar" runat="server" height="25" width="25" CausesValidation="false" CommandName="Eliminar" CommandArgument='<%#Eval("Id_Slider") + "," + Eval("Imagen") +  "," + Eval("Background")%>' ImageUrl='/images/recycle-bin.png' OnClientClick="return confirm('¿Está seguro que desea eliminar el registro?');" />  
