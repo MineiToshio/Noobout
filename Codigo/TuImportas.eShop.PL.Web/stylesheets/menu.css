@@ -29,7 +29,7 @@ ol, ul {
 .inner {
 	margin: 0 auto;
 	padding: 0 40px;
-	height: 80px;
+	height: 66px;
 }
 
 .relative {
@@ -54,14 +54,13 @@ header{
 	left: 0;
 	width: 100%;
 	background-color: #333;
-	opacity:0.9;
 	z-index: 1499;
 }
 
 .logo {
 	display: inline-block;
 	font-size: 0;
-	padding: 15px 0;
+	padding: 10px 0;
 	max-height:50px;
 }
 #navigation {
@@ -79,7 +78,7 @@ header{
 #main-menu {
 	float: right;
 	font-size: 0;
-	margin: 37px 0;
+	margin: 25px 0;
 }
 
 #main-menu > li {
@@ -247,5 +246,6 @@ ul.sub-menu > li > a.parent {
 }
 
 .content{
-	margin-top: 80px; /* Alto del menu + extra */
+	margin-top: 66px; /* Alto del menu + extra */
+	margin-left: 180px;
 }

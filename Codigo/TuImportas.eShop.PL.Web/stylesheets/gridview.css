@@ -18,6 +18,10 @@
 	border-bottom:solid 1px #dadada;
 }
 
+.gridview td span {
+    font-size:8pt;
+}
+
 .gridview tr:hover {
 	background-color: #cecece;
 	cursor:pointer;
@@ -59,3 +63,12 @@
  }     
 .gridview .pgr a { color: #666666; text-decoration: none; }  
 .gridview .pgr a:hover { color: #000; text-decoration: none; }
+
+.gridview textarea, .gridview input[type="text"] { 
+    background-color: #fff;
+    border: 1px; 
+    -webkit-box-shadow: 0 0 0; 
+    -moz-box-shadow: 0 0 0;
+    box-shadow: 0 0 0; 
+    color: #000;
+}

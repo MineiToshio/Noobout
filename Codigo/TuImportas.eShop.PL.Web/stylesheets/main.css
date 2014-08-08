@@ -297,7 +297,7 @@ i.box { display: -moz-inline-stack; display: inline-block; vertical-align: middl
 
 .lang-currency { display: -moz-inline-stack; display: inline-block; vertical-align: middle; *vertical-align: auto; zoom: 1; *display: inline; }
 
-header { border-bottom: 1px solid #e0e0e0; }
+header { border-bottom: 1px solid #707070; }
 header .brand { color: #34353e; line-height: 48px; font-size: 30px; padding: 25px 0; margin: 0; display: block; }
 header .brand:hover { text-decoration: none; }
 header .brand img { vertical-align: top; }

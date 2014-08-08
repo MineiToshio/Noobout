@@ -2,7 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="headerContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="bodyContent" runat="server">
-    <br /><br />
     <center>
         <p style="font-size:25pt;">BIENVENIDO AL ADMINISTRADOR DE NOOB OUT</p>
         <br />

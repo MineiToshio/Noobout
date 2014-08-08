@@ -2,7 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="headerContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="bodyContent" runat="server">
-    <br />
     <div class="content_admin">
         <div class="underlined push-down-30">
             <h3><span class="light">Administrar</span> Usuarios</h3>

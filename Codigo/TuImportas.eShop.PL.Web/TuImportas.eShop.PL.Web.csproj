@@ -734,6 +734,7 @@
     <Content Include="stylesheets\login.css" />
     <Content Include="stylesheets\main.css" />
     <Content Include="stylesheets\menu.css" />
+    <Content Include="stylesheets\menu2.css" />
     <Content Include="stylesheets\metallic.css" />
     <Content Include="stylesheets\metallic\default-date.png" />
     <Content Include="stylesheets\metallic\disabled-date.png" />

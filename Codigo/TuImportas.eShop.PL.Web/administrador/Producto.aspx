@@ -3,7 +3,6 @@
     <link href="/stylesheets/flipswitch.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="bodyContent" runat="server">
-    <br />
     <div id="divProducto" class="content_admin validationEngineContainer">
         <div class="underlined push-down-30">
             <h3><span class="light">Administrar</span> Producto</h3>
