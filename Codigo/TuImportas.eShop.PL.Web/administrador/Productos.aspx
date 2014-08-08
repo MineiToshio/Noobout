@@ -4,7 +4,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="bodyContent" runat="server">
     <div class="content_admin">
         <div class="underlined push-down-30">
-            <h3><span class="light">Administrar</span> Productos</h3>
+            <table style="width:100%">
+                <tr>
+                    <td><h3><span class="light">Administrar</span> Productos</h3></td>
+                    <td style="text-align:right;"><asp:Button runat="server" ID="btnAgregarProducto" Text="Agregar Producto" CssClass="btn btn-dark higher bold" PostBackUrl="~/administrador/Producto.aspx"/></td>
+                </tr>
+            </table>
+            
         </div>
         <center>
             <table>
@@ -23,13 +29,11 @@
                         </asp:DropDownList>
 
                     </td>
-                </tr>
-                <tr>
-                    <td colspan="3" align="right"><asp:Button runat="server" ID="btnBuscar" Text="Buscar" CssClass="btn btn-dark higher bold" OnClick="btnBuscar_Click"/></td>
+                    <td width="50px"></td>
+                    <td class="admin-buscar"><asp:Button runat="server" ID="btnBuscar" Text="Buscar" CssClass="btn btn-dark higher bold" OnClick="btnBuscar_Click"/></td>
                 </tr>
             </table>
             
-            <asp:Button runat="server" ID="btnAgregarProducto" Text="Agregar Producto" CssClass="btn btn-dark higher bold" PostBackUrl="~/administrador/Producto.aspx"/>
             <asp:GridView ID="gvProductos" runat="server"
                 AutoGenerateColumns="False"
                 DataKeyNames="Id_Producto"

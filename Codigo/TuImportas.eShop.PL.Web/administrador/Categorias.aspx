@@ -24,13 +24,13 @@
                             <%# Eval("Nombre")%>
                         </ItemTemplate>
                         <EditItemTemplate>
-                            <asp:TextBox runat="server" ID="txtNombre" Text='<%# Eval("Nombre")%>' Width="200px" style="padding:0 5px;margin:0;"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtNombre" Text='<%# Eval("Nombre")%>' Width="200px"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="txtNombre" Display="Dynamic" ValidationGroup="vgActualizar">
                                 <font color="red">* Llenar el campo</font>
                             </asp:RequiredFieldValidator>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox runat="server" ID="txtNewNombre" style="padding:0 5px;margin:0;"></asp:TextBox><br />
+                            <asp:TextBox runat="server" ID="txtNewNombre"></asp:TextBox><br />
                             <asp:RequiredFieldValidator ID="rfvNewNombre" runat="server" ControlToValidate="txtNewNombre" Display="Dynamic"
                                 ErrorMessage="Nombre Obligatorio" InitialValue="" ToolTip="Nombre Obligatorio" ValidationGroup="vgRegistro">
                                 <font color="red">* Llenar el campo</font>

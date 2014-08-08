@@ -19,6 +19,10 @@
                     <td><div style="width:250px;height:auto;" class="categoria-faq" onclick="SeleccionarSubMenu(5);"><i class="icon-money"></i> COSTOS DE ENVÍO</div></td>
                     <td><div style="width:250px;height:auto;" class="categoria-faq" onclick="SeleccionarSubMenu(6);"><i class="icon-gift"></i> PEDIDOS</div></td>
                 </tr>
+                <tr>
+                    <td><div style="width:250px;height:auto;" class="categoria-faq" onclick="SeleccionarSubMenu(7);"><i class="icon-th-large"></i> BOTONES INICIO</div></td>
+                    <td><div style="width:250px;height:auto;" class="categoria-faq" onclick="SeleccionarSubMenu(8);"><i class="icon-file"></i> SLIDERS</div></td>
+                </tr>
             </table>
         </div>
     </center>
@@ -35,6 +39,8 @@
                 case 4: window.location = '/administrador/Colores.aspx'; break;
                 case 5: window.location = '/administrador/OperadorLogistico.aspx'; break;
                 case 6: window.location = '/administrador/Pedidos.aspx'; break;
+                case 6: window.location = '/administrador/Botones_Inicio.aspx'; break;
+                case 6: window.location = '/administrador/Sliders.aspx'; break;
             }
             
         }

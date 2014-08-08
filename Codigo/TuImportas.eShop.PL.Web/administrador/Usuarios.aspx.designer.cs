@@ -13,6 +13,15 @@ namespace TuImportas.eShop.PL.Web.administrador {
     public partial class Usuarios {
         
         /// <summary>
+        /// btnAgregarProducto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAgregarProducto;
+        
+        /// <summary>
         /// txtUsuarioBuscar control.
         /// </summary>
         /// <remarks>
@@ -83,15 +92,6 @@ namespace TuImportas.eShop.PL.Web.administrador {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBuscar;
-        
-        /// <summary>
-        /// btnAgregarProducto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregarProducto;
         
         /// <summary>
         /// gvUsuarios control.

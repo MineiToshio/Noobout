@@ -1841,3 +1841,8 @@ label { font-weight: bold; color: #333333; }
 .content_admin {
 	padding:0 30px;
 }
+
+.admin-buscar {
+	padding-top:16px;
+	text-align:right;
+}

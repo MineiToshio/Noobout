@@ -13,15 +13,6 @@ namespace TuImportas.eShop.PL.Web.administrador {
     public partial class Sliders {
         
         /// <summary>
-        /// btnActualizarOrden control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnActualizarOrden;
-        
-        /// <summary>
         /// btnAgregarSlider control.
         /// </summary>
         /// <remarks>
@@ -29,6 +20,15 @@ namespace TuImportas.eShop.PL.Web.administrador {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAgregarSlider;
+        
+        /// <summary>
+        /// btnActualizarOrden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnActualizarOrden;
         
         /// <summary>
         /// gvSliders control.

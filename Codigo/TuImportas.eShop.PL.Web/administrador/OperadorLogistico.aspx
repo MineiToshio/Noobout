@@ -24,13 +24,13 @@
                             <%# Eval("Nombre")%>
                         </ItemTemplate>
                         <EditItemTemplate>
-                            <asp:TextBox runat="server" ID="txtNombre" Text='<%# Eval("Nombre")%>' Width="200px" style="padding:0 5px;margin:0;"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtNombre" Text='<%# Eval("Nombre")%>' Width="200px"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="txtNombre" Display="Dynamic" ValidationGroup="vgActualizar">
                                 <font color="red">* Llenar el campo</font>
                             </asp:RequiredFieldValidator>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox runat="server" ID="txtNewNombre" style="padding:0 5px;margin:0;"></asp:TextBox><br />
+                            <asp:TextBox runat="server" ID="txtNewNombre"></asp:TextBox><br />
                             <asp:RequiredFieldValidator ID="rfvNewNombre" runat="server" ControlToValidate="txtNewNombre" Display="Dynamic"
                                 ErrorMessage="Nombre Obligatorio" InitialValue="" ToolTip="Nombre Obligatorio" ValidationGroup="vgRegistro">
                                 <font color="red">* Llenar el campo</font>
@@ -42,13 +42,13 @@
                             <%# Eval("Costo_Lima")%>
                         </ItemTemplate>
                         <EditItemTemplate>
-                            <asp:TextBox runat="server" ID="txtCostoLima" Text='<%# Eval("Costo_Lima")%>' Width="200px" style="padding:0 5px;margin:0;"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtCostoLima" Text='<%# Eval("Costo_Lima")%>' Width="200px"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfvCostoLima" runat="server" ControlToValidate="txtCostoLima" Display="Dynamic" ValidationGroup="vgActualizar">
                                 <font color="red">* Llenar el campo</font>
                             </asp:RequiredFieldValidator>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox runat="server" ID="txtNewCostoLima" style="padding:0 5px;margin:0;"></asp:TextBox><br />
+                            <asp:TextBox runat="server" ID="txtNewCostoLima"></asp:TextBox><br />
                             <asp:RequiredFieldValidator ID="rfvNewCostoLima" runat="server" ControlToValidate="txtNewCostoLima" Display="Dynamic"
                                 ErrorMessage="Nombre Obligatorio" InitialValue="" ToolTip="Nombre Obligatorio" ValidationGroup="vgRegistro">
                                 <font color="red">* Llenar el campo</font>
@@ -60,13 +60,13 @@
                             <%# Eval("Costo_Provincia")%>
                         </ItemTemplate>
                         <EditItemTemplate>
-                            <asp:TextBox runat="server" ID="txtCostoProvincia" Text='<%# Eval("Costo_Provincia")%>' Width="200px" style="padding:0 5px;margin:0;"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtCostoProvincia" Text='<%# Eval("Costo_Provincia")%>' Width="200px"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfvCostoProvincia" runat="server" ControlToValidate="txtCostoProvincia" Display="Dynamic" ValidationGroup="vgActualizar">
                                 <font color="red">* Llenar el campo</font>
                             </asp:RequiredFieldValidator>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox runat="server" ID="txtNewCostoProvincia" style="padding:0 5px;margin:0;"></asp:TextBox><br />
+                            <asp:TextBox runat="server" ID="txtNewCostoProvincia"></asp:TextBox><br />
                             <asp:RequiredFieldValidator ID="rfvNewCostoProvincia" runat="server" ControlToValidate="txtNewCostoProvincia" Display="Dynamic"
                                 ErrorMessage="Nombre Obligatorio" InitialValue="" ToolTip="Nombre Obligatorio" ValidationGroup="vgRegistro">
                                 <font color="red">* Llenar el campo</font>
@@ -78,13 +78,13 @@
                             <%# Eval("Tiempo_Entrega")%>
                         </ItemTemplate>
                         <EditItemTemplate>
-                            <asp:TextBox runat="server" ID="txtTiempoEntrega" Text='<%# Eval("Tiempo_Entrega")%>' Width="200px" style="padding:0 5px;margin:0;"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtTiempoEntrega" Text='<%# Eval("Tiempo_Entrega")%>' Width="200px"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfvTiempoEntrega" runat="server" ControlToValidate="txtTiempoEntrega" Display="Dynamic" ValidationGroup="vgActualizar">
                                 <font color="red">* Llenar el campo</font>
                             </asp:RequiredFieldValidator>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox runat="server" ID="txtNewTiempoEntrega" style="padding:0 5px;margin:0;"></asp:TextBox><br />
+                            <asp:TextBox runat="server" ID="txtNewTiempoEntrega"></asp:TextBox><br />
                             <asp:RequiredFieldValidator ID="rfvTiempoEntrega" runat="server" ControlToValidate="txtNewTiempoEntrega" Display="Dynamic"
                                 ErrorMessage="Nombre Obligatorio" InitialValue="" ToolTip="Nombre Obligatorio" ValidationGroup="vgRegistro">
                                 <font color="red">* Llenar el campo</font>

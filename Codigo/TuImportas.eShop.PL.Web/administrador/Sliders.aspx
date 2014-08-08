@@ -4,11 +4,17 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="bodyContent" runat="server">
     <div class="content_admin">
         <div class="underlined push-down-30">
-            <h3><span class="light">Administrar</span> Sliders</h3>
+            <table style="width:100%">
+                <tr>
+                    <td><h3><span class="light">Administrar</span> Sliders</h3></td>
+                    <td style="text-align:right;"><asp:Button runat="server" ID="btnAgregarSlider" Text="Agregar Slider" CssClass="btn btn-dark higher bold" PostBackUrl="~/administrador/Slider.aspx"/></td>
+                </tr>
+            </table>
+            
         </div>
         <center>
             <asp:Button runat="server" ID="btnActualizarOrden" Text="Actualizar Orden" CssClass="btn btn-dark higher bold" OnClick="btnActualizarOrden_Click"/>
-            <asp:Button runat="server" ID="btnAgregarSlider" Text="Agregar Slider" CssClass="btn btn-dark higher bold" PostBackUrl="~/administrador/Slider.aspx"/>
+            
 
             <asp:GridView ID="gvSliders" runat="server"
                 AutoGenerateColumns="False"
