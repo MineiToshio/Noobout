@@ -1,10 +1,3 @@
-/Codigo/TuImportas.eShop.BL.BC/bin
-/Codigo/TuImportas.eShop.BL.BC/obj
-/Codigo/TuImportas.eShop.BL.BE/bin
-/Codigo/TuImportas.eShop.BL.BE/obj
-/Codigo/TuImportas.eShop.BL.Helper/bin
-/Codigo/TuImportas.eShop.BL.Helper/obj
-/Codigo/TuImportas.eShop.DL.DALC/bin
-/Codigo/TuImportas.eShop.DL.DALC/obj
-/Codigo/TuImportas.eShop.PL.Web/bin
-/Codigo/TuImportas.eShop.PL.Web/obj
+bin/
+obj/
+*.suo
