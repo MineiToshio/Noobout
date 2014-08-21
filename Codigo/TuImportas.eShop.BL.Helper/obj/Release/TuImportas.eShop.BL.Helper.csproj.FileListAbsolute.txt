@@ -1,5 +1,0 @@
-C:\Users\Sergio Minei\Desktop\Tu Importas\eCommerce\trunk\Tu Importas Shop\TuImportas.eShop.BL.Helper\bin\Release\TuImportas.eShop.BL.Helper.dll
-C:\Users\Sergio Minei\Desktop\Tu Importas\eCommerce\trunk\Tu Importas Shop\TuImportas.eShop.BL.Helper\bin\Release\TuImportas.eShop.BL.Helper.pdb
-C:\Users\Sergio Minei\Desktop\Tu Importas\eCommerce\trunk\Tu Importas Shop\TuImportas.eShop.BL.Helper\obj\Release\TuImportas.eShop.BL.Helper.csprojResolveAssemblyReference.cache
-C:\Users\Sergio Minei\Desktop\Tu Importas\eCommerce\trunk\Tu Importas Shop\TuImportas.eShop.BL.Helper\obj\Release\TuImportas.eShop.BL.Helper.dll
-C:\Users\Sergio Minei\Desktop\Tu Importas\eCommerce\trunk\Tu Importas Shop\TuImportas.eShop.BL.Helper\obj\Release\TuImportas.eShop.BL.Helper.pdb
