@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AtributoDALC.cs" />
     <Compile Include="Boton_InicioDALC.cs" />
     <Compile Include="CarritoDALC.cs" />
     <Compile Include="Carrito_ProductoDALC.cs" />
@@ -47,6 +48,7 @@
     <Compile Include="ColorDALC.cs" />
     <Compile Include="DevolucionDALC.cs" />
     <Compile Include="DireccionDALC.cs" />
+    <Compile Include="Elemento_AtributoDALC.cs" />
     <Compile Include="Forma_PagoDALC.cs" />
     <Compile Include="Imagen_ProductoDALC.cs" />
     <Compile Include="Operador_LogisticoDALC.cs" />

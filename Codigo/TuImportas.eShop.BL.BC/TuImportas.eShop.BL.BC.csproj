@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AtributoBC.cs" />
     <Compile Include="Boton_InicioBC.cs" />
     <Compile Include="CarritoBC.cs" />
     <Compile Include="Carrito_ProductoBC.cs" />
@@ -47,6 +48,7 @@
     <Compile Include="ColorBC.cs" />
     <Compile Include="DevolucionBC.cs" />
     <Compile Include="DireccionBC.cs" />
+    <Compile Include="Elemento_AtributoBC.cs" />
     <Compile Include="Forma_PagoBC.cs" />
     <Compile Include="Imagen_ProductoBC.cs" />
     <Compile Include="MailBC.cs" />

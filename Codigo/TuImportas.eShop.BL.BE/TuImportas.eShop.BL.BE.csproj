@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AtributoBE.cs" />
     <Compile Include="Boton_InicioBE.cs" />
     <Compile Include="CarritoBE.cs" />
     <Compile Include="Carrito_ProductoBE.cs" />
@@ -46,6 +47,7 @@
     <Compile Include="ColorBE.cs" />
     <Compile Include="DevolucionBE.cs" />
     <Compile Include="DireccionBE.cs" />
+    <Compile Include="Elemento_AtributoBE.cs" />
     <Compile Include="Enumerados.cs" />
     <Compile Include="Forma_PagoBE.cs" />
     <Compile Include="Imagen_ProductoBE.cs" />

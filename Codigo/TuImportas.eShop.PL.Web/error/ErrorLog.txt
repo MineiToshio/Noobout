@@ -1063,3 +1063,108 @@ StackTrace:    en System.Web.UI.HtmlControls.HtmlContainerControl.get_InnerHtml(
    en TuImportas.eShop.PL.Web.Inicio.Page_Load(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Inicio.aspx.cs:línea 23
 Día/Hora: 05/08/2014 04:51:21 p.m.
 ===========================================================================================
+Tipo: System.Data.SqlClient.SqlException
+Mensaje: Violation of PRIMARY KEY constraint 'PK_Elemento_Atributo'. Cannot insert duplicate key in object 'dbo.Elemento_Atributo'. The duplicate key value is (0).
+The statement has been terminated.
+Fuente: .Net SqlClient Data Provider
+StackTrace:    en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en TuImportas.eShop.DL.DALC.Elemento_AtributoDALC.Insert_Elemento_Atributo(Elemento_AtributoBE objElemento_AtributoBE) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.DL.DALC\Elemento_AtributoDALC.cs:línea 46
+   en TuImportas.eShop.BL.BC.Elemento_AtributoBC.Insert_Elemento_Atributo(Elemento_AtributoBE objElemento_AtributoBE) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.BL.BC\Elemento_AtributoBC.cs:línea 22
+   en TuImportas.eShop.PL.Web.administrador.Elemento_Atributo.gvElementos_RowCommand(Object sender, GridViewCommandEventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\administrador\Elemento_Atributo.aspx.cs:línea 85
+Día/Hora: 21/08/2014 04:33:00 p.m.
+===========================================================================================
+Tipo: System.Data.SqlClient.SqlException
+Mensaje: Violation of PRIMARY KEY constraint 'PK_Elemento_Atributo'. Cannot insert duplicate key in object 'dbo.Elemento_Atributo'. The duplicate key value is (0).
+The statement has been terminated.
+Fuente: .Net SqlClient Data Provider
+StackTrace:    en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en TuImportas.eShop.DL.DALC.Elemento_AtributoDALC.Insert_Elemento_Atributo(Elemento_AtributoBE objElemento_AtributoBE) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.DL.DALC\Elemento_AtributoDALC.cs:línea 46
+   en TuImportas.eShop.BL.BC.Elemento_AtributoBC.Insert_Elemento_Atributo(Elemento_AtributoBE objElemento_AtributoBE) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.BL.BC\Elemento_AtributoBC.cs:línea 22
+   en TuImportas.eShop.PL.Web.administrador.Elemento_Atributo.gvElementos_RowCommand(Object sender, GridViewCommandEventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\administrador\Elemento_Atributo.aspx.cs:línea 85
+Día/Hora: 21/08/2014 04:33:02 p.m.
+===========================================================================================
+Tipo: System.Data.SqlClient.SqlException
+Mensaje: Violation of PRIMARY KEY constraint 'PK_Elemento_Atributo'. Cannot insert duplicate key in object 'dbo.Elemento_Atributo'. The duplicate key value is (0).
+The statement has been terminated.
+Fuente: .Net SqlClient Data Provider
+StackTrace:    en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en TuImportas.eShop.DL.DALC.Elemento_AtributoDALC.Insert_Elemento_Atributo(Elemento_AtributoBE objElemento_AtributoBE) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.DL.DALC\Elemento_AtributoDALC.cs:línea 46
+   en TuImportas.eShop.BL.BC.Elemento_AtributoBC.Insert_Elemento_Atributo(Elemento_AtributoBE objElemento_AtributoBE) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.BL.BC\Elemento_AtributoBC.cs:línea 22
+   en TuImportas.eShop.PL.Web.administrador.Elemento_Atributo.gvElementos_RowCommand(Object sender, GridViewCommandEventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\administrador\Elemento_Atributo.aspx.cs:línea 85
+Día/Hora: 21/08/2014 04:33:34 p.m.
+===========================================================================================
+Tipo: System.Data.SqlClient.SqlException
+Mensaje: Cannot insert explicit value for identity column in table 'Elemento_Atributo' when IDENTITY_INSERT is set to OFF.
+Fuente: .Net SqlClient Data Provider
+StackTrace:    en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en TuImportas.eShop.DL.DALC.Elemento_AtributoDALC.Insert_Elemento_Atributo(Elemento_AtributoBE objElemento_AtributoBE) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.DL.DALC\Elemento_AtributoDALC.cs:línea 46
+   en TuImportas.eShop.BL.BC.Elemento_AtributoBC.Insert_Elemento_Atributo(Elemento_AtributoBE objElemento_AtributoBE) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.BL.BC\Elemento_AtributoBC.cs:línea 22
+   en TuImportas.eShop.PL.Web.administrador.Elemento_Atributo.gvElementos_RowCommand(Object sender, GridViewCommandEventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\administrador\Elemento_Atributo.aspx.cs:línea 85
+Día/Hora: 21/08/2014 04:35:23 p.m.
+===========================================================================================
+Tipo: System.Data.SqlClient.SqlException
+Mensaje: Cannot insert explicit value for identity column in table 'Elemento_Atributo' when IDENTITY_INSERT is set to OFF.
+Fuente: .Net SqlClient Data Provider
+StackTrace:    en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en TuImportas.eShop.DL.DALC.Elemento_AtributoDALC.Insert_Elemento_Atributo(Elemento_AtributoBE objElemento_AtributoBE) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.DL.DALC\Elemento_AtributoDALC.cs:línea 46
+   en TuImportas.eShop.BL.BC.Elemento_AtributoBC.Insert_Elemento_Atributo(Elemento_AtributoBE objElemento_AtributoBE) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.BL.BC\Elemento_AtributoBC.cs:línea 22
+   en TuImportas.eShop.PL.Web.administrador.Elemento_Atributo.gvElementos_RowCommand(Object sender, GridViewCommandEventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\administrador\Elemento_Atributo.aspx.cs:línea 85
+Día/Hora: 21/08/2014 04:35:44 p.m.
+===========================================================================================
+Tipo: System.Data.SqlClient.SqlException
+Mensaje: Cannot insert explicit value for identity column in table 'Elemento_Atributo' when IDENTITY_INSERT is set to OFF.
+Fuente: .Net SqlClient Data Provider
+StackTrace:    en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en TuImportas.eShop.DL.DALC.Elemento_AtributoDALC.Insert_Elemento_Atributo(Elemento_AtributoBE objElemento_AtributoBE) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.DL.DALC\Elemento_AtributoDALC.cs:línea 46
+   en TuImportas.eShop.BL.BC.Elemento_AtributoBC.Insert_Elemento_Atributo(Elemento_AtributoBE objElemento_AtributoBE) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.BL.BC\Elemento_AtributoBC.cs:línea 22
+   en TuImportas.eShop.PL.Web.administrador.Elemento_Atributo.gvElementos_RowCommand(Object sender, GridViewCommandEventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\administrador\Elemento_Atributo.aspx.cs:línea 85
+Día/Hora: 21/08/2014 04:50:53 p.m.
+===========================================================================================

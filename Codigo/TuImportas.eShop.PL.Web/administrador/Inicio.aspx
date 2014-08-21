@@ -39,8 +39,8 @@
                 case 4: window.location = '/administrador/Colores.aspx'; break;
                 case 5: window.location = '/administrador/OperadorLogistico.aspx'; break;
                 case 6: window.location = '/administrador/Pedidos.aspx'; break;
-                case 6: window.location = '/administrador/Botones_Inicio.aspx'; break;
-                case 6: window.location = '/administrador/Sliders.aspx'; break;
+                case 7: window.location = '/administrador/Botones_Inicio.aspx'; break;
+                case 8: window.location = '/administrador/Sliders.aspx'; break;
             }
             
         }

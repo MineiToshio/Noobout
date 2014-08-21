@@ -59,11 +59,13 @@
   <ItemGroup>
     <Content Include="Acerca.aspx" />
     <Content Include="Activar.aspx" />
+    <Content Include="administrador\Atributos.aspx" />
     <Content Include="administrador\Botones_Inicio.aspx" />
     <Content Include="administrador\Categorias.aspx" />
     <Content Include="administrador\Colores.aspx" />
     <Content Include="administrador\Contrasena.aspx" />
     <Content Include="administrador\CostoEnvio.aspx" />
+    <Content Include="administrador\Elemento_Atributo.aspx" />
     <Content Include="administrador\Inicio.aspx" />
     <Content Include="administrador\Login.aspx" />
     <Content Include="administrador\OperadorLogistico.aspx" />
@@ -705,6 +707,13 @@
     <Compile Include="Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
+    <Compile Include="administrador\Atributos.aspx.cs">
+      <DependentUpon>Atributos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="administrador\Atributos.aspx.designer.cs">
+      <DependentUpon>Atributos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="administrador\Botones_Inicio.aspx.cs">
       <DependentUpon>Botones_Inicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -739,6 +748,13 @@
     </Compile>
     <Compile Include="administrador\CostoEnvio.aspx.designer.cs">
       <DependentUpon>CostoEnvio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="administrador\Elemento_Atributo.aspx.cs">
+      <DependentUpon>Elemento_Atributo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="administrador\Elemento_Atributo.aspx.designer.cs">
+      <DependentUpon>Elemento_Atributo.aspx</DependentUpon>
     </Compile>
     <Compile Include="administrador\Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
