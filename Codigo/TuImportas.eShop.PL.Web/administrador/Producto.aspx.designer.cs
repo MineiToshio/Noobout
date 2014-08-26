@@ -13,6 +13,51 @@ namespace TuImportas.eShop.PL.Web.administrador {
     public partial class Producto {
         
         /// <summary>
+        /// myTab2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl myTab2;
+        
+        /// <summary>
+        /// liInformacion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liInformacion;
+        
+        /// <summary>
+        /// liMedia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liMedia;
+        
+        /// <summary>
+        /// liAtributos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liAtributos;
+        
+        /// <summary>
+        /// tabInformacion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tabInformacion;
+        
+        /// <summary>
         /// txtNombre control.
         /// </summary>
         /// <remarks>
@@ -74,6 +119,33 @@ namespace TuImportas.eShop.PL.Web.administrador {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox lbCategoriaDestino;
+        
+        /// <summary>
+        /// txtDetalle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDetalle;
+        
+        /// <summary>
+        /// txtCaracteristicaTecnica control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCaracteristicaTecnica;
+        
+        /// <summary>
+        /// tabMedia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tabMedia;
         
         /// <summary>
         /// txtYoutube control.
@@ -202,40 +274,40 @@ namespace TuImportas.eShop.PL.Web.administrador {
         protected global::System.Web.UI.WebControls.LinkButton lnkEliminarImagen4;
         
         /// <summary>
-        /// lbColorPartida control.
+        /// tabAtributos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lbColorPartida;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tabAtributos;
         
         /// <summary>
-        /// lbColorDestino control.
+        /// ddlAtributo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lbColorDestino;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAtributo;
         
         /// <summary>
-        /// txtDetalle control.
+        /// lnkAgregarAtributo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDetalle;
+        protected global::System.Web.UI.WebControls.LinkButton lnkAgregarAtributo;
         
         /// <summary>
-        /// txtCaracteristicaTecnica control.
+        /// pnlAtributos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCaracteristicaTecnica;
+        protected global::System.Web.UI.WebControls.Panel pnlAtributos;
         
         /// <summary>
         /// btnGuardar control.

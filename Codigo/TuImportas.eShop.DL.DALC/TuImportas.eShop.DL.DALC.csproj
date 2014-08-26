@@ -58,6 +58,7 @@
     <Compile Include="ProductoDALC.cs" />
     <Compile Include="Producto_CategoriaDALC.cs" />
     <Compile Include="Producto_ColorDALC.cs" />
+    <Compile Include="Producto_Elemento_AtributoDALC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RolDALC.cs" />
     <Compile Include="SliderDALC.cs" />

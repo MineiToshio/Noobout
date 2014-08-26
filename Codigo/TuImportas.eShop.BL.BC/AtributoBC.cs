@@ -47,6 +47,30 @@ namespace TuImportas.eShop.BL.BC
             }
         }
 
+        public List<AtributoBE> Get_Atributo_No_Producto(Int32 id_producto)
+        {
+            try
+            {
+                return objAtributoDALC.Get_Atributo_No_Producto(id_producto);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<AtributoBE> Get_Atributo_Producto(Int32 id_producto)
+        {
+            try
+            {
+                return objAtributoDALC.Get_Atributo_Producto(id_producto);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public AtributoBE Get_Atributo(Int32 id_atributo)
         {
             try

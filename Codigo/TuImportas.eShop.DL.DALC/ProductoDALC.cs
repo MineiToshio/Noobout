@@ -254,6 +254,8 @@ namespace TuImportas.eShop.DL.DALC
             Imagen_ProductoBE objImagen_ProductoBE = null;
             CategoriaBE objCategoriaBE = null;
             ColorBE objColorBE = null;
+            AtributoBE objAtributoBE = new AtributoBE();
+            Elemento_AtributoBE objElemento_AtributoBE = new Elemento_AtributoBE();
 
             try
             {
@@ -332,6 +334,30 @@ namespace TuImportas.eShop.DL.DALC
                                 objColorBE.Nombre = dr["nombre"].ToString();
 
                                 objProductoBE.lstColorBE.Add(objColorBE);
+                            }
+
+                            dr.NextResult();
+
+                            while (dr.Read())
+                            {
+                                objAtributoBE = new AtributoBE();
+                                objAtributoBE.Descripcion = dr["descripcion"] != DBNull.Value ? dr["descripcion"].ToString() : null;
+                                objAtributoBE.Id_Atributo = Convert.ToInt32(dr["id_atributo"]);
+                                objAtributoBE.Nombre = dr["nombre"].ToString();
+
+                                objProductoBE.lstAtributoBE.Add(objAtributoBE);
+                            }
+
+                            dr.NextResult();
+
+                            while (dr.Read())
+                            {
+                                objElemento_AtributoBE = new Elemento_AtributoBE();
+                                objElemento_AtributoBE.Id_Atributo = Convert.ToInt32(dr["id_atributo"]);
+                                objElemento_AtributoBE.Id_Elemento_Atributo = Convert.ToInt32(dr["id_elemento_atributo"]);
+                                objElemento_AtributoBE.Nombre = dr["nombre"].ToString();
+
+                                objProductoBE.lstElemento_AtributoBE.Add(objElemento_AtributoBE);
                             }
                         }
                     }

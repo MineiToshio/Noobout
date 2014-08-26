@@ -59,6 +59,7 @@
     <Compile Include="ProductoBE.cs" />
     <Compile Include="Producto_CategoriaBE.cs" />
     <Compile Include="Producto_ColorBE.cs" />
+    <Compile Include="Producto_Elemento_AtributoBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RolBE.cs" />
     <Compile Include="SliderBE.cs" />

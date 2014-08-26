@@ -129,6 +129,108 @@ namespace TuImportas.eShop.DL.DALC
             }
         }
 
+        public List<AtributoBE> Get_Atributo_No_Producto(Int32 id_producto)
+        {
+            String cadena;
+            String sql = "Atributo_Get_No_Producto";
+            SqlParameter[] arrParameters = new SqlParameter[1];
+            AtributoBE objAtributoBE = null;
+            List<AtributoBE> lstAtributoBE = null;
+
+            try
+            {
+                cadena = Tool.GetCadenaConexion();
+
+                using (SqlConnection conn = new SqlConnection(cadena))
+                {
+                    using (SqlCommand cmd = conn.CreateCommand())
+                    {
+                        cmd.CommandText = sql;
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        arrParameters[0] = new SqlParameter("@id_producto", id_producto);
+
+                        for (int i = 0; i < arrParameters.Length; i++)
+                            cmd.Parameters.Add(arrParameters[i]);
+
+                        cmd.Connection.Open();
+
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                if (lstAtributoBE == null)
+                                    lstAtributoBE = new List<AtributoBE>();
+
+                                objAtributoBE = new AtributoBE();
+                                objAtributoBE.Descripcion = dr["descripcion"] != DBNull.Value ? dr["descripcion"].ToString() : null;
+                                objAtributoBE.Id_Atributo = Convert.ToInt32(dr["id_atributo"]);
+                                objAtributoBE.Nombre = dr["nombre"].ToString();
+
+                                lstAtributoBE.Add(objAtributoBE);
+                            }
+                        }
+                    }
+                }
+                return lstAtributoBE;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<AtributoBE> Get_Atributo_Producto(Int32 id_producto)
+        {
+            String cadena;
+            String sql = "Atributo_Get_Producto";
+            SqlParameter[] arrParameters = new SqlParameter[1];
+            AtributoBE objAtributoBE = null;
+            List<AtributoBE> lstAtributoBE = null;
+
+            try
+            {
+                cadena = Tool.GetCadenaConexion();
+
+                using (SqlConnection conn = new SqlConnection(cadena))
+                {
+                    using (SqlCommand cmd = conn.CreateCommand())
+                    {
+                        cmd.CommandText = sql;
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        arrParameters[0] = new SqlParameter("@id_producto", id_producto);
+
+                        for (int i = 0; i < arrParameters.Length; i++)
+                            cmd.Parameters.Add(arrParameters[i]);
+
+                        cmd.Connection.Open();
+
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                if (lstAtributoBE == null)
+                                    lstAtributoBE = new List<AtributoBE>();
+
+                                objAtributoBE = new AtributoBE();
+                                objAtributoBE.Descripcion = dr["descripcion"] != DBNull.Value ? dr["descripcion"].ToString() : null;
+                                objAtributoBE.Id_Atributo = Convert.ToInt32(dr["id_atributo"]);
+                                objAtributoBE.Nombre = dr["nombre"].ToString();
+
+                                lstAtributoBE.Add(objAtributoBE);
+                            }
+                        }
+                    }
+                }
+                return lstAtributoBE;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public AtributoBE Get_Atributo(Int32 id_atributo)
         {
             String cadena;

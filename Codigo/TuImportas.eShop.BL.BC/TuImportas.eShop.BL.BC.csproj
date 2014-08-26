@@ -59,6 +59,7 @@
     <Compile Include="ProductoBC.cs" />
     <Compile Include="Producto_CategoriaBC.cs" />
     <Compile Include="Producto_ColorBC.cs" />
+    <Compile Include="Producto_Elemento_AtributoBC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RolBC.cs" />
     <Compile Include="SliderBC.cs" />

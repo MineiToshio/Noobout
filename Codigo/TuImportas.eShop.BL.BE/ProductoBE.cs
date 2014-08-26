@@ -30,11 +30,18 @@ namespace TuImportas.eShop.BL.BE
         public string Youtube { get; set; }
         public string Img_Habilitado { get; set; }
         public string Ruta_Img_Principal { get; set; }
+        public List<Producto_Elemento_AtributoBE> lstProducto_Elemento_AtributoBE { get; set; }
+        public List<AtributoBE> lstAtributoBE { get; set; }
+        public List<Elemento_AtributoBE> lstElemento_AtributoBE { get; set; }
+
         public ProductoBE()
         {
             lstImagen_ProductoBE = new List<Imagen_ProductoBE>();
             lstCategoriaBE = new List<CategoriaBE>();
             lstColorBE = new List<ColorBE>();
+            lstProducto_Elemento_AtributoBE = new List<Producto_Elemento_AtributoBE>();
+            lstAtributoBE = new List<AtributoBE>();
+            lstElemento_AtributoBE = new List<Elemento_AtributoBE>();
         }
     }
 }

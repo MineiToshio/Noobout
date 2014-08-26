@@ -202,6 +202,7 @@
     <Content Include="images\buttons\paypal.gif" />
     <Content Include="images\buttons\security.jpg" />
     <Content Include="images\cambio.png" />
+    <Content Include="images\cancel.png" />
     <Content Include="images\checkbox_checked.png" />
     <Content Include="images\checkbox_unchecked.png" />
     <Content Include="images\comocomprar\comocomprar1.jpg" />

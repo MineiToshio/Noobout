@@ -50,12 +50,12 @@
 			<a href="/administrador/Usuarios.aspx"><i class="icon-user"></i> USUARIOS</a>
 			<a href="/administrador/Productos.aspx"><i class="icon-gamepad"></i> PRODUCTOS</a>
 			<a href="/administrador/Categorias.aspx"><i class="icon-tags"></i> CATEGORÍAS</a>
-			<a href="/administrador/Colores.aspx"><i class="icon-pencil"></i> COLORES</a>
+			<a href="/administrador/Atributos.aspx"><i class="icon-file"></i> ATRIBUTOS</a>
+			<%--<a href="/administrador/Colores.aspx"><i class="icon-pencil"></i> COLORES</a>--%>
 			<a href="/administrador/OperadorLogistico.aspx"><i class="icon-money"></i> COSTOS DE ENVÍO</a>
 			<a href="/administrador/Pedidos.aspx"><i class="icon-gift"></i> PEDIDOS</a>
 			<a href="/administrador/Botones_Inicio.aspx"><i class="icon-th-large"></i> BOTONES INICIO</a>
 			<a href="/administrador/Sliders.aspx"><i class="icon-file"></i> SLIDERS</a>
-			<a href="/administrador/Atributos.aspx"><i class="icon-file"></i> ATRIBUTOS</a>
 		</nav>
 		<div class="content foot-light">
 			<asp:ContentPlaceHolder ID="bodyContent" runat="server"></asp:ContentPlaceHolder>

@@ -29,6 +29,8 @@ namespace TuImportas.eShop.BL.BC
             Producto_ColorBC objProductoColorBC = new Producto_ColorBC();
             Producto_CategoriaBE objProducto_CategoriaBE = new Producto_CategoriaBE();
             Producto_CategoriaBC objProducto_CategoriaBC = new Producto_CategoriaBC();
+            Producto_Elemento_AtributoBE objProducto_Elemento_AtributoBE = new Producto_Elemento_AtributoBE();
+            Producto_Elemento_AtributoBC objProducto_Elemento_AtributoBC = new Producto_Elemento_AtributoBC();
             Imagen_ProductoBC objImagen_ProductoBC = new Imagen_ProductoBC();
 
             try
@@ -49,6 +51,14 @@ namespace TuImportas.eShop.BL.BC
                     objProducto_CategoriaBE.Id_Categoria = c.Id_Categoria;
                     objProducto_CategoriaBE.Id_Producto = objProductoBE.Id_Producto;
                     objProducto_CategoriaBC.Insert_Producto_Categoria(objProducto_CategoriaBE);
+                }
+
+                foreach (Elemento_AtributoBE ea in objProductoBE.lstElemento_AtributoBE)
+                {
+                    objProducto_Elemento_AtributoBE = new Producto_Elemento_AtributoBE();
+                    objProducto_Elemento_AtributoBE.Id_Producto = objProductoBE.Id_Producto;
+                    objProducto_Elemento_AtributoBE.Id_Elemento_Atributo = ea.Id_Elemento_Atributo;
+                    objProducto_Elemento_AtributoBC.Insert_Producto_Elemento_Atributo(objProducto_Elemento_AtributoBE);
                 }
 
                 for (int i = 0; i < objProductoBE.lstImagen_ProductoBE.Count; i++)
@@ -84,6 +94,8 @@ namespace TuImportas.eShop.BL.BC
             Producto_ColorBC objProductoColorBC = new Producto_ColorBC();
             Producto_CategoriaBE objProducto_CategoriaBE = new Producto_CategoriaBE();
             Producto_CategoriaBC objProducto_CategoriaBC = new Producto_CategoriaBC();
+            Producto_Elemento_AtributoBE objProducto_Elemento_AtributoBE = new Producto_Elemento_AtributoBE();
+            Producto_Elemento_AtributoBC objProducto_Elemento_AtributoBC = new Producto_Elemento_AtributoBC();
 
             try
             {
@@ -107,6 +119,16 @@ namespace TuImportas.eShop.BL.BC
                     objProducto_CategoriaBE.Id_Categoria = c.Id_Categoria;
                     objProducto_CategoriaBE.Id_Producto = objProductoBE.Id_Producto;
                     objProducto_CategoriaBC.Insert_Producto_Categoria(objProducto_CategoriaBE);
+                }
+
+                objProducto_Elemento_AtributoBC.Delete_Producto_Elemento_Atributo_Producto(objProductoBE.Id_Producto);
+
+                foreach (Elemento_AtributoBE ea in objProductoBE.lstElemento_AtributoBE)
+                {
+                    objProducto_Elemento_AtributoBE = new Producto_Elemento_AtributoBE();
+                    objProducto_Elemento_AtributoBE.Id_Producto = objProductoBE.Id_Producto;
+                    objProducto_Elemento_AtributoBE.Id_Elemento_Atributo = ea.Id_Elemento_Atributo;
+                    objProducto_Elemento_AtributoBC.Insert_Producto_Elemento_Atributo(objProducto_Elemento_AtributoBE);
                 }
             }
             catch (Exception)

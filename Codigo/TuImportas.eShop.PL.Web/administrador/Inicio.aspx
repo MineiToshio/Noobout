@@ -13,7 +13,7 @@
                 </tr>
                 <tr>
                     <td><div style="width:250px;height:auto;" class="categoria-faq" onclick="SeleccionarSubMenu(3);"><i class="icon-tags"></i> CATEGORÍAS</div></td>
-                    <td><div style="width:250px;height:auto;" class="categoria-faq" onclick="SeleccionarSubMenu(4);"><i class="icon-pencil"></i> COLORES</div></td>
+                    <td><div style="width:250px;height:auto;" class="categoria-faq" onclick="SeleccionarSubMenu(4);"><i class="icon-pencil"></i> ATRIBUTOS</div></td>
                 </tr>
                 <tr>
                     <td><div style="width:250px;height:auto;" class="categoria-faq" onclick="SeleccionarSubMenu(5);"><i class="icon-money"></i> COSTOS DE ENVÍO</div></td>

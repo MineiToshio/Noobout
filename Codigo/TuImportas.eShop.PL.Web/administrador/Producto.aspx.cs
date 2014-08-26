@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -22,12 +23,13 @@ namespace TuImportas.eShop.PL.Web.administrador
             {
                 if (Tools.EsAdmin())
                 {
-                    LlenarColores();
+                    //LlenarColores();
                     LlenarCategorias();
 
                     if (Request.QueryString["id_producto"] == null)
                     {
                         ViewState["MODO"] = Modo.Insertar;
+                        ViewState["ATRIBUTOS"] = "";
                     }
                     else
                     {
@@ -37,9 +39,12 @@ namespace TuImportas.eShop.PL.Web.administrador
                         MostrarProducto();
                     }
 
+                    LlenarAtributos();
                     MostrarModo();
                 }
             }
+
+            CrearAtributos();
         }
 
         private void MostrarProducto()
@@ -67,13 +72,13 @@ namespace TuImportas.eShop.PL.Web.administrador
                 foreach (CategoriaBE c in objProductoBE.lstCategoriaBE)
                     lbCategoriaPartida.Items.Remove(new ListItem(c.Nombre, c.Id_Categoria.ToString()));
 
-                lbColorDestino.DataSource = objProductoBE.lstColorBE;
-                lbColorDestino.DataValueField = "Id_Color";
-                lbColorDestino.DataTextField = "Nombre";
-                lbColorDestino.DataBind();
+                //lbColorDestino.DataSource = objProductoBE.lstColorBE;
+                //lbColorDestino.DataValueField = "Id_Color";
+                //lbColorDestino.DataTextField = "Nombre";
+                //lbColorDestino.DataBind();
 
-                foreach (ColorBE c in objProductoBE.lstColorBE)
-                    lbColorPartida.Items.Remove(new ListItem(c.Nombre, c.Id_Color.ToString()));
+                //foreach (ColorBE c in objProductoBE.lstColorBE)
+                //    lbColorPartida.Items.Remove(new ListItem(c.Nombre, c.Id_Color.ToString()));
 
                 //string path = "/images/productos/";
 
@@ -93,6 +98,15 @@ namespace TuImportas.eShop.PL.Web.administrador
                     pnlImagen4.Style.Add("background-image", "url('" + PATH_IMG_PROD + objProductoBE.lstImagen_ProductoBE[3].Nombre + "')");
                 else
                     lnkEliminarImagen4.Visible = false;
+
+                foreach (AtributoBE a in objProductoBE.lstAtributoBE)
+                {
+                    ViewState["ATRIBUTOS"] = ViewState["ATRIBUTOS"] + "|" + a.Id_Atributo + "," + a.Nombre;
+                }
+
+                CrearAtributos();
+
+                LlenarElementoAtributo(objProductoBE);
             }
             catch (Exception)
             {
@@ -115,23 +129,23 @@ namespace TuImportas.eShop.PL.Web.administrador
             }
         }
 
-        private void LlenarColores()
-        {
-            ColorBC objColorBC = new ColorBC();
+        //private void LlenarColores()
+        //{
+        //    ColorBC objColorBC = new ColorBC();
 
-            try
-            {
-                lbColorPartida.DataSource = objColorBC.Select_Color();
-                lbColorPartida.DataValueField = "Id_Color";
-                lbColorPartida.DataTextField = "Nombre";
-                lbColorPartida.DataBind();
-            }
-            catch (Exception)
-            {
+        //    try
+        //    {
+        //        lbColorPartida.DataSource = objColorBC.Select_Color();
+        //        lbColorPartida.DataValueField = "Id_Color";
+        //        lbColorPartida.DataTextField = "Nombre";
+        //        lbColorPartida.DataBind();
+        //    }
+        //    catch (Exception)
+        //    {
                 
-                throw;
-            }
-        }
+        //        throw;
+        //    }
+        //}
 
         private void LlenarCategorias()
         {
@@ -222,16 +236,16 @@ namespace TuImportas.eShop.PL.Web.administrador
                 objProductoBE.Detalle = txtDetalle.Text.Trim();
                 objProductoBE.Caracteristica_Tecnica = txtCaracteristicaTecnica.Text.Trim();
 
-                string colores = Request.Form[lbColorDestino.UniqueID];
-                if (!string.IsNullOrEmpty(colores))
-                {
-                    foreach (string item in colores.Split(','))
-                    {
-                        objColorBE = new ColorBE();
-                        objColorBE.Id_Color = Convert.ToInt32(item);
-                        objProductoBE.lstColorBE.Add(objColorBE);
-                    }
-                }
+                //string colores = Request.Form[lbColorDestino.UniqueID];
+                //if (!string.IsNullOrEmpty(colores))
+                //{
+                //    foreach (string item in colores.Split(','))
+                //    {
+                //        objColorBE = new ColorBE();
+                //        objColorBE.Id_Color = Convert.ToInt32(item);
+                //        objProductoBE.lstColorBE.Add(objColorBE);
+                //    }
+                //}
 
                 string categorias = Request.Form[lbCategoriaDestino.UniqueID];
                 if (!string.IsNullOrEmpty(categorias))
@@ -241,6 +255,36 @@ namespace TuImportas.eShop.PL.Web.administrador
                         objCategoriaBE = new CategoriaBE();
                         objCategoriaBE.Id_Categoria = Convert.ToInt32(item);
                         objProductoBE.lstCategoriaBE.Add(objCategoriaBE);
+                    }
+                }
+
+                string[] atributos = ViewState["ATRIBUTOS"].ToString().Split('|');
+
+                GridView gv = new GridView();
+                Elemento_AtributoBE objElemento_AtributoBE = new Elemento_AtributoBE();
+                //Producto_Elemento_AtributoBE objProducto_Elemento_AtributoBE = new Producto_Elemento_AtributoBE();
+
+                foreach(string s in atributos)
+                {
+                    string[] atributo = s.Split(',');
+
+                    if (!string.IsNullOrEmpty(s))
+                    {
+                        gv = new GridView();
+                        gv = (GridView)pnlAtributos.FindControl("gvElementoAtributo" + atributo[0]);
+
+                        foreach (GridViewRow r in gv.Rows)
+                        {
+                            objElemento_AtributoBE = new Elemento_AtributoBE();
+
+                            CheckBox chk = (CheckBox)r.Cells[0].Controls[0];
+
+                            if (chk.Checked)
+                            {
+                                objElemento_AtributoBE.Id_Elemento_Atributo = Convert.ToInt32(chk.ID.Replace("chk", ""));
+                                objProductoBE.lstElemento_AtributoBE.Add(objElemento_AtributoBE);
+                            }
+                        }
                     }
                 }
 
@@ -451,6 +495,212 @@ namespace TuImportas.eShop.PL.Web.administrador
             string codigo = Path.GetFileName(imagen).Replace(Path.GetExtension(imagen), "");
 
             return codigo;
+        }
+
+        private void LlenarAtributos()
+        {
+            AtributoBC objAtributoBC = new AtributoBC();
+
+            try
+            {
+                ddlAtributo.DataSource = objAtributoBC.Get_Atributo_No_Producto(Convert.ToInt32(ViewState["ID_PRODUCTO"]));
+                ddlAtributo.DataValueField = "Id_Atributo";
+                ddlAtributo.DataTextField = "Nombre";
+                ddlAtributo.DataBind();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        protected void lnkAgregarAtributo_Click(object sender, EventArgs e)
+        {
+            string atributo = ddlAtributo.SelectedItem.Value + "," + ddlAtributo.SelectedItem.Text;
+
+            CrearAtributo(atributo);
+
+            ViewState["ATRIBUTOS"] = ViewState["ATRIBUTOS"] + "|" + atributo;
+
+            MostrarTab(3);
+
+            ddlAtributo.Items.Remove(ddlAtributo.SelectedItem);
+        }
+
+        private void CrearAtributo(string atributo)
+        {
+            try
+            {
+                string[] atributos = atributo.Split(',');
+
+                Panel pnl = new Panel();
+                pnl.ID = "pnl" + atributos[0];
+                pnl.CssClass = "pnl-atributo";
+
+                Label lblTitulo = new Label();
+                lblTitulo.Text = atributos[1];
+                lblTitulo.ID = "lblAtributo" + atributos[0];
+                
+                pnl.Controls.Add(lblTitulo);
+
+                ImageButton ibtnCancel = new ImageButton();
+                ibtnCancel.ID = "ibtnCancel" + atributos[0];
+                ibtnCancel.ImageUrl = "../images/cancel.png";
+                ibtnCancel.Click += ibtnCancel_Click;
+
+                pnl.Controls.Add(ibtnCancel);
+
+                Elemento_AtributoBC objElemento_AtributoBC = new Elemento_AtributoBC();
+                List<Elemento_AtributoBE> lstElemento_AtributoBE = new List<Elemento_AtributoBE>();
+
+                lstElemento_AtributoBE = objElemento_AtributoBC.Get_Elemento_Atributo_Atributo(Convert.ToInt32(atributos[0]));
+                
+                GridView gvElementoAtributo = new GridView();
+                gvElementoAtributo.ID = "gvElementoAtributo" + atributos[0];
+                gvElementoAtributo.CssClass = "gridview";
+                gvElementoAtributo.AlternatingRowStyle.CssClass = "alt";
+                gvElementoAtributo.PagerStyle.CssClass = "pgr";
+                gvElementoAtributo.AutoGenerateColumns = false;
+
+                TemplateField tfCheck = new TemplateField();
+                gvElementoAtributo.Columns.Add(tfCheck);
+
+                BoundField bfNombre = new BoundField();
+                bfNombre.DataField = "Nombre";
+                bfNombre.HeaderText = "Nombre";
+
+                gvElementoAtributo.Columns.Add(bfNombre);
+
+                BoundField bfIdElemento = new BoundField();
+                bfIdElemento.DataField = "Id_Elemento_Atributo";
+                bfIdElemento.HeaderText = "Id_Elemento_Atributo";
+                bfIdElemento.Visible = false;
+
+                gvElementoAtributo.Columns.Add(bfIdElemento);
+
+                gvElementoAtributo.RowDataBound += gvElementoAtributo_RowDataBound;
+
+                gvElementoAtributo.DataSource = lstElemento_AtributoBE;
+                gvElementoAtributo.DataBind();
+
+                pnl.Controls.Add(gvElementoAtributo);
+
+                pnlAtributos.Controls.Add(pnl);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        private void gvElementoAtributo_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+
+                    CheckBox chk = new CheckBox();
+                    Elemento_AtributoBE objElemento_AtributoBE = (Elemento_AtributoBE)e.Row.DataItem;
+                    chk.ID = "chk" + objElemento_AtributoBE.Id_Elemento_Atributo;
+                    e.Row.Cells[0].Controls.Add(chk);
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        private void ibtnCancel_Click(object sender, ImageClickEventArgs e)
+        {
+            ImageButton ibtn = (ImageButton)sender;
+
+            string id = ibtn.ID.Replace("ibtnCancel", "");
+
+            Label lbl = (Label)ibtn.Parent.FindControl("lblAtributo" + id);
+
+            ddlAtributo.Items.Add(new ListItem(lbl.Text, id));
+
+            pnlAtributos.Controls.Remove(ibtn.Parent);
+
+            ViewState["ATRIBUTOS"] = ViewState["ATRIBUTOS"].ToString().Replace("|" + id + "," + lbl.Text, "");
+        }
+
+        private void CrearAtributos()
+        {
+            if (pnlAtributos.Controls.Count == 0)
+            {
+                string[] atributos = ViewState["ATRIBUTOS"].ToString().Split('|');
+
+                foreach (string s in atributos)
+                    if (!string.IsNullOrEmpty(s))
+                        CrearAtributo(s);
+            }
+        }
+
+        private void MostrarTab(int tab)
+        {
+            liInformacion.Attributes.Add("class", "");
+            liMedia.Attributes.Add("class", "");
+            liAtributos.Attributes.Add("class", "");
+
+            tabInformacion.Attributes.Add("class", "fade tab-pane");
+            tabMedia.Attributes.Add("class", "fade tab-pane");
+            tabAtributos.Attributes.Add("class", "fade tab-pane");
+
+            switch(tab)
+            {
+                case 1:
+                    liInformacion.Attributes.Add("class", "active");
+                    tabInformacion.Attributes.Add("class", "fade in tab-pane active");
+                    break;
+                case 2: 
+                    liMedia.Attributes.Add("class", "active");
+                    tabMedia.Attributes.Add("class", "fade in tab-pane active");
+                    break;
+                case 3: 
+                    liAtributos.Attributes.Add("class", "active");
+                    tabAtributos.Attributes.Add("class", "fade in tab-pane active");
+                    break;
+            }
+        }
+
+        private void LlenarElementoAtributo(ProductoBE objProductoBE)
+        {
+            string[] atributos = ViewState["ATRIBUTOS"].ToString().Split('|');
+
+            GridView gv = new GridView();
+
+            foreach (string s in atributos)
+            {
+                string[] atributo = s.Split(',');
+
+                if (!string.IsNullOrEmpty(s))
+                {
+                    gv = new GridView();
+                    gv = (GridView)pnlAtributos.FindControl("gvElementoAtributo" + atributo[0]);
+
+                    foreach (GridViewRow r in gv.Rows)
+                    {
+                        CheckBox chk = (CheckBox)r.Cells[0].Controls[0];
+                        int idElemento_Atributo = Convert.ToInt32(chk.ID.Replace("chk", ""));
+
+                        foreach (Elemento_AtributoBE ea in objProductoBE.lstElemento_AtributoBE)
+                        {
+                            if (idElemento_Atributo == ea.Id_Elemento_Atributo)
+                            {
+                                chk.Checked = true;
+                                objProductoBE.lstElemento_AtributoBE.Remove(ea);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
