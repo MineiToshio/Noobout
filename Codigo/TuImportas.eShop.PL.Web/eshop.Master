@@ -49,7 +49,7 @@
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body class="shop_body">
     <form id="form1" runat="server">
     <asp:HiddenField runat="server" ID="hdVerifico" Value="1" />
     <div class="master-wrapper">

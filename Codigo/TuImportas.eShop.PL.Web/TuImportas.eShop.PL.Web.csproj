@@ -197,6 +197,7 @@
     <Content Include="images\backgrounds\pattern-7.gif" />
     <Content Include="images\backgrounds\pattern-8.gif" />
     <Content Include="images\backgrounds\pattern-9.gif" />
+    <Content Include="images\bg.gif" />
     <Content Include="images\bg.jpg" />
     <Content Include="images\box-bg.jpg" />
     <Content Include="images\buttons\paypal.gif" />

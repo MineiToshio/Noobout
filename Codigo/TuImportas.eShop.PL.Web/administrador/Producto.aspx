@@ -18,7 +18,7 @@
                 <a href="#tabAtributos" data-toggle="tab">Atributos</a>
             </li>
         </ul>
-        <div class="tab-content" style="margin-top:13px;">
+        <div class="tab-content" style="margin-top:11px;">
             <div class="fade in tab-pane active validationEngineContainer" id="tabInformacion" runat="server" ClientIDMode="Static">
                 <div class="control-group">
                     <label class="control-label" for="txtNombre">Nombre<span class="red-clr bold"> *</span></label>
