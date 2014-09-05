@@ -10,7 +10,7 @@
                         <asp:HiddenField runat="server" ID="hdIdProducto"></asp:HiddenField>
                         <asp:Label runat="server" ID="lblVerMas"></asp:Label>
                         <%--<asp:LinkButton runat="server" ID="lnkAnadir" CssClass="btn buy btn-danger" OnClick="lnkAnadir_Click">Añadir</asp:LinkButton>--%>
-                        <a id="lnkA" class="btn buy btn-danger" onclick="AgregarCarrito(<%=hdIdProducto.Value%>)" >Añadir</a>
+                        <a id="lnkA" class="btn buy btn-danger" onclick="PopUpAgregarCarritoAtributo(<%=hdIdProducto.Value%>)" >Añadir</a>
                     </div>
                 </div>
             </div>

@@ -1168,3 +1168,803 @@ StackTrace:    en System.Data.SqlClient.SqlConnection.OnError(SqlException excep
    en TuImportas.eShop.PL.Web.administrador.Elemento_Atributo.gvElementos_RowCommand(Object sender, GridViewCommandEventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\administrador\Elemento_Atributo.aspx.cs:línea 85
 Día/Hora: 21/08/2014 04:50:53 p.m.
 ===========================================================================================
+Tipo: System.MissingMethodException
+Mensaje: Método no encontrado: 'Void TuImportas.eShop.BL.BC.Carrito_ProductoBC.Insert_Carrito_Producto(TuImportas.eShop.BL.BE.Carrito_ProductoBE)'.
+Fuente: TuImportas.eShop.PL.Web
+StackTrace:    en TuImportas.eShop.PL.Web.Tools.AñadirCarrito(Int32 idProducto, Int32 cantidad, Nullable`1 idColor)
+   en TuImportas.eShop.PL.Web.SharedServices.AgregarCarrito(Int32 id_producto) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\SharedServices.cs:línea 19
+Día/Hora: 29/08/2014 11:27:31 a.m.
+===========================================================================================
+Tipo: System.MissingMethodException
+Mensaje: Método no encontrado: 'Void TuImportas.eShop.BL.BC.Carrito_ProductoBC.Insert_Carrito_Producto(TuImportas.eShop.BL.BE.Carrito_ProductoBE)'.
+Fuente: TuImportas.eShop.PL.Web
+StackTrace:    en TuImportas.eShop.PL.Web.Tools.AñadirCarrito(Int32 idProducto, Int32 cantidad, Nullable`1 idColor)
+   en TuImportas.eShop.PL.Web.SharedServices.AgregarCarrito(Int32 id_producto) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\SharedServices.cs:línea 19
+Día/Hora: 29/08/2014 11:29:31 a.m.
+===========================================================================================
+Tipo: System.NullReferenceException
+Mensaje: Referencia a objeto no establecida como instancia de un objeto.
+Fuente: TuImportas.eShop.PL.Web
+StackTrace:    en TuImportas.eShop.PL.Web.Tools.ExisteProductoCarrito(Int32 idProducto, String atributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Tools.cs:línea 91
+   en TuImportas.eShop.PL.Web.Tools.AñadirCarrito(Int32 idProducto, Int32 cantidad, String atributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Tools.cs:línea 170
+   en TuImportas.eShop.PL.Web.SharedServices.AgregarCarrito(Int32 id_producto, String atributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\SharedServices.cs:línea 19
+Día/Hora: 29/08/2014 04:30:53 p.m.
+===========================================================================================
+Tipo: System.NullReferenceException
+Mensaje: Referencia a objeto no establecida como instancia de un objeto.
+Fuente: TuImportas.eShop.PL.Web
+StackTrace:    en TuImportas.eShop.PL.Web.Tools.ExisteProductoCarrito(Int32 idProducto, String atributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Tools.cs:línea 91
+   en TuImportas.eShop.PL.Web.Tools.AñadirCarrito(Int32 idProducto, Int32 cantidad, String atributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Tools.cs:línea 181
+   en TuImportas.eShop.PL.Web.SharedServices.AgregarCarrito(Int32 id_producto, String atributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\SharedServices.cs:línea 19
+Día/Hora: 29/08/2014 04:41:09 p.m.
+===========================================================================================
+Tipo: System.NullReferenceException
+Mensaje: Referencia a objeto no establecida como instancia de un objeto.
+Fuente: TuImportas.eShop.PL.Web
+StackTrace:    en TuImportas.eShop.PL.Web.Tools.ExisteProductoCarrito(Int32 idProducto, String atributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Tools.cs:línea 91
+   en TuImportas.eShop.PL.Web.Tools.AñadirCarrito(Int32 idProducto, Int32 cantidad, String atributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Tools.cs:línea 181
+   en TuImportas.eShop.PL.Web.SharedServices.AgregarCarrito(Int32 id_producto, String atributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\SharedServices.cs:línea 19
+Día/Hora: 29/08/2014 04:41:59 p.m.
+===========================================================================================
+Tipo: System.FormatException
+Mensaje: La cadena de entrada no tiene el formato correcto.
+Fuente: mscorlib
+StackTrace:    en System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   en System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   en System.Convert.ToInt32(String value)
+   en TuImportas.eShop.PL.Web.Tools.AñadirCarrito(Int32 idProducto, Int32 cantidad, String atributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Tools.cs:línea 181
+   en TuImportas.eShop.PL.Web.SharedServices.AgregarCarrito(Int32 id_producto, String atributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\SharedServices.cs:línea 19
+Día/Hora: 29/08/2014 04:51:00 p.m.
+===========================================================================================
+Tipo: System.InvalidOperationException
+Mensaje: Colección modificada; puede que no se ejecute la operación de enumeración.
+Fuente: mscorlib
+StackTrace:    en System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   en System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   en System.Collections.Generic.List`1.Enumerator.MoveNext()
+   en TuImportas.eShop.PL.Web.Tools.ExisteProductoCarrito(Int32 idProducto, String atributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Tools.cs:línea 97
+   en TuImportas.eShop.PL.Web.Tools.AñadirCarrito(Int32 idProducto, Int32 cantidad, String atributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Tools.cs:línea 187
+   en TuImportas.eShop.PL.Web.SharedServices.AgregarCarrito(Int32 id_producto, String atributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\SharedServices.cs:línea 19
+Día/Hora: 29/08/2014 04:57:09 p.m.
+===========================================================================================
+Tipo: System.InvalidOperationException
+Mensaje: Colección modificada; puede que no se ejecute la operación de enumeración.
+Fuente: mscorlib
+StackTrace:    en System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   en System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   en System.Collections.Generic.List`1.Enumerator.MoveNext()
+   en TuImportas.eShop.PL.Web.Tools.ExisteProductoCarrito(Int32 idProducto, String atributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Tools.cs:línea 80
+   en TuImportas.eShop.PL.Web.Tools.AñadirCarrito(Int32 idProducto, Int32 cantidad, String atributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Tools.cs:línea 170
+   en TuImportas.eShop.PL.Web.SharedServices.AgregarCarrito(Int32 id_producto, String atributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\SharedServices.cs:línea 19
+Día/Hora: 29/08/2014 05:55:33 p.m.
+===========================================================================================
+Tipo: System.InvalidOperationException
+Mensaje: Colección modificada; puede que no se ejecute la operación de enumeración.
+Fuente: mscorlib
+StackTrace:    en System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   en System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   en System.Collections.Generic.List`1.Enumerator.MoveNext()
+   en TuImportas.eShop.PL.Web.Tools.ExisteProductoCarrito(Int32 idProducto, String atributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Tools.cs:línea 81
+   en TuImportas.eShop.PL.Web.Tools.AñadirCarrito(Int32 idProducto, Int32 cantidad, String atributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Tools.cs:línea 171
+   en TuImportas.eShop.PL.Web.SharedServices.AgregarCarrito(Int32 id_producto, String atributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\SharedServices.cs:línea 19
+Día/Hora: 29/08/2014 06:05:08 p.m.
+===========================================================================================
+Tipo: System.FormatException
+Mensaje: La cadena de entrada no tiene el formato correcto.
+Fuente: mscorlib
+StackTrace:    en System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   en System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   en System.Convert.ToInt32(String value)
+   en TuImportas.eShop.PL.Web.Tools.AñadirCarrito(Int32 idProducto, Int32 cantidad, String atributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Tools.cs:línea 173
+   en TuImportas.eShop.PL.Web.SharedServices.AgregarCarrito(Int32 id_producto, String atributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\SharedServices.cs:línea 19
+Día/Hora: 02/09/2014 09:50:09 a.m.
+===========================================================================================
+Tipo: System.FormatException
+Mensaje: La cadena de entrada no tiene el formato correcto.
+Fuente: mscorlib
+StackTrace:    en System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   en System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   en System.Convert.ToInt32(String value)
+   en TuImportas.eShop.PL.Web.Tools.AñadirCarrito(Int32 idProducto, Int32 cantidad, String atributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Tools.cs:línea 158
+   en TuImportas.eShop.PL.Web.SharedServices.AgregarCarrito(Int32 id_producto, String atributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\SharedServices.cs:línea 19
+Día/Hora: 02/09/2014 11:35:02 a.m.
+===========================================================================================
+Tipo: System.FormatException
+Mensaje: La cadena de entrada no tiene el formato correcto.
+Fuente: mscorlib
+StackTrace:    en System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   en System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   en System.Convert.ToInt32(String value)
+   en TuImportas.eShop.PL.Web.SharedServices.QuitarCarrito(Int32 id_producto, String idAtributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\SharedServices.cs:línea 64
+Día/Hora: 02/09/2014 03:09:17 p.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.eshop.lnkSalir_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\eshop.Master.cs:línea 339
+Día/Hora: 02/09/2014 05:01:20 p.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.eshop.lnkSalir_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\eshop.Master.cs:línea 373
+Día/Hora: 02/09/2014 05:48:06 p.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.eshop.lnkSalir_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\eshop.Master.cs:línea 373
+Día/Hora: 02/09/2014 05:50:11 p.m.
+===========================================================================================
+Tipo: System.ArgumentOutOfRangeException
+Mensaje: StartIndex no puede ser inferior a cero.
+Nombre del parámetro: startIndex
+Fuente: mscorlib
+StackTrace:    en System.String.Remove(Int32 startIndex)
+   en TuImportas.eShop.PL.Web.usercontrol.ucProductoFiltro.SetParametros(ProductoBE objProductoBE) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\usercontrol\ucProductoFiltro.ascx.cs:línea 60
+   en TuImportas.eShop.PL.Web.Tienda.MostrarProductos(List`1 lstProductoBE) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Tienda.aspx.cs:línea 184
+   en TuImportas.eShop.PL.Web.Tienda.CargarProductos(Int32 idCategoria) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Tienda.aspx.cs:línea 161
+   en TuImportas.eShop.PL.Web.Tienda.Page_Load(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Tienda.aspx.cs:línea 30
+Día/Hora: 02/09/2014 06:00:29 p.m.
+===========================================================================================
+Tipo: System.ArgumentOutOfRangeException
+Mensaje: StartIndex no puede ser inferior a cero.
+Nombre del parámetro: startIndex
+Fuente: mscorlib
+StackTrace:    en System.String.Remove(Int32 startIndex)
+   en TuImportas.eShop.PL.Web.usercontrol.ucProductoFiltro.SetParametros(ProductoBE objProductoBE) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\usercontrol\ucProductoFiltro.ascx.cs:línea 60
+   en TuImportas.eShop.PL.Web.Tienda.MostrarProductos(List`1 lstProductoBE) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Tienda.aspx.cs:línea 184
+   en TuImportas.eShop.PL.Web.Tienda.CargarProductos(Int32 idCategoria) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Tienda.aspx.cs:línea 161
+   en TuImportas.eShop.PL.Web.Tienda.Page_Load(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Tienda.aspx.cs:línea 30
+Día/Hora: 02/09/2014 06:00:32 p.m.
+===========================================================================================
+Tipo: System.InvalidCastException
+Mensaje: No se puede convertir un objeto de tipo 'System.Web.UI.LiteralControl' al tipo 'System.Web.UI.WebControls.DropDownList'.
+Fuente: TuImportas.eShop.PL.Web
+StackTrace:    en TuImportas.eShop.PL.Web.Producto.lnkAnadir_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Producto.aspx.cs:línea 227
+Día/Hora: 03/09/2014 02:07:12 p.m.
+===========================================================================================
+Tipo: System.InvalidCastException
+Mensaje: No se puede convertir un objeto de tipo 'System.Web.UI.LiteralControl' al tipo 'System.Web.UI.WebControls.DropDownList'.
+Fuente: TuImportas.eShop.PL.Web
+StackTrace:    en TuImportas.eShop.PL.Web.Producto.lnkAnadir_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Producto.aspx.cs:línea 227
+Día/Hora: 03/09/2014 02:07:20 p.m.
+===========================================================================================
+Tipo: System.ArgumentOutOfRangeException
+Mensaje: El índice estaba fuera del intervalo. Debe ser un valor no negativo e inferior al tamaño de la colección.
+Nombre del parámetro: index
+Fuente: mscorlib
+StackTrace:    en System.ThrowHelper.ThrowArgumentOutOfRangeException()
+   en System.Collections.Generic.List`1.get_Item(Int32 index)
+   en TuImportas.eShop.PL.Web.Producto.CargarAtributos(ProductoBE objProductoBE) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Producto.aspx.cs:línea 194
+   en TuImportas.eShop.PL.Web.Producto.CargarProducto() en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Producto.aspx.cs:línea 162
+   en TuImportas.eShop.PL.Web.Producto.Page_Load(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Producto.aspx.cs:línea 34
+Día/Hora: 03/09/2014 02:33:16 p.m.
+===========================================================================================
+Tipo: System.ArgumentOutOfRangeException
+Mensaje: El índice estaba fuera del intervalo. Debe ser un valor no negativo e inferior al tamaño de la colección.
+Nombre del parámetro: index
+Fuente: mscorlib
+StackTrace:    en System.ThrowHelper.ThrowArgumentOutOfRangeException()
+   en System.Collections.Generic.List`1.get_Item(Int32 index)
+   en TuImportas.eShop.PL.Web.Producto.CargarAtributos(ProductoBE objProductoBE) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Producto.aspx.cs:línea 194
+   en TuImportas.eShop.PL.Web.Producto.CargarProducto() en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Producto.aspx.cs:línea 162
+   en TuImportas.eShop.PL.Web.Producto.Page_Load(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Producto.aspx.cs:línea 34
+Día/Hora: 03/09/2014 02:33:26 p.m.
+===========================================================================================
+Tipo: System.FormatException
+Mensaje: La cadena de entrada no tiene el formato correcto.
+Fuente: mscorlib
+StackTrace:    en System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   en System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   en System.Convert.ToInt32(String value)
+   en TuImportas.eShop.PL.Web.Comprar_Paso1.Continuar(String lstColor, String lstCantidad) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso1.aspx.cs:línea 175
+Día/Hora: 03/09/2014 03:36:03 p.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso2.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso2.aspx.cs:línea 243
+Día/Hora: 03/09/2014 03:40:47 p.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso2.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso2.aspx.cs:línea 243
+Día/Hora: 03/09/2014 04:01:19 p.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso2.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso2.aspx.cs:línea 243
+Día/Hora: 03/09/2014 04:16:54 p.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso2.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso2.aspx.cs:línea 243
+Día/Hora: 03/09/2014 04:57:40 p.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso2.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso2.aspx.cs:línea 243
+Día/Hora: 03/09/2014 05:05:48 p.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso2.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso2.aspx.cs:línea 243
+Día/Hora: 03/09/2014 05:07:47 p.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso2.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso2.aspx.cs:línea 243
+Día/Hora: 03/09/2014 11:07:14 p.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso4.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso4.aspx.cs:línea 147
+Día/Hora: 03/09/2014 11:07:29 p.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso2.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso2.aspx.cs:línea 243
+Día/Hora: 03/09/2014 11:13:01 p.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso4.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso4.aspx.cs:línea 147
+Día/Hora: 03/09/2014 11:13:14 p.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso2.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso2.aspx.cs:línea 243
+Día/Hora: 03/09/2014 11:22:13 p.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso4.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso4.aspx.cs:línea 147
+Día/Hora: 03/09/2014 11:22:27 p.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso2.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso2.aspx.cs:línea 243
+Día/Hora: 04/09/2014 12:05:54 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso4.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso4.aspx.cs:línea 147
+Día/Hora: 04/09/2014 12:06:03 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso2.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso2.aspx.cs:línea 243
+Día/Hora: 04/09/2014 12:08:01 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso4.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso4.aspx.cs:línea 147
+Día/Hora: 04/09/2014 12:08:11 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso2.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso2.aspx.cs:línea 243
+Día/Hora: 04/09/2014 12:55:32 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso2.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso2.aspx.cs:línea 243
+Día/Hora: 04/09/2014 12:56:01 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.eshop.lnkSalir_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\eshop.Master.cs:línea 373
+Día/Hora: 04/09/2014 12:56:19 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso2.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso2.aspx.cs:línea 243
+Día/Hora: 04/09/2014 12:56:44 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso2.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso2.aspx.cs:línea 243
+Día/Hora: 04/09/2014 01:40:13 a.m.
+===========================================================================================
+Tipo: System.Data.SqlClient.SqlException
+Mensaje: The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Carrito_Producto_Carrito". The conflict occurred in database "TuImportasShop", table "dbo.Carrito", column 'id_carrito'.
+The statement has been terminated.
+Fuente: .Net SqlClient Data Provider
+StackTrace:    en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteScalar()
+   en TuImportas.eShop.DL.DALC.Carrito_ProductoDALC.Insert_Carrito_Producto(Carrito_ProductoBE objCarrito_ProductoBE) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.DL.DALC\Carrito_ProductoDALC.cs:línea 49
+   en TuImportas.eShop.BL.BC.Carrito_ProductoBC.Insert_Carrito_Producto_Completo(Carrito_ProductoBE objCarrito_ProductoBE) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.BL.BC\Carrito_ProductoBC.cs:línea 45
+   en TuImportas.eShop.PL.Web.Tools.AñadirCarrito(Int32 idProducto, Int32 cantidad, String atributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Tools.cs:línea 159
+   en TuImportas.eShop.PL.Web.SharedServices.AgregarCarrito(Int32 id_producto, String atributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\SharedServices.cs:línea 19
+Día/Hora: 04/09/2014 02:22:53 a.m.
+===========================================================================================
+Tipo: System.Data.SqlClient.SqlException
+Mensaje: The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Carrito_Producto_Carrito". The conflict occurred in database "TuImportasShop", table "dbo.Carrito", column 'id_carrito'.
+The statement has been terminated.
+Fuente: .Net SqlClient Data Provider
+StackTrace:    en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteScalar()
+   en TuImportas.eShop.DL.DALC.Carrito_ProductoDALC.Insert_Carrito_Producto(Carrito_ProductoBE objCarrito_ProductoBE) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.DL.DALC\Carrito_ProductoDALC.cs:línea 49
+   en TuImportas.eShop.BL.BC.Carrito_ProductoBC.Insert_Carrito_Producto_Completo(Carrito_ProductoBE objCarrito_ProductoBE) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.BL.BC\Carrito_ProductoBC.cs:línea 45
+   en TuImportas.eShop.PL.Web.Tools.AñadirCarrito(Int32 idProducto, Int32 cantidad, String atributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Tools.cs:línea 159
+   en TuImportas.eShop.PL.Web.SharedServices.AgregarCarrito(Int32 id_producto, String atributos) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\SharedServices.cs:línea 19
+Día/Hora: 04/09/2014 02:24:43 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso2.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso2.aspx.cs:línea 243
+Día/Hora: 04/09/2014 02:42:54 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso4.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso4.aspx.cs:línea 147
+Día/Hora: 04/09/2014 02:43:10 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso2.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso2.aspx.cs:línea 243
+Día/Hora: 04/09/2014 02:48:57 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso4.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso4.aspx.cs:línea 147
+Día/Hora: 04/09/2014 02:49:23 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso2.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso2.aspx.cs:línea 243
+Día/Hora: 04/09/2014 03:09:23 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso4.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso4.aspx.cs:línea 147
+Día/Hora: 04/09/2014 03:09:53 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso2.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso2.aspx.cs:línea 243
+Día/Hora: 04/09/2014 10:19:19 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso2.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso2.aspx.cs:línea 243
+Día/Hora: 04/09/2014 10:20:57 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso4.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso4.aspx.cs:línea 147
+Día/Hora: 04/09/2014 10:21:09 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso2.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso2.aspx.cs:línea 243
+Día/Hora: 04/09/2014 10:26:09 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso4.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso4.aspx.cs:línea 147
+Día/Hora: 04/09/2014 10:26:36 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso2.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso2.aspx.cs:línea 243
+Día/Hora: 04/09/2014 10:33:11 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso4.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso4.aspx.cs:línea 147
+Día/Hora: 04/09/2014 10:33:26 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso2.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso2.aspx.cs:línea 243
+Día/Hora: 04/09/2014 10:35:42 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso4.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso4.aspx.cs:línea 147
+Día/Hora: 04/09/2014 10:35:54 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso2.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso2.aspx.cs:línea 243
+Día/Hora: 04/09/2014 10:53:44 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso4.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso4.aspx.cs:línea 147
+Día/Hora: 04/09/2014 10:53:59 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso4.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso4.aspx.cs:línea 147
+Día/Hora: 04/09/2014 10:54:42 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso2.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso2.aspx.cs:línea 243
+Día/Hora: 04/09/2014 10:55:03 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso4.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso4.aspx.cs:línea 147
+Día/Hora: 04/09/2014 10:55:12 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Comprar_Paso4.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso4.aspx.cs:línea 147
+Día/Hora: 04/09/2014 10:56:36 a.m.
+===========================================================================================
+Tipo: System.Data.SqlClient.SqlException
+Mensaje: Invalid column name 'color'.
+Fuente: .Net SqlClient Data Provider
+StackTrace:    en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader()
+   en TuImportas.eShop.DL.DALC.PedidoDALC.Get_Pedido_Completo(Int32 idPedido) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.DL.DALC\PedidoDALC.cs:línea 513
+   en TuImportas.eShop.BL.BC.PedidoBC.Get_Pedido_Completo(Int32 idPedido) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.BL.BC\PedidoBC.cs:línea 142
+   en TuImportas.eShop.PL.Web.Cuenta.VerOrden(Int32 idOrden) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Cuenta.aspx.cs:línea 548
+Día/Hora: 04/09/2014 11:11:37 a.m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Tools.EstaLogueado() en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Tools.cs:línea 268
+   en TuImportas.eShop.PL.Web.Cuenta.Page_Load(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Cuenta.aspx.cs:línea 28
+Día/Hora: 04/09/2014 03:25:14 p.m.
+===========================================================================================
+Tipo: System.ArgumentOutOfRangeException
+Mensaje: El argumento especificado está fuera del intervalo de valores válidos.
+Nombre del parámetro: index
+Fuente: System.Web
+StackTrace:    en System.Web.UI.ControlCollection.AddAt(Int32 index, Control child)
+   en TuImportas.eShop.PL.Web.Producto.CargarAtributos(ProductoBE objProductoBE) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Producto.aspx.cs:línea 194
+   en TuImportas.eShop.PL.Web.Producto.CargarProducto() en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Producto.aspx.cs:línea 162
+   en TuImportas.eShop.PL.Web.Producto.Page_Load(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Producto.aspx.cs:línea 34
+Día/Hora: 04/09/2014 08:37:20 p.m.
+===========================================================================================

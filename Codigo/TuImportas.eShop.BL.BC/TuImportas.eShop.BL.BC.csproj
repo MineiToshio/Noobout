@@ -44,6 +44,7 @@
     <Compile Include="Boton_InicioBC.cs" />
     <Compile Include="CarritoBC.cs" />
     <Compile Include="Carrito_ProductoBC.cs" />
+    <Compile Include="Carrito_Producto_Elemento_AtributoBC.cs" />
     <Compile Include="CategoriaBC.cs" />
     <Compile Include="ColorBC.cs" />
     <Compile Include="DevolucionBC.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="PedidoBC.cs" />
     <Compile Include="Pedido_DireccionBC.cs" />
     <Compile Include="Pedido_ProductoBC.cs" />
+    <Compile Include="Pedido_Producto_Elemento_AtributoBC.cs" />
     <Compile Include="ProductoBC.cs" />
     <Compile Include="Producto_CategoriaBC.cs" />
     <Compile Include="Producto_ColorBC.cs" />

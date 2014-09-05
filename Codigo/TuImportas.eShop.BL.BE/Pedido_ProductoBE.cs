@@ -17,5 +17,12 @@ namespace TuImportas.eShop.BL.BE
         public string Color { get; set; }
         public string Nombre { get; set; }
         public string Imagen { get; set; }
+        public int Id_Pedido_Producto { get; set; }
+        public List<Pedido_Producto_Elemento_AtributoBE> lstPedido_Producto_Elemento_AtributoBE { get; set; }
+
+        public Pedido_ProductoBE()
+        {
+            lstPedido_Producto_Elemento_AtributoBE = new List<Pedido_Producto_Elemento_AtributoBE>();
+        }
     }
 }

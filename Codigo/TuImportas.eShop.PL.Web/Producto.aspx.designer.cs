@@ -112,6 +112,15 @@ namespace TuImportas.eShop.PL.Web {
         protected global::System.Web.UI.WebControls.Label lblDescripcion;
         
         /// <summary>
+        /// pnlAtributos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlAtributos;
+        
+        /// <summary>
         /// txtCantidad control.
         /// </summary>
         /// <remarks>
@@ -119,15 +128,6 @@ namespace TuImportas.eShop.PL.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCantidad;
-        
-        /// <summary>
-        /// ddlColor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlColor;
         
         /// <summary>
         /// lnkAnadir control.

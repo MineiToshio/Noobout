@@ -159,6 +159,7 @@ namespace TuImportas.eShop.BL.BC
         {
             Pedido_DireccionBC objPedido_DireccionBC = new Pedido_DireccionBC();
             Pedido_ProductoBC objPedido_ProductoBC = new Pedido_ProductoBC();
+            Pedido_Producto_Elemento_AtributoBC objPedido_Producto_Elemento_AtributoBC = new Pedido_Producto_Elemento_AtributoBC();
 
             try
             {
@@ -173,7 +174,13 @@ namespace TuImportas.eShop.BL.BC
                 foreach (Pedido_ProductoBE pp in objPedidoBE.lstPedido_ProductoBE)
                 {
                     pp.Id_Pedido = codigo;
-                    objPedido_ProductoBC.Insert_Pedido_Producto(pp);
+                    int id_pedido_producto = objPedido_ProductoBC.Insert_Pedido_Producto(pp);
+
+                    foreach (Pedido_Producto_Elemento_AtributoBE ppe in pp.lstPedido_Producto_Elemento_AtributoBE)
+                    {
+                        ppe.Id_Pedido_Producto = id_pedido_producto;
+                        objPedido_Producto_Elemento_AtributoBC.Insert_Pedido_Producto_Elemento_Atributo(ppe);
+                    }
                 }
 
                 return codigo;

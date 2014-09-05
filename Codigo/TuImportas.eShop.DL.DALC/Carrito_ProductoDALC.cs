@@ -10,11 +10,12 @@ namespace TuImportas.eShop.DL.DALC
 {
     public class Carrito_ProductoDALC
     {
-        public void Insert_Carrito_Producto(Carrito_ProductoBE objCarrito_ProductoBE)
+        public int Insert_Carrito_Producto(Carrito_ProductoBE objCarrito_ProductoBE)
         {
             String cadena;
             String sql = "Carrito_Producto_Insert";
             SqlParameter[] arrParameters = new SqlParameter[3];
+            int codigo = 0;
 
             try
             {
@@ -36,9 +37,11 @@ namespace TuImportas.eShop.DL.DALC
 
                         cmd.Connection.Open();
 
-                        cmd.ExecuteNonQuery();
+                        codigo = Convert.ToInt32(cmd.ExecuteScalar());
                     }
                 }
+
+                return codigo;
 
             }
             catch(Exception)
@@ -51,7 +54,7 @@ namespace TuImportas.eShop.DL.DALC
         {
             String cadena;
             String sql = "Carrito_Producto_Update";
-            SqlParameter[] arrParameters = new SqlParameter[3];
+            SqlParameter[] arrParameters = new SqlParameter[2];
 
             try
             {
@@ -65,8 +68,7 @@ namespace TuImportas.eShop.DL.DALC
                         cmd.CommandType = CommandType.StoredProcedure;
 
                         arrParameters[0] = new SqlParameter("@cantidad", objCarrito_ProductoBE.Cantidad);
-                        arrParameters[1] = new SqlParameter("@id_carrito", objCarrito_ProductoBE.Id_Carrito);
-                        arrParameters[2] = new SqlParameter("@id_producto", objCarrito_ProductoBE.Id_Producto);
+                        arrParameters[1] = new SqlParameter("@id_carrito_producto", objCarrito_ProductoBE.Id_Carrito_Producto);
 
                         for (int i = 0; i < arrParameters.Length; i++)
                             cmd.Parameters.Add(arrParameters[i]);
@@ -75,42 +77,6 @@ namespace TuImportas.eShop.DL.DALC
                         cmd.ExecuteNonQuery();
                     }
                 }
-            }
-            catch(Exception)
-            {
-                throw;
-            }
-        }
-
-        public void Insert_Update_Carrito_Producto(Carrito_ProductoBE objCarrito_ProductoBE)
-        {
-            String cadena;
-            String sql = "Carrito_Producto_Insert_Update";
-            SqlParameter[] arrParameters = new SqlParameter[3];
-
-            try
-            {
-                cadena = Tool.GetCadenaConexion();
-
-                using(SqlConnection conn = new SqlConnection(cadena))
-                {
-                    using(SqlCommand cmd = conn.CreateCommand())
-                    {
-                        cmd.CommandText = sql;
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        arrParameters[0] = new SqlParameter("@cantidad", objCarrito_ProductoBE.Cantidad);
-                        arrParameters[1] = new SqlParameter("@id_carrito", objCarrito_ProductoBE.Id_Carrito);
-                        arrParameters[2] = new SqlParameter("@id_producto", objCarrito_ProductoBE.Id_Producto);
-
-                        for (int i = 0; i < arrParameters.Length; i++)
-                            cmd.Parameters.Add(arrParameters[i]);
-
-                        cmd.Connection.Open();
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-
             }
             catch(Exception)
             {
@@ -149,6 +115,7 @@ namespace TuImportas.eShop.DL.DALC
                                 objCarrito_ProductoBE.Cantidad = Convert.ToInt32(dr["cantidad"]);
                                 objCarrito_ProductoBE.Id_Carrito = Convert.ToInt32(dr["id_carrito"]);
                                 objCarrito_ProductoBE.Id_Producto = Convert.ToInt32(dr["id_producto"]);
+                                objCarrito_ProductoBE.Id_Carrito_Producto = Convert.ToInt32(dr["id_carrito_producto"]);
 
                                 lstCarrito_ProductoBE.Add(objCarrito_ProductoBE);
                             }
@@ -164,11 +131,11 @@ namespace TuImportas.eShop.DL.DALC
             }
         }
 
-        public Carrito_ProductoBE Get_Carrito_Producto(Int32 id_carrito, Int32 id_producto)
+        public Carrito_ProductoBE Get_Carrito_Producto(Int32 id_carrito_producto)
         {
             String cadena;
             String sql = "Carrito_Producto_Get";
-            SqlParameter[] arrParameters = new SqlParameter[2];
+            SqlParameter[] arrParameters = new SqlParameter[1];
             Carrito_ProductoBE objCarrito_ProductoBE = null;
 
             try
@@ -182,8 +149,7 @@ namespace TuImportas.eShop.DL.DALC
                         cmd.CommandText = sql;
                         cmd.CommandType = CommandType.StoredProcedure;
 
-                        arrParameters[0] = new SqlParameter("@id_carrito", id_carrito);
-                        arrParameters[1] = new SqlParameter("@id_producto", id_producto);
+                        arrParameters[0] = new SqlParameter("@id_carrito_producto", id_carrito_producto);
 
                         for (int i = 0; i < arrParameters.Length; i++)
                             cmd.Parameters.Add(arrParameters[i]);
@@ -198,6 +164,7 @@ namespace TuImportas.eShop.DL.DALC
                                 objCarrito_ProductoBE.Cantidad = Convert.ToInt32(dr["cantidad"]);
                                 objCarrito_ProductoBE.Id_Carrito = Convert.ToInt32(dr["id_carrito"]);
                                 objCarrito_ProductoBE.Id_Producto = Convert.ToInt32(dr["id_producto"]);
+                                objCarrito_ProductoBE.Id_Carrito_Producto = Convert.ToInt32(dr["id_carrito_producto"]);
                             }
                         }
                     }
@@ -210,11 +177,11 @@ namespace TuImportas.eShop.DL.DALC
             }
         }
 
-        public void Delete_Carrito_Producto(Int32 id_carrito, Int32 id_producto)
+        public void Delete_Carrito_Producto(Int32 idCarritoProducto)
         {
             String cadena;
             String sql = "Carrito_Producto_Delete";
-            SqlParameter[] arrParameters = new SqlParameter[2];
+            SqlParameter[] arrParameters = new SqlParameter[1];
 
             try
             {
@@ -227,8 +194,7 @@ namespace TuImportas.eShop.DL.DALC
                         cmd.CommandText = sql;
                         cmd.CommandType = CommandType.StoredProcedure;
 
-                        arrParameters[0] = new SqlParameter("@id_carrito", id_carrito);
-                        arrParameters[1] = new SqlParameter("@id_producto", id_producto);
+                        arrParameters[0] = new SqlParameter("@id_carrito_producto", idCarritoProducto);
 
                         for (int i = 0; i < arrParameters.Length; i++)
                             cmd.Parameters.Add(arrParameters[i]);

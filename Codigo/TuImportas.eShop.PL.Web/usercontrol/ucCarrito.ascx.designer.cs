@@ -31,6 +31,24 @@ namespace TuImportas.eShop.PL.Web.usercontrol {
         protected global::System.Web.UI.WebControls.Image imgProducto;
         
         /// <summary>
+        /// hdIdProducto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdIdProducto;
+        
+        /// <summary>
+        /// hdIdAtributos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdIdAtributos;
+        
+        /// <summary>
         /// lnkNombre control.
         /// </summary>
         /// <remarks>
@@ -40,6 +58,15 @@ namespace TuImportas.eShop.PL.Web.usercontrol {
         protected global::System.Web.UI.WebControls.LinkButton lnkNombre;
         
         /// <summary>
+        /// lblAtributos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAtributos;
+        
+        /// <summary>
         /// lblCantidad control.
         /// </summary>
         /// <remarks>
@@ -47,15 +74,6 @@ namespace TuImportas.eShop.PL.Web.usercontrol {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCantidad;
-        
-        /// <summary>
-        /// hdIdProducto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdIdProducto;
         
         /// <summary>
         /// lblPrecio control.

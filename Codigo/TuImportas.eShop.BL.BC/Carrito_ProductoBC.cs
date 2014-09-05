@@ -11,14 +11,37 @@ namespace TuImportas.eShop.BL.BC
     {
         Carrito_ProductoDALC objCarrito_ProductoDALC = new Carrito_ProductoDALC();
 
-        public void Insert_Carrito_Producto(Carrito_ProductoBE objCarrito_ProductoBE)
+        public int Insert_Carrito_Producto(Carrito_ProductoBE objCarrito_ProductoBE)
         {
             try
             {
-                objCarrito_ProductoDALC.Insert_Carrito_Producto(objCarrito_ProductoBE);
+                return objCarrito_ProductoDALC.Insert_Carrito_Producto(objCarrito_ProductoBE);
             }
             catch(Exception)
             {
+                throw;
+            }
+        }
+
+        public int Insert_Carrito_Producto_Completo(Carrito_ProductoBE objCarrito_ProductoBE)
+        {
+            Carrito_Producto_Elemento_AtributoBC objCarrito_Producto_Elemento_AtributoBC = new Carrito_Producto_Elemento_AtributoBC();
+
+            try
+            {
+                int id_carrito_producto = objCarrito_ProductoDALC.Insert_Carrito_Producto(objCarrito_ProductoBE);
+
+                foreach (Carrito_Producto_Elemento_AtributoBE cp in objCarrito_ProductoBE.lstCarrito_Producto_Elemento_AtributoBE)
+                {
+                    cp.Id_Carrito_Producto = id_carrito_producto;
+                    objCarrito_Producto_Elemento_AtributoBC.Insert_Carrito_Producto_Elemento_Atributo(cp);
+                }
+
+                return id_carrito_producto;
+            }
+            catch (Exception)
+            {
+                
                 throw;
             }
         }
@@ -28,18 +51,6 @@ namespace TuImportas.eShop.BL.BC
             try
             {
                 objCarrito_ProductoDALC.Update_Carrito_Producto(objCarrito_ProductoBE);
-            }
-            catch(Exception)
-            {
-                throw;
-            }
-        }
-
-        public void Insert_Update_Carrito_Producto(Carrito_ProductoBE objCarrito_ProductoBE)
-        {
-            try
-            {
-                objCarrito_ProductoDALC.Insert_Update_Carrito_Producto(objCarrito_ProductoBE);
             }
             catch(Exception)
             {
@@ -59,11 +70,11 @@ namespace TuImportas.eShop.BL.BC
             }
         }
 
-        public Carrito_ProductoBE Get_Carrito_Producto(Int32 id_carrito, Int32 id_producto)
+        public Carrito_ProductoBE Get_Carrito_Producto(Int32 id_carrito_producto)
         {
             try
             {
-                return objCarrito_ProductoDALC.Get_Carrito_Producto(id_carrito, id_producto);
+                return objCarrito_ProductoDALC.Get_Carrito_Producto(id_carrito_producto);
             }
             catch(Exception)
             {
@@ -71,11 +82,11 @@ namespace TuImportas.eShop.BL.BC
             }
         }
 
-        public void Delete_Carrito_Producto(Int32 id_carrito, Int32 id_producto)
+        public void Delete_Carrito_Producto(Int32 idCarritoProducto)
         {
             try
             {
-                objCarrito_ProductoDALC.Delete_Carrito_Producto(id_carrito, id_producto);
+                objCarrito_ProductoDALC.Delete_Carrito_Producto(idCarritoProducto);
             }
             catch(Exception)
             {

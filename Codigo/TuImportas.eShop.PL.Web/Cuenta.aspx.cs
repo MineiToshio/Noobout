@@ -53,8 +53,6 @@ namespace TuImportas.eShop.PL.Web
             {
                 List<PedidoBE> lstPedidoBE = objPedidoBC.Select_Pedido_Usuario(((UsuarioBE)Session["USUARIO"]).Id_Usuario);
 
-                
-
                 if (lstPedidoBE != null)
                 {
                     foreach (PedidoBE p in lstPedidoBE)
@@ -88,11 +86,7 @@ namespace TuImportas.eShop.PL.Web
                 ddlDepartamento.DataValueField = "CodDpto";
                 ddlDepartamento.DataTextField = "Nombre";
                 ddlDepartamento.DataBind();
-
-                ddlDepartamento.Items.Insert(0, new ListItem("Departamento", "-1"));
-                ddlDepartamento.Items[0].Attributes.Add("disabled", "disabled");
-                ddlDepartamento.Items[0].Attributes.Add("selected", "selected");
-                ddlDepartamento.Items[0].Attributes.Add("style", "display:none;");
+                Tools.DropDownPlaceHolder(ddlDepartamento, "Departamento");
             }
             catch (Exception)
             {
@@ -245,9 +239,12 @@ namespace TuImportas.eShop.PL.Web
             try
             {
                 itemCarrito += "<tr name=\"itemProducto\" id=\"trItemCarrito" + objPedido_ProductoBE.Id_Producto + "\">";
-                //itemCarrito += "<td class=\"image\"><img src=\"/images/productos/" + objPedido_ProductoBE.Imagen + "\" alt=\"\" width=\"100\" height=\"124\" /></td>";
-                itemCarrito += "<td class=\"desc\">" + objPedido_ProductoBE.Nombre + "</td>";
-                itemCarrito += "<td class=\"price\">" + objPedido_ProductoBE.Color + "</td>";
+                itemCarrito += "<td class=\"desc\" style=\"line-height: 13px;\">" + objPedido_ProductoBE.Nombre;
+                foreach (Pedido_Producto_Elemento_AtributoBE ppe in objPedido_ProductoBE.lstPedido_Producto_Elemento_AtributoBE)
+                {
+                    itemCarrito += "<br/><span style=\"font-size: 8pt;font-weight: initial;\">" + ppe.Atributo + ": " + ppe.Element + "</span>";
+                }
+                itemCarrito += "</td>";
                 itemCarrito += "<td class=\"price\">" + objPedido_ProductoBE.Cantidad + "</td>";
                 itemCarrito += "<td class=\"price\">S/. <span id=\"spanPrecio" + objPedido_ProductoBE.Id_Producto + "\">" + objPedido_ProductoBE.Precio + "</span></td>";
                 itemCarrito += "<td class=\"price\">" + (objPedido_ProductoBE.Cantidad * objPedido_ProductoBE.Precio) + "</td>";

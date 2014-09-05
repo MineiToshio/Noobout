@@ -12,13 +12,15 @@ namespace TuImportas.eShop.PL.Web
     public class SharedServices : System.Web.UI.Page
     {
         [WebMethod]
-        public static object AgregarCarrito(int id_producto)
+        public static object AgregarCarrito(int id_producto, string atributos)
         {
             try
             {
-                if (Tools.AñadirCarrito(id_producto, 1, null))
+                if (Tools.AñadirCarrito(id_producto, 1, atributos))
                 {
                     CarritoBE objCarritoBE = (CarritoBE)HttpContext.Current.Session["CARRITO"];
+
+                    //Saco una instancia del carrito que acabo de agregar
                     Carrito_ProductoBE objCarrito_ProductoBE = objCarritoBE.lstCarrito_ProductoBE[objCarritoBE.lstCarrito_ProductoBE.Count - 1];
 
                     string control = Tools.HtmlCarrito(objCarrito_ProductoBE);
@@ -36,17 +38,43 @@ namespace TuImportas.eShop.PL.Web
         }
 
         [WebMethod]
-        public static decimal QuitarCarrito(int id_producto)
+        public static decimal QuitarCarrito(int id_producto, string idAtributos)
         {
             CarritoBE objCarritoBE = null;
-            Carrito_ProductoBE objCarrito_ProductoBE = null;
+            List<Carrito_ProductoBE> lstCarrito_ProductoBE = null;
+            Carrito_ProductoBE objCarrito_ProductoBE = new Carrito_ProductoBE();
 
             try
             {
                 objCarritoBE = (CarritoBE)HttpContext.Current.Session["CARRITO"];
-                objCarrito_ProductoBE = (from c in objCarritoBE.lstCarrito_ProductoBE
+
+                lstCarrito_ProductoBE = (from c in objCarritoBE.lstCarrito_ProductoBE
                                         where c.Id_Producto == Convert.ToInt32(id_producto)
-                                        select c).ToList()[0];
+                                        select c).ToList();
+
+                foreach (Carrito_ProductoBE cp in lstCarrito_ProductoBE)
+                {
+                    string[] atributos = idAtributos.Split('_');
+                    int atributosEliminados = 0;
+
+                    foreach (Carrito_Producto_Elemento_AtributoBE cpe in cp.lstCarrito_Producto_Elemento_AtributoBE)
+                    {
+                        foreach (string s in atributos)
+                        {
+                            if (!string.IsNullOrEmpty(s) && cpe.Id_Elemento_Atributo == Convert.ToInt32(s))
+                            {
+                                atributosEliminados++;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (atributosEliminados == atributos.Length - 1)
+                    {
+                        objCarrito_ProductoBE = cp;
+                        break;
+                    }
+                }
 
                 if (objCarritoBE.lstCarrito_ProductoBE.Count == 1)
                 {
@@ -60,12 +88,6 @@ namespace TuImportas.eShop.PL.Web
                 }
                 else
                 {
-                    //objCarrito_ProductoBE = (from c in objCarritoBE.lstCarrito_ProductoBE
-                    //                         where c.Id_Producto != Convert.ToInt32(id_producto)
-                    //                         select c).ToList()[0];
-
-
-
                     objCarritoBE.lstCarrito_ProductoBE.Remove(objCarrito_ProductoBE);
 
                     objCarritoBE.Total -= objCarrito_ProductoBE.Precio * objCarrito_ProductoBE.Cantidad;
@@ -73,7 +95,7 @@ namespace TuImportas.eShop.PL.Web
                     if (HttpContext.Current.Session["USUARIO"] != null)
                     {
                         Carrito_ProductoBC objCarrito_ProductoBC = new Carrito_ProductoBC();
-                        objCarrito_ProductoBC.Delete_Carrito_Producto(objCarritoBE.Id_Carrito, Convert.ToInt32(id_producto));
+                        objCarrito_ProductoBC.Delete_Carrito_Producto(objCarrito_ProductoBE.Id_Carrito_Producto);
                     }
                 }
 
@@ -161,6 +183,25 @@ namespace TuImportas.eShop.PL.Web
                 {
                     return -1;
                 }
+            }
+            catch (Exception ex)
+            {
+                LogFile.EscribirLog(ex);
+                throw;
+            }
+        }
+
+        [WebMethod]
+        public static ProductoBE GetProducto(int id_producto)
+        {
+            ProductoBC objProductoBC = new ProductoBC();
+            ProductoBE objProductoBE = new ProductoBE();
+
+            try
+            {
+                objProductoBE = objProductoBC.Get_Producto(id_producto);
+
+                return objProductoBE;
             }
             catch (Exception ex)
             {

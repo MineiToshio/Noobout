@@ -16,66 +16,77 @@ namespace TuImportas.eShop.PL.Web.usercontrol
 
         }
 
-        protected void lnkRemoverCarrito_Click(object sender, EventArgs e)
-        {
-            CarritoBE objCarritoBE = null;
-            Carrito_ProductoBE objCarrito_ProductoBE = null;
+        //protected void lnkRemoverCarrito_Click(object sender, EventArgs e)
+        //{
+        //    CarritoBE objCarritoBE = null;
+        //    Carrito_ProductoBE objCarrito_ProductoBE = null;
 
-            try
-            {
-                objCarritoBE = (CarritoBE)Session["CARRITO"];
+        //    try
+        //    {
+        //        objCarritoBE = (CarritoBE)Session["CARRITO"];
 
-                if (objCarritoBE.lstCarrito_ProductoBE.Count == 1)
-                {
-                    objCarritoBE = new CarritoBE();
+        //        if (objCarritoBE.lstCarrito_ProductoBE.Count == 1)
+        //        {
+        //            objCarritoBE = new CarritoBE();
 
-                    if (Session["USUARIO"] != null)
-                    {
-                        CarritoBC objCarritoBC = new CarritoBC();
-                        objCarritoBC.Delete_Carrito_Total(((UsuarioBE)Session["USUARIO"]).Id_Usuario);
-                    }
-                }
-                else
-                {
-                    //objCarritoBE.lstCarrito_ProductoBE = (from c in objCarritoBE.lstCarrito_ProductoBE
-                    //                                      where c.Id_Producto != Convert.ToInt32(hdIdProducto.Value)
-                    //                                      select c).ToList();
+        //            if (Session["USUARIO"] != null)
+        //            {
+        //                CarritoBC objCarritoBC = new CarritoBC();
+        //                objCarritoBC.Delete_Carrito_Total(((UsuarioBE)Session["USUARIO"]).Id_Usuario);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            //objCarritoBE.lstCarrito_ProductoBE = (from c in objCarritoBE.lstCarrito_ProductoBE
+        //            //                                      where c.Id_Producto != Convert.ToInt32(hdIdProducto.Value)
+        //            //                                      select c).ToList();
 
-                    objCarrito_ProductoBE = (from c in objCarritoBE.lstCarrito_ProductoBE
-                                            where c.Id_Producto != Convert.ToInt32(hdIdProducto.Value)
-                                            select c).ToList()[0];
+        //            objCarrito_ProductoBE = (from c in objCarritoBE.lstCarrito_ProductoBE
+        //                                    where c.Id_Producto != Convert.ToInt32(hdIdProducto.Value)
+        //                                    select c).ToList()[0];
 
-                    objCarritoBE.lstCarrito_ProductoBE.Remove(objCarrito_ProductoBE);
+        //            objCarritoBE.lstCarrito_ProductoBE.Remove(objCarrito_ProductoBE);
 
-                    objCarritoBE.Total -= objCarrito_ProductoBE.Precio * objCarrito_ProductoBE.Cantidad; 
+        //            objCarritoBE.Total -= objCarrito_ProductoBE.Precio * objCarrito_ProductoBE.Cantidad; 
 
-                    if (Session["USUARIO"] != null)
-                    {
-                        Carrito_ProductoBC objCarrito_ProductoBC = new Carrito_ProductoBC();
-                        objCarrito_ProductoBC.Delete_Carrito_Producto(objCarritoBE.Id_Carrito, Convert.ToInt32(hdIdProducto.Value));
-                    }
-                }
+        //            if (Session["USUARIO"] != null)
+        //            {
+        //                Carrito_ProductoBC objCarrito_ProductoBC = new Carrito_ProductoBC();
+        //                objCarrito_ProductoBC.Delete_Carrito_Producto(objCarrito_ProductoBE.Id_Carrito_Producto);
+        //            }
+        //        }
 
-                Session["CARRITO"] = objCarritoBE;
+        //        Session["CARRITO"] = objCarritoBE;
 
-                eshop masterPage = (eshop)Page.Master;
-                masterPage.CargarItemsCarrito();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+        //        eshop masterPage = (eshop)Page.Master;
+        //        masterPage.CargarItemsCarrito();
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
 
         public void SetParametros(Carrito_ProductoBE objCarrito_ProductoBE)
         {
+            string idAtributos = "";
+            string atributos = "";
+
+            foreach (Carrito_Producto_Elemento_AtributoBE cp in objCarrito_ProductoBE.lstCarrito_Producto_Elemento_AtributoBE)
+            {
+                idAtributos += cp.Id_Elemento_Atributo + "_";
+                atributos += cp.Atributo + ": " + cp.Elemento + "<br/>";
+            }
+
             imgProducto.ImageUrl = "/images/productos/" + objCarrito_ProductoBE.Imagen;
             lnkNombre.PostBackUrl = "/Producto/" + objCarrito_ProductoBE.Id_Producto;
             lnkNombre.Text = objCarrito_ProductoBE.Nombre;
             hdIdProducto.Value = objCarrito_ProductoBE.Id_Producto.ToString();
             lblPrecio.Text = objCarrito_ProductoBE.Precio.ToString();
             lblCantidad.Text = objCarrito_ProductoBE.Cantidad.ToString();
-            pnlItemCart.ID = "pnlItemCart" + objCarrito_ProductoBE.Id_Producto;
+            pnlItemCart.ID = "pnlItemCart" + objCarrito_ProductoBE.Id_Producto + "_" + idAtributos;
+            hdIdAtributos.Value = idAtributos;
+            lblAtributos.Text = atributos;
         }
     }
 }

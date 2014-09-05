@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
-using System.Web;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -29,7 +28,6 @@ namespace TuImportas.eShop.PL.Web
                 if (!Page.IsPostBack)
                 {
                     ViewState["ID_PRODUCTO"] = RouteData.Values["Id_Producto"];
-                    //LlenarEmailAmigo();
                     LlenarOperadorLogistico();
                 }
 
@@ -40,11 +38,6 @@ namespace TuImportas.eShop.PL.Web
                 Tools.Error(GetType(), this, ex);
             }
         }
-
-        //private void LlenarEmailAmigo()
-        //{
-        //    //lnkEnviarAmigo.PostBackUrl = "mailto:enteryour@addresshere.com?subject=Website Name&body=Link to website, short description";
-        //}
 
         private void LlenarOperadorLogistico()
         {
@@ -144,11 +137,6 @@ namespace TuImportas.eShop.PL.Web
                 imgPrincipal.ImageUrl = "/images/productos/" + objProductoBE.lstImagen_ProductoBE[0].Nombre;
                 imgSecundario2.ImageUrl = "/images/productos/" + objProductoBE.lstImagen_ProductoBE[0].Nombre;
 
-                //if (cantidadImagenes >= 2)
-                //    imgSecundario2.ImageUrl = "/images/productos/" + objProductoBE.lstImagen_ProductoBE[0].Nombre;
-                //else
-                //    imgSecundario2.Visible = false;
-
                 if (cantidadImagenes >= 2)
                     imgSecundario3.ImageUrl = "/images/productos/" + objProductoBE.lstImagen_ProductoBE[1].Nombre;
                 else
@@ -164,20 +152,41 @@ namespace TuImportas.eShop.PL.Web
                 else
                     imgSecundario5.Visible = false;
 
-                if (objProductoBE.Escoger_Color)
-                {
-                    ddlColor.Visible = true;
-                    ddlColor.DataSource = objProductoBE.lstColorBE;
-                    ddlColor.DataValueField = "Id_Color";
-                    ddlColor.DataTextField = "Nombre";
-                    ddlColor.DataBind();
-
-                    ddlColor.Items.Insert(0, new ListItem("Escoga un Color", "-1"));
-                }
-
                 CargarRelacionados(objProductoBE.lstCategoriaBE[0].Id_Categoria, objProductoBE.Id_Producto);
 
                 LlenarOGTags(objProductoBE);
+                CargarAtributos(objProductoBE);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void CargarAtributos(ProductoBE objProductoBE)
+        {
+            DropDownList ddl = new DropDownList();
+
+            try
+            {
+                //foreach (AtributoBE a in objProductoBE.lstAtributoBE)
+                for (int i = objProductoBE.lstAtributoBE.Count - 1; i >= 0; i--)
+                {
+                    ddl = new DropDownList();
+                    ddl.ID = "ddlAtributo" + objProductoBE.lstAtributoBE[i].Id_Atributo;
+                    ddl.DataSource = (from ea in objProductoBE.lstElemento_AtributoBE where ea.Id_Atributo == objProductoBE.lstAtributoBE[i].Id_Atributo select ea).ToList();
+                    ddl.DataTextField = "Nombre";
+                    ddl.DataValueField = "Id_Elemento_Atributo";
+                    ddl.DataBind();
+                    ddl.Width = 186;
+                    ddl.Style.Add("margin-left", "15px");
+                    ddl.Style.Add("margin-bottom", "8px");
+                    ddl.CssClass = "validate[required]";
+
+                    Tools.DropDownPlaceHolder(ddl, objProductoBE.lstAtributoBE[i].Nombre);
+
+                    pnlAtributos.Controls.AddAt(3, ddl);
+                }
             }
             catch (Exception)
             {
@@ -214,7 +223,18 @@ namespace TuImportas.eShop.PL.Web
         {
             try
             {
-                if (Tools.AñadirCarrito(Convert.ToInt32(ViewState["ID_PRODUCTO"]), Convert.ToInt32(txtCantidad.Text), Convert.ToInt32(ddlColor.SelectedIndex)))
+                string atributos = "";
+
+                foreach (Control control in pnlAtributos.Controls)
+                {
+                    if (control is DropDownList)
+                    {
+                        DropDownList ddl = (DropDownList)control;
+                        atributos += ddl.Items[0].Text + "," + ddl.SelectedItem.Text + "," + ddl.SelectedValue + "|";
+                    }
+                }
+
+                if (Tools.AñadirCarrito(Convert.ToInt32(ViewState["ID_PRODUCTO"]), Convert.ToInt32(txtCantidad.Text), atributos))
                 {
                     eshop masterPage = (eshop)Page.Master;
                     masterPage.CargarItemsCarrito();

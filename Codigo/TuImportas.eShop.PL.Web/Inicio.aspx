@@ -8,43 +8,7 @@
     <!--  ==========  -->
     <div class="fullwidthbanner-container">
         <div class="fullwidthbanner">
-            <ul id="ulSlider" runat="server">
-                <%--<li data-transition="premium-random" data-slotamount="3">
-                    <img src="/images/sliders/1.jpg" alt="slider img" width="1400" height="377" />
-                    <div class="caption lfb ltb"
-                        data-x="800"
-                        data-y="50"
-                        data-speed="1000"
-                        data-start="1000"
-                        data-easing="easeInOutCubic">
-                        <img src="/images/sliders/img1.png" alt="woman" width="361" height="374" />
-                    </div>
-                    <div class="caption lfl big_theme"
-                        data-x="120"
-                        data-y="120"
-                        data-speed="1000"
-                        data-start="500"
-                        data-easing="easeInOutBack">
-                        Slider Revolution
-                    </div>
-                    <div class="caption lfl small_theme"
-                        data-x="120"
-                        data-y="190"
-                        data-speed="1000"
-                        data-start="700"
-                        data-easing="easeInOutBack">
-                        This premium slider comes with the theme, as a bonus, for FREE!
-                    </div>
-                    <a href="features.html" class="caption lfl btn btn-primary btn_theme"
-                        data-x="120"
-                        data-y="260"
-                        data-speed="1000"
-                        data-start="900"
-                        data-easing="easeInOutBack">
-                        AND MANY MORE ...
-                    </a>
-                </li>--%>
-            </ul>
+            <ul id="ulSlider" runat="server"></ul>
             <div class="tp-bannertimer"></div>
         </div>
         <!--  ==========  -->

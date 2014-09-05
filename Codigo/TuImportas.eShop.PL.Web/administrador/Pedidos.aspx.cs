@@ -115,8 +115,12 @@ namespace TuImportas.eShop.PL.Web.administrador
             {
                 itemCarrito += "<tr name=\"itemProducto\" id=\"trItemCarrito" + objPedido_ProductoBE.Id_Producto + "\">";
                 //itemCarrito += "<td class=\"image\"><img src=\"/images/productos/" + objPedido_ProductoBE.Imagen + "\" alt=\"\" width=\"100\" height=\"124\" /></td>";
-                itemCarrito += "<td class=\"desc\">" + objPedido_ProductoBE.Nombre + "</td>";
-                itemCarrito += "<td class=\"price\">" + objPedido_ProductoBE.Color + "</td>";
+                itemCarrito += "<td class=\"desc\" style=\"line-height: 13px;\"><span style=\"font-size:14px;\">" + objPedido_ProductoBE.Nombre + "</span>";
+                foreach (Pedido_Producto_Elemento_AtributoBE ppe in objPedido_ProductoBE.lstPedido_Producto_Elemento_AtributoBE)
+                {
+                    itemCarrito += "<br/><span style=\"font-size: 8pt;font-weight: initial;\">" + ppe.Atributo + ": " + ppe.Element + "</span>";
+                }
+                itemCarrito += "</td>";
                 itemCarrito += "<td class=\"price\">" + objPedido_ProductoBE.Cantidad + "</td>";
                 itemCarrito += "<td class=\"price\">S/. <span id=\"spanPrecio" + objPedido_ProductoBE.Id_Producto + "\">" + objPedido_ProductoBE.Precio + "</span></td>";
                 itemCarrito += "<td class=\"price\">" + (objPedido_ProductoBE.Cantidad * objPedido_ProductoBE.Precio) + "</td>";

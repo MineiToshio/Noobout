@@ -73,14 +73,14 @@
                         <!--  ==========  -->
                         <!--  = Color filter =  -->
                         <!--  ==========  -->
-                        <div class="accordion-group">
+                        <%--<div class="accordion-group">
                             <div class="accordion-heading">
                                 <a class="accordion-toggle collapsed" data-toggle="collapse" href="#filterThree">Color <b class="caret"></b></a>
                             </div>
                             <div id="filterThree" class="accordion-body collapse">
                                 <asp:Panel runat="server" ID="pnlColor" class="accordion-inner"></asp:Panel>
                             </div>
-                        </div> <!-- /color filter -->
+                        </div>--%> <!-- /color filter -->
 
                         <a href="#" class="remove-filter" id="removeFilters"><span class="icon-ban-circle"></span> Remover Filtros</a>
 

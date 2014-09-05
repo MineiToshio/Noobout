@@ -426,6 +426,7 @@ namespace TuImportas.eShop.DL.DALC
             PedidoBE objPedidoBE = null;
             Pedido_DireccionBE objPedido_DireccionBE = null;
             Pedido_ProductoBE objPedido_ProductoBE = null;
+            Pedido_Producto_Elemento_AtributoBE objPedido_Producto_Elemento_AtributoBE = null;
             SqlParameter[] arrParameters = new SqlParameter[1];
 
             try
@@ -496,11 +497,31 @@ namespace TuImportas.eShop.DL.DALC
                                 objPedido_ProductoBE.Id_Producto = Convert.ToInt32(dr["id_producto"]);
                                 objPedido_ProductoBE.Precio = Convert.ToDecimal(dr["precio"]);
                                 objPedido_ProductoBE.Cantidad = Convert.ToInt32(dr["cantidad"]);
-                                objPedido_ProductoBE.Color = dr["color"].ToString();
                                 objPedido_ProductoBE.Nombre = dr["nombre"].ToString();
                                 objPedido_ProductoBE.Imagen = dr["nombre_imagen"].ToString();
+                                objPedido_ProductoBE.Id_Pedido_Producto = Convert.ToInt32(dr["id_pedido_producto"]);
 
                                 objPedidoBE.lstPedido_ProductoBE.Add(objPedido_ProductoBE);
+                            }
+
+                            dr.NextResult();
+
+                            while (dr.Read())
+                            {
+                                objPedido_Producto_Elemento_AtributoBE = new Pedido_Producto_Elemento_AtributoBE();
+                                objPedido_Producto_Elemento_AtributoBE.Atributo = dr["atributo"].ToString();
+                                objPedido_Producto_Elemento_AtributoBE.Element = dr["element"].ToString();
+                                objPedido_Producto_Elemento_AtributoBE.Id_Pedido_Producto = Convert.ToInt32(dr["id_pedido_producto"]);
+                                objPedido_Producto_Elemento_AtributoBE.Id_Pedido_Producto_Elemento_Atributo = Convert.ToInt32(dr["id_pedido_producto_elemento_atributo"]);
+
+                                foreach (Pedido_ProductoBE pp in objPedidoBE.lstPedido_ProductoBE)
+                                {
+                                    if (objPedido_Producto_Elemento_AtributoBE.Id_Pedido_Producto == pp.Id_Pedido_Producto)
+                                    {
+                                        pp.lstPedido_Producto_Elemento_AtributoBE.Add(objPedido_Producto_Elemento_AtributoBE);
+                                        break;
+                                    }
+                                }
                             }
                         }
                     }
@@ -592,7 +613,6 @@ namespace TuImportas.eShop.DL.DALC
                                 objPedido_ProductoBE.Id_Producto = Convert.ToInt32(dr["id_producto"]);
                                 objPedido_ProductoBE.Precio = Convert.ToDecimal(dr["precio"]);
                                 objPedido_ProductoBE.Cantidad = Convert.ToInt32(dr["cantidad"]);
-                                objPedido_ProductoBE.Color = dr["color"].ToString();
                                 objPedido_ProductoBE.Nombre = dr["nombre"].ToString();
                                 objPedido_ProductoBE.Imagen = dr["nombre_imagen"].ToString();
 

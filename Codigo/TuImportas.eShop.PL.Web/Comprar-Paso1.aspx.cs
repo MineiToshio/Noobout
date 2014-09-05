@@ -57,13 +57,13 @@ namespace TuImportas.eShop.PL.Web
                     for (int i = objCarritoBE.lstCarrito_ProductoBE.Count - 1; i >= 0; i--)
                     {
                         Label lblCarrito = new Label();
-                        List<Producto_ColorBE> lstProducto_ColorAuxBE = new List<Producto_ColorBE>();
+                        //List<Producto_ColorBE> lstProducto_ColorAuxBE = new List<Producto_ColorBE>();
 
-                        lstProducto_ColorAuxBE = (from c in lstProducto_ColorBE
-                                                  where c.Id_Producto == objCarritoBE.lstCarrito_ProductoBE[i].Id_Producto
-                                                  select c).ToList();
+                        //lstProducto_ColorAuxBE = (from c in lstProducto_ColorBE
+                        //                          where c.Id_Producto == objCarritoBE.lstCarrito_ProductoBE[i].Id_Producto
+                        //                          select c).ToList();
 
-                        lblCarrito.Text = GetCarritoItem(objCarritoBE.lstCarrito_ProductoBE[i], lstProducto_ColorAuxBE);
+                        lblCarrito.Text = GetCarritoItem(objCarritoBE.lstCarrito_ProductoBE[i]);
 
                         bodyCarrito.Controls.AddAt(0, lblCarrito);
 
@@ -101,30 +101,42 @@ namespace TuImportas.eShop.PL.Web
             }
         }
 
-        private string GetCarritoItem(Carrito_ProductoBE objCarrito_ProductoBE, List<Producto_ColorBE> lstProducto_ColorBE)
+        private string GetCarritoItem(Carrito_ProductoBE objCarrito_ProductoBE)
         {
             string itemCarrito = "";
+            string idAtributos = "";
+            string atributos = "";
 
             try
             {
-                itemCarrito += "<tr id=\"trItemCarrito" + objCarrito_ProductoBE.Id_Producto + "\">";
-                itemCarrito += "<td class=\"image\"><img src=\"/images/productos/" + objCarrito_ProductoBE.Imagen + "\" alt=\"\" width=\"100\" height=\"124\" /></td>";
-                itemCarrito += "<td class=\"desc\">" + objCarrito_ProductoBE.Nombre + " <a title=\"Remove Item\" class=\"icon-remover\" href=\"#\" onclick=\"RemoverShopCarrito(" + objCarrito_ProductoBE.Id_Producto + ")\"></a></td>";
-                itemCarrito += "<td>";
-                if (lstProducto_ColorBE != null)
+                foreach (Carrito_Producto_Elemento_AtributoBE cpe in objCarrito_ProductoBE.lstCarrito_Producto_Elemento_AtributoBE)
                 {
-
-                    itemCarrito += "<select name=\"ddlColor\" id=\"ddlColor" + objCarrito_ProductoBE.Id_Producto + "\" class=\"span2 validate[required]\">";
-                    itemCarrito += "<option value=\"-1\" disabled=\"disabled\" " + (objCarrito_ProductoBE.Id_Color == null ? "selected=\"selected\"" : "") + " style=\"display:none;\">Elija un Color</option>";
-                    foreach (Producto_ColorBE pc in lstProducto_ColorBE)
-                    {
-                        itemCarrito += "<option value=\"" + pc.Id_Color + "\" " + (objCarrito_ProductoBE.Id_Color == pc.Id_Color ? "selected=\"selected\"" : "") + ">" + pc.Color + "</option>";
-                    }
-                    itemCarrito += "</select>";
+                    idAtributos += cpe.Id_Elemento_Atributo + "_";
+                    atributos += "<br/><span class=\"compra-atributos\">" + cpe.Atributo + ": " + cpe.Elemento + "</span>";
                 }
+
+                itemCarrito += "<tr id=\"trItemCarrito" + objCarrito_ProductoBE.Id_Producto + "_" + idAtributos + "\">";
+                itemCarrito += "<td class=\"image\"><img src=\"/images/productos/" + objCarrito_ProductoBE.Imagen + "\" alt=\"\" width=\"100\" height=\"124\" /></td>";
+                itemCarrito += "<td class=\"desc\">";
+                itemCarrito += objCarrito_ProductoBE.Nombre + " <a title=\"Remove Item\" class=\"icon-remover\" href=\"#\" onclick=\"RemoverShopCarrito(" + objCarrito_ProductoBE.Id_Producto + ",'" + idAtributos + "')\"></a>";
+                itemCarrito += atributos;
                 itemCarrito += "</td>";
-                itemCarrito += "<td class=\"qty\"><input type=\"text\" maxlength=\"2\" class=\"tiny-size positive-integer validate[required]\" name=\"inputCantidad\" id=\"inputCantidad" + objCarrito_ProductoBE.Id_Producto + "\" value=\"" + objCarrito_ProductoBE.Cantidad + "\" onkeyup=\"CalcularSubtotal()\" /></td>";
-                itemCarrito += "<td class=\"price\">S/. <span id=\"spanPrecio" + objCarrito_ProductoBE.Id_Producto + "\">" + objCarrito_ProductoBE.Precio + "</span></td>";
+                //itemCarrito += "<td>";
+                //if (lstProducto_ColorBE != null)
+                //{
+
+                //    itemCarrito += "<select name=\"ddlColor\" id=\"ddlColor" + objCarrito_ProductoBE.Id_Producto + "\" class=\"span2 validate[required]\">";
+                //    itemCarrito += "<option value=\"-1\" disabled=\"disabled\" " + (objCarrito_ProductoBE.Id_Color == null ? "selected=\"selected\"" : "") + " style=\"display:none;\">Elija un Color</option>";
+                //    foreach (Producto_ColorBE pc in lstProducto_ColorBE)
+                //    {
+                //        itemCarrito += "<option value=\"" + pc.Id_Color + "\" " + (objCarrito_ProductoBE.Id_Color == pc.Id_Color ? "selected=\"selected\"" : "") + ">" + pc.Color + "</option>";
+                //    }
+                //    itemCarrito += "</select>";
+                //}
+                //itemCarrito += "</td>";
+                itemCarrito += "<td class=\"qty\"><input type=\"text\" maxlength=\"2\" class=\"tiny-size positive-integer validate[required]\" name=\"inputCantidad\" id=\"inputCantidad" + objCarrito_ProductoBE.Id_Carrito_Producto + "\" value=\"" + objCarrito_ProductoBE.Cantidad + "\" onkeyup=\"CalcularSubtotal()\" /></td>";
+                itemCarrito += "<td class=\"price\">S/. <span id=\"spanPrecio" + objCarrito_ProductoBE.Id_Carrito_Producto + "\">" + objCarrito_ProductoBE.Precio + "</span></td>";
+                itemCarrito += "<td class=\"price\">S/. <span id=\"spanTotal" + objCarrito_ProductoBE.Id_Carrito_Producto + "\">" + objCarrito_ProductoBE.Precio * objCarrito_ProductoBE.Cantidad + "</span></td>";
                 itemCarrito += "</tr>";
 
                 return itemCarrito;
@@ -137,7 +149,7 @@ namespace TuImportas.eShop.PL.Web
         }
 
         [WebMethod]
-        public static int Continuar(String lstColor, String lstCantidad)
+        public static int Continuar(String lstCantidad)
         {
             try
             {
@@ -147,25 +159,21 @@ namespace TuImportas.eShop.PL.Web
 
                     if (objCarritoBE.lstCarrito_ProductoBE != null && objCarritoBE.lstCarrito_ProductoBE.Count != 0)
                     {
-                        lstColor = lstColor.Remove(lstColor.Length - 1);
+                        
                         lstCantidad = lstCantidad.Remove(lstCantidad.Length - 1);
 
                         String[] cantidades = lstCantidad.Split('|');
-                        String[] colores = lstColor.Split('|');
 
                         for (int i = 0; i < cantidades.Length; i++)
                         {
                             string[] cantidad = cantidades[i].Split(',');
-                            string[] color = colores[i].Split(',');
-                            int id_producto = Convert.ToInt32(cantidad[0]);
+                            int id_carrito_producto = Convert.ToInt32(cantidad[0]);
 
                             for (int j = 0; j < objCarritoBE.lstCarrito_ProductoBE.Count; j++)
                             {
-                                if (objCarritoBE.lstCarrito_ProductoBE[j].Id_Producto == id_producto)
+                                if (objCarritoBE.lstCarrito_ProductoBE[j].Id_Carrito_Producto == id_carrito_producto)
                                 {
                                     objCarritoBE.lstCarrito_ProductoBE[j].Cantidad = Convert.ToInt32(cantidad[1]);
-                                    objCarritoBE.lstCarrito_ProductoBE[j].Id_Color = Convert.ToInt32(color[1]);
-                                    objCarritoBE.lstCarrito_ProductoBE[j].Color = color[2];
                                     break;
                                 }
                             }

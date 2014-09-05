@@ -281,24 +281,58 @@ namespace TuImportas.eShop.PL.Web
                     CarritoBE objCarritoSessionBE = (CarritoBE)Session["CARRITO"];
                     Carrito_ProductoBC objCarrito_ProductoBC = new Carrito_ProductoBC();
 
-                    if (objCarritoBE == null)
+                    if (objCarritoBE == null) //Si el usuario no tiene productos en el carrito
                     {
                         objCarritoBE = new CarritoBE();
                         objCarritoBE.Id_Usuario = objUsuarioBE.Id_Usuario;
                         objCarritoBE.Id_Carrito = objCarritoBC.Insert_Carrito(objCarritoBE);
                     }
 
+                    //Se obtiene una lista de los productos en sesion que no han sido agregados a BD
                     foreach (Carrito_ProductoBE cp in objCarritoBE.lstCarrito_ProductoBE)
                     {
-                        objCarritoSessionBE.lstCarrito_ProductoBE = (from c in objCarritoSessionBE.lstCarrito_ProductoBE
-                                                                     where c.Id_Producto != cp.Id_Producto
-                                                                     select c).ToList();
+                        if (cp.lstCarrito_Producto_Elemento_AtributoBE.Count == 0) //Si no tiene atributos
+                        {
+                            objCarritoSessionBE.lstCarrito_ProductoBE = (from c in objCarritoSessionBE.lstCarrito_ProductoBE
+                                                                         where c.Id_Producto != cp.Id_Producto
+                                                                         select c).ToList();
+                        }
+                        else
+                        {
+                            foreach (Carrito_ProductoBE cps in objCarritoSessionBE.lstCarrito_ProductoBE)
+                            {
+                                if (cps.Id_Producto == cp.Id_Producto)
+                                {
+                                    int cantidadAtributo = 0;
+
+                                    foreach (Carrito_Producto_Elemento_AtributoBE cpeas in cps.lstCarrito_Producto_Elemento_AtributoBE)
+                                    {
+                                        foreach (Carrito_Producto_Elemento_AtributoBE cpea in cp.lstCarrito_Producto_Elemento_AtributoBE)
+                                        {
+                                            if (cpeas.Id_Elemento_Atributo == cpea.Id_Elemento_Atributo)
+                                            {
+                                                cantidadAtributo++;
+                                                break;
+                                            }
+                                        }
+
+
+                                    }
+
+                                    if (cantidadAtributo == cps.lstCarrito_Producto_Elemento_AtributoBE.Count)
+                                    {
+                                        objCarritoSessionBE.lstCarrito_ProductoBE.Remove(cps);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
                     }
 
                     foreach (Carrito_ProductoBE cp in objCarritoSessionBE.lstCarrito_ProductoBE)
                     {
                         cp.Id_Carrito = objCarritoBE.Id_Carrito;
-                        objCarrito_ProductoBC.Insert_Carrito_Producto(cp);
+                        cp.Id_Carrito_Producto = objCarrito_ProductoBC.Insert_Carrito_Producto_Completo(cp);
                         objCarritoBE.lstCarrito_ProductoBE.Add(cp);
                     }
 

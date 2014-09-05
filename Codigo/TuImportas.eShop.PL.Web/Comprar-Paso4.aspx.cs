@@ -97,12 +97,20 @@ namespace TuImportas.eShop.PL.Web
 
             try
             {
-                itemCarrito += "<tr id=\"trItemCarrito" + objCarrito_ProductoBE.Id_Producto + "\">";
-                itemCarrito += "<td class=\"image\"><img src=\"/images/productos/" + objCarrito_ProductoBE.Imagen + "\" alt=\"\" width=\"100\" height=\"124\" /></td>";
-                itemCarrito += "<td class=\"desc\">" + objCarrito_ProductoBE.Nombre + "</td>";
-                itemCarrito += "<td class=\"price\">" + objCarrito_ProductoBE.Color + "</td>";
+                itemCarrito += "<tr id=\"trItemCarrito" + objCarrito_ProductoBE.Id_Carrito_Producto + "\">";
+                itemCarrito += "<td class=\"image\">";
+                itemCarrito += "<img src=\"/images/productos/" + objCarrito_ProductoBE.Imagen + "\" alt=\"\" width=\"100\" height=\"124\" /></td>";
+                itemCarrito += "<td class=\"desc\">";
+                itemCarrito += objCarrito_ProductoBE.Nombre;
+                foreach (Carrito_Producto_Elemento_AtributoBE cpe in objCarrito_ProductoBE.lstCarrito_Producto_Elemento_AtributoBE)
+                {
+                    itemCarrito += "<br/><span class=\"compra-atributos\">" + cpe.Atributo + ": " + cpe.Elemento + "</span>";
+                }
+                itemCarrito += "</td>";
+                //itemCarrito += "<td class=\"price\">" + objCarrito_ProductoBE.Color + "</td>";
                 itemCarrito += "<td class=\"price\">" + objCarrito_ProductoBE.Cantidad + "</td>";
-                itemCarrito += "<td class=\"price\">S/. <span id=\"spanPrecio" + objCarrito_ProductoBE.Id_Producto + "\">" + objCarrito_ProductoBE.Precio + "</span></td>";
+                itemCarrito += "<td class=\"price\">S/. <span id=\"spanPrecio" + objCarrito_ProductoBE.Id_Carrito_Producto + "\">" + objCarrito_ProductoBE.Precio + "</span></td>";
+                itemCarrito += "<td class=\"price\">S/. <span id=\"spanTotal" + objCarrito_ProductoBE.Id_Carrito_Producto + "\">" + objCarrito_ProductoBE.Precio * objCarrito_ProductoBE.Cantidad + "</span></td>";
                 itemCarrito += "</tr>";
 
                 return itemCarrito;

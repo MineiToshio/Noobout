@@ -250,7 +250,7 @@
 		</div>
 	</div>
 
-	<div id="ordenModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="ordenModalLabel" aria-hidden="true" style="width:900px;left: 27%;">
+	<div id="ordenModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="ordenModalLabel" aria-hidden="true" style="width:700px;left: 36%;">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 			<h3 id="ordenModalLabel"><span class="light">Datos de </span>Orden</h3>
@@ -285,7 +285,6 @@
 					<thead>
 						<tr>
 							<th><div class="align-center">Ítem</div></th>
-							<th><div class="align-center">Color</div></th>
 							<th><div class="align-center">Cantidad</div></th>
 							<th><div class="align-center">Precio</div></th>
 							<th><div class="align-center">Importe</div></th>
@@ -293,7 +292,7 @@
 					</thead>
 					<tbody id="bodyCarrito" runat="server">
 						<tr>
-							<td colspan="3" rowspan="3">
+							<td colspan="2" rowspan="3">
 								<table>
 									<tr>
 										<td class="negrita" style="border:0;text-align:left">Dirección<br />Envío:</td>
@@ -707,9 +706,9 @@
 					$("tr[name^='itemProducto']").remove();
 					$("#<%=bodyCarrito.ClientID %>").prepend(response.d.Productos_Texto);
 
-					$("#<%=lblFinalEnvio.ClientID%>").text(response.d.Precio_Envio)
-					$("#<%=lblFinalSubTotal.ClientID%>").text(response.d.Subtotal)
-					$("#<%=lblFinalTotal.ClientID%>").text(response.d.Total)
+				    $("#<%=lblFinalEnvio.ClientID%>").text(response.d.Precio_Envio.toFixed(2));
+				    $("#<%=lblFinalSubTotal.ClientID%>").text(response.d.Subtotal.toFixed(2));
+				    $("#<%=lblFinalTotal.ClientID%>").text(response.d.Total.toFixed(2));
 
 					$('#tdDirEnvio').text(response.d.Direccion_Envio_Texto);
 					$('#tdDirFacturacion').text(response.d.Direccion_Facturacion_Texto);

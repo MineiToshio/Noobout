@@ -97,35 +97,19 @@
 						<!--  = Add to cart form =  -->
 						<!--  ==========  -->
 						<div id="divAgregar" class="form form-inline clearfix">
-							<div class="numbered">
-								<asp:TextBox runat="server" name="num" value="1" class="tiny-size positive-integer validate[required]" ID="txtCantidad" MaxLength="2"></asp:TextBox>
-								<span class="clickable add-one icon-plus-sign-alt"></span>
-								<span class="clickable remove-one icon-minus-sign-alt"></span>
-							</div>
-							&nbsp;
-							<%--<select name="color" class="span2">
-								<option value="-1">Select Color</option>
-								<option value="blue">Blue</option>
-								<option value="orange">Orange</option>
-								<option value="black">Black</option>
-							</select>--%>
-							<asp:DropDownList runat="server" ID="ddlColor" CssClass="span2" Visible="false"></asp:DropDownList>
-							<%--&nbsp;
-							<select name="size" class="span2">
-								<option value="-1">Select Size</option>
-								<option value="XS">Extra Small</option>
-								<option value="S">Small</option>
-								<option value="M">Medium</option>
-								<option value="L">Large</option>
-								<option value="XL">Extra Large</option>
-								<option value="XXL">Huge</option>
-							</select>--%>
+							<asp:Panel runat="server" ID="pnlAtributos" CssClass="validationEngineContainer">
+								<div class="numbered" style="margin-bottom: 8px;">
+									<asp:TextBox runat="server" name="num" value="1" class="tiny-size positive-integer validate[required]" ID="txtCantidad" MaxLength="2"></asp:TextBox>
+									<span class="clickable add-one icon-plus-sign-alt"></span>
+									<span class="clickable remove-one icon-minus-sign-alt"></span>
+								</div>
+								<asp:Panel runat="server" style="display:none;"></asp:Panel>
+								<a class="btn btn-danger pull-right" onclick="ValidarAgregar()"><i class="icon-shopping-cart"></i> &nbsp; Añadir al Carrito</a>
+							</asp:Panel>
 							<asp:LinkButton runat="server" ID="lnkAnadir" class="btn btn-danger pull-right" OnClick="lnkAnadir_Click" Style="display:none;"><i class="icon-shopping-cart"></i> &nbsp; Añadir al Carrito</asp:LinkButton>
-							<a class="btn btn-danger pull-right" onclick="ValidarAgregar()"><i class="icon-shopping-cart"></i> &nbsp; Añadir al Carrito</a>
+							
 						</div>
 						<hr />
-
-						
 
 						<div class="share-item push-down-20">
 							<div class="row-fluid">
@@ -325,7 +309,7 @@
 
 		function ValidarAgregar()
 		{
-			if (!$('#<%=txtCantidad.ClientID%>').validationEngine('validate'))
+			if ($('#<%=pnlAtributos.ClientID%>').validationEngine('validate'))
 			{
 				<%= Page.ClientScript.GetPostBackEventReference(lnkAnadir, "") %>
 			}
@@ -355,6 +339,7 @@
 		$(document).ready(function () {
 			$("#twitterShare").attr('data-text', "Mira este producto de #NoobOut: " + $('#<%=lblNombre.ClientID%>').text());
 			$("#enviarAmigoModal").validationEngine({ scroll: false, autoHidePrompt: true });
+			$("#<%=pnlAtributos.ClientID%>").validationEngine({ scroll: false, autoHidePrompt: true });
 			SeleccionarMenu("");
 		});
 	</script>

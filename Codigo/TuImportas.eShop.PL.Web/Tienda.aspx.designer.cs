@@ -31,15 +31,6 @@ namespace TuImportas.eShop.PL.Web {
         protected global::System.Web.UI.WebControls.Panel pnlCategoria;
         
         /// <summary>
-        /// pnlColor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlColor;
-        
-        /// <summary>
         /// lblBusqueda control.
         /// </summary>
         /// <remarks>

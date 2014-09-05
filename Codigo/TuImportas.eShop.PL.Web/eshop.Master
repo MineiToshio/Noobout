@@ -499,6 +499,18 @@
             <center><input id="btnRecuperarPass" type="button" class="btn btn-primary input-block-level bold higher" value="RESETEAR CONTRASEÑA" onclick="RecuperarPass()" /></center>
         </div>
     </div>
+
+    <div id="atributosProductoModal" class="modal hide fade validationEngineContainer" tabindex="-1" role="dialog" aria-labelledby="atributosProductoModalLabel" aria-hidden="true"">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="atributosProductoModalLabel"><span class="light" id="spanNombreProducto"></span></h3>
+        </div>
+        <div class="modal-body" style="overflow-y:visible;text-align:center;">
+            <div id="divAtributosProducto"></div>
+            <input type="hidden" id="hdIdProductoAtrib"/>
+            <center><input id="btnAgregarCarritoAtrib" type="button" class="btn btn-primary input-block-level bold higher" value="AGREGAR" onclick="AgregarProductoAtributos()" /></center>
+        </div>
+    </div>
 </div> <!-- end of master-wrapper -->
 
 
@@ -644,7 +656,7 @@
                     Notificacion('Por favor, verifique su correo. Para volver a enviar el correo de verificación <a href=\'/Cuenta/1\'>click aquí</a>')
 
                 $("#registerModal").validationEngine({ scroll: false, autoHidePrompt:true });
-                //$("#loginModal").validationEngine();
+                $("#atributosProductoModal").validationEngine({ scroll: false, autoHidePrompt: true });
             });
 
             function EnterLogin()
@@ -662,17 +674,17 @@
                 }
             }
 
-            function QuitarCarrito(idProducto)
+            function QuitarCarrito(idProducto, idAtributos)
             {
                 $.ajax
                 ({
                     type: "POST",
                     url: pageUrl + "/QuitarCarrito",
-                    data: "{'id_producto': '" + idProducto + "'}",
+                    data: "{'id_producto': '" + idProducto + "', 'idAtributos': '" + idAtributos + "'}",
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     success: function (response) {
-                        $("#pnlItemCart" + idProducto).remove();
+                        $("#pnlItemCart" + idProducto + "_" + idAtributos).remove();
                         $("#lblSubTotalCarrito").text(Redondear(parseFloat($("#lblSubTotalCarrito").text()) - parseFloat(response.d)));
                         //$("#lblCostoCarrito").text(parseFloat($("#lblSubTotalCarrito").text()) + parseFloat($("#lblPrecioEnvio").text()));
                         $("#lblCostoCarrito").text(parseFloat($("#lblSubTotalCarrito").text()));
@@ -687,20 +699,18 @@
                 });
             }
 
-            function AgregarCarrito(idProducto) {
+            function AgregarCarrito(idProducto, atributos) {
                 $.ajax
                 ({
                     type: "POST",
                     url: pageUrl + "/AgregarCarrito",
-                    data: "{'id_producto': '" + idProducto + "'}",
+                    data: "{'id_producto': '" + idProducto + "', 'atributos': '" + atributos + "'}",
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     success: function (response) {
                         if (response.d.control != "") {
                             $("#pnlItemsCarrito").append(response.d.control);
-                            //$("#pnlCarrito").css("display", "");
                             $("#lblSubTotalCarrito").text(Redondear(parseFloat($("#lblSubTotalCarrito").text()) + parseFloat(response.d.precio)));
-                            //$("#lblCostoCarrito").text(parseFloat($("#lblSubTotalCarrito").text()) + parseFloat($("#lblPrecioEnvio").text()));
                             $("#lblCostoCarrito").text(parseFloat($("#lblSubTotalCarrito").text()));
                             $("#lblCantidadCarrito").text(parseInt($("#lblCantidadCarrito").text()) + 1);
                         }
@@ -709,6 +719,57 @@
                         MostrarError();
                     }
                 });
+            }
+
+            function PopUpAgregarCarritoAtributo(idProducto) {
+                $.ajax
+                ({
+                    type: "POST",
+                    url: pageUrl + "/GetProducto",
+                    data: "{'id_producto': '" + idProducto + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        if (response.d.lstAtributoBE.length > 0) {
+
+                            $("#spanNombreProducto").text(response.d.Nombre);
+                            $("#hdIdProductoAtrib").val(idProducto);
+                            $("#divAtributosProducto").html('');
+
+                            $.each(response.d.lstAtributoBE, function (i, atributo) {
+                                var select = $("<select class='validate[required]' id='ddlAtributo" + atributo.Id_Atributo + "' name='ddlAtributoP'/>")
+                                select.append($("<option/>").attr("value", "-1").text(atributo.Nombre).attr("disabled", "disabled").attr("selected", "selected").attr("style", "display:none;"));
+                                $.each(response.d.lstElemento_AtributoBE, function (j, elemento) {
+                                    if (atributo.Id_Atributo == elemento.Id_Atributo)
+                                        select.append($("<option/>").attr("value", elemento.Id_Elemento_Atributo).text(elemento.Nombre));
+                                })
+
+                                $("#divAtributosProducto").append(select);
+                            })
+
+                            $('#atributosProductoModal').modal('show');
+                        }
+                        else
+                            AgregarCarrito(idProducto, '');
+                    },
+                    error: function (response) {
+                        MostrarError();
+                    }
+                });
+            }
+
+            function AgregarProductoAtributos() {
+                if ($('#atributosProductoModal').validationEngine('validate')) {
+                    var atributos = '';
+
+                    $("[name=ddlAtributoP]").each(function () {
+                        atributos += $("#" + $(this).attr("id") + " option[value='-1']").text() + "," + $(this).children(':selected').text() + "," + $(this).val() + "|";
+                    });
+
+                    AgregarCarrito($("#hdIdProductoAtrib").val(), atributos);
+
+                    $('#atributosProductoModal').modal('hide');
+                }
             }
 
             function AgregarFavoritos(idProducto) {
@@ -770,10 +831,6 @@
             function MostrarError() {
                 jError('Ha ocurrido un error inesperado. Por favor, vuelva a intentar en un momento.', 'Error');
             }
-
-            //function redondear(num, decimals) {
-            //    return (Math.round((num * Math.pow(10, decimals)) + (sign * (10 / Math.pow(100, dec)))) / Math.pow(10, decimals)).toFixed(decimals);
-            //}
 
             function Redondear(num)
             {

@@ -35,8 +35,6 @@ namespace TuImportas.eShop.PL.Web
 		{ 
 			try
 			{
-				
-
 				BEWSGenCIPRequestMod1 request = new BEWSGenCIPRequestMod1();
 				string pathPublicKeyContraparte = ConfigurationManager.AppSettings["pathPublicKeyContraparte"];
 				string pathPrivateKey = ConfigurationManager.AppSettings["pathPrivateKey"];

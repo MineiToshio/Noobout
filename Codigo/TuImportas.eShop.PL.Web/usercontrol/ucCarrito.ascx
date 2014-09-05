@@ -2,17 +2,15 @@
 
 <asp:Panel runat="server" class="item-in-cart clearfix" ClientIDMode="Static" ID="pnlItemCart">
     <div class="image">
-        <asp:Image runat="server" ID="imgProducto" Width="70" Height="70" AlternateText="cart item"/>
-        <%--<img src="images/dummy/cart-items/cart-item-1.jpg" width="124" height="124" alt="cart item" />--%>
+        <asp:Image runat="server" ID="imgProducto" Width="124" AlternateText="cart item"/>
     </div>
     <div class="desc">
-        <strong><asp:LinkButton runat="server" ID="lnkNombre"></asp:LinkButton></strong>
+        <asp:HiddenField runat="server" ID="hdIdProducto" />
+        <asp:HiddenField runat="server" ID="hdIdAtributos" />
+        <strong><asp:LinkButton runat="server" ID="lnkNombre"></asp:LinkButton> <a id="lnkA" class="icon-remover" onclick="QuitarCarrito(<%=hdIdProducto.Value%>,'<%=hdIdAtributos.Value%>')" ></a></strong>
         <span class="light-clr qty">
+            <asp:Label runat="server" ID="lblAtributos"></asp:Label>
             Cantidad: <asp:Label runat="server" ID="lblCantidad"></asp:Label>
-            &nbsp;
-            <asp:HiddenField runat="server" ID="hdIdProducto" />
-            <%--<asp:LinkButton runat="server" ID="lnkRemoverCarrito" title="Remover Item" OnClick="lnkRemoverCarrito_Click" class="icon-remover"></asp:LinkButton>--%>
-            <a id="lnkA" class="icon-remover" onclick="QuitarCarrito(<%=hdIdProducto.Value%>)" ></a>
         </span>
     </div>
     <div class="price">

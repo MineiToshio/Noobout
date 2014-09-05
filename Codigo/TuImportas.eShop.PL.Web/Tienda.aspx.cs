@@ -52,7 +52,7 @@ namespace TuImportas.eShop.PL.Web
                         
                     }
 
-                    CargarFiltroColores(); 
+                    //CargarFiltroColores(); 
                 //}
             }
             catch (Exception ex)
@@ -78,37 +78,37 @@ namespace TuImportas.eShop.PL.Web
             }
         }
 
-        private void CargarFiltroColores()
-        {
-            ColorBC objColorBC = new ColorBC();
-            List<ColorBE> lstColorBE = new List<ColorBE>();
-            LinkButton lnk = new LinkButton();
-            Label lbl = new Label();
+        //private void CargarFiltroColores()
+        //{
+        //    ColorBC objColorBC = new ColorBC();
+        //    List<ColorBE> lstColorBE = new List<ColorBE>();
+        //    LinkButton lnk = new LinkButton();
+        //    Label lbl = new Label();
 
-            try
-            {
-                lstColorBE = objColorBC.Select_Color();
+        //    try
+        //    {
+        //        lstColorBE = objColorBC.Select_Color();
 
-                foreach (ColorBE c in lstColorBE)
-                {
-                    lnk = new LinkButton();
-                    lbl = new Label();
-                    lnk.Attributes.Add("data-target", c.Nombre);
-                    lnk.Attributes.Add("data-type", "color");
-                    lnk.Attributes.Add("href", "#");
-                    lnk.CssClass = "selectable detailed";
+        //        foreach (ColorBE c in lstColorBE)
+        //        {
+        //            lnk = new LinkButton();
+        //            lbl = new Label();
+        //            lnk.Attributes.Add("data-target", c.Nombre);
+        //            lnk.Attributes.Add("data-type", "color");
+        //            lnk.Attributes.Add("href", "#");
+        //            lnk.CssClass = "selectable detailed";
 
-                    lbl.Text = "<i class=\"box\"></i> " + c.Nombre;
+        //            lbl.Text = "<i class=\"box\"></i> " + c.Nombre;
 
-                    lnk.Controls.Add(lbl);
-                    pnlColor.Controls.Add(lnk);
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+        //            lnk.Controls.Add(lbl);
+        //            pnlColor.Controls.Add(lnk);
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
 
         private void CargarFiltroCategorias()
         {

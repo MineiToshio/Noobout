@@ -34,60 +34,124 @@ namespace TuImportas.eShop.PL.Web
             ScriptManager.RegisterStartupScript(control, tipo, "msg", script, true);
         }
 
-        public static bool AñadirCarrito(int idProducto, int cantidad, int? idColor)
+        public static bool ExisteProductoCarrito(int idProducto, string atributos)
+        {
+            bool existe = false;
+            int repetido = 0;
+
+            try
+            {
+                CarritoBE objCarritoBE = (CarritoBE)HttpContext.Current.Session["CARRITO"];
+
+                string[] arrAtributos = atributos.Split('|'); 
+
+                foreach(Carrito_ProductoBE cp in objCarritoBE.lstCarrito_ProductoBE)
+                {
+                    repetido = 0;
+
+                    if (cp.Id_Producto == idProducto)
+                    {
+                        if (cp.lstCarrito_Producto_Elemento_AtributoBE.Count == 0)
+                            existe = true;
+                        else
+                        {
+                            foreach (Carrito_Producto_Elemento_AtributoBE cpe in cp.lstCarrito_Producto_Elemento_AtributoBE)
+                            {
+                                foreach (string s in arrAtributos)
+                                {
+                                    if (cpe.Id_Elemento_Atributo.ToString().Equals(s))
+                                    {
+                                        repetido++;
+                                        break;
+                                    }
+                                }
+
+                                if (cp.lstCarrito_Producto_Elemento_AtributoBE.Count == repetido)
+                                {
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return existe;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public static bool AñadirCarrito(int idProducto, int cantidad, string atributos)
         {
             CarritoBE objCarritoBE;
             Carrito_ProductoBE objCarrito_ProductoBE = new Carrito_ProductoBE();
+            Carrito_Producto_Elemento_AtributoBE objCarrito_Producto_Elemento_AtributoBE = new Carrito_Producto_Elemento_AtributoBE();
             ProductoBC objProductoBC = new ProductoBC();
             ProductoBE objProductoBE = new ProductoBE();
             //decimal total = 0;
 
             try
             {
-                objCarritoBE = (CarritoBE)HttpContext.Current.Session["CARRITO"];
-
-                foreach (Carrito_ProductoBE cp in objCarritoBE.lstCarrito_ProductoBE)
+                if (!ExisteProductoCarrito(idProducto, atributos))
                 {
-                    if (cp.Id_Producto == idProducto)
+
+                    objCarritoBE = (CarritoBE)HttpContext.Current.Session["CARRITO"];
+
+                    string[] arrAtributos = atributos.Split('|');
+
+                    objProductoBE = objProductoBC.Get_Producto(idProducto);
+
+                    objCarrito_ProductoBE.Id_Producto = objProductoBE.Id_Producto;
+                    objCarrito_ProductoBE.Imagen = objProductoBE.lstImagen_ProductoBE[0].Nombre;
+                    objCarrito_ProductoBE.Nombre = objProductoBE.Nombre;
+                    objCarrito_ProductoBE.Precio = objProductoBE.Precio;
+                    objCarrito_ProductoBE.Cantidad = cantidad;
+
+                    foreach (string s in arrAtributos)
                     {
-                        return false;
+                        if (!string.IsNullOrEmpty(s))
+                        {
+                            string[] arrElemento = s.Split(','); //Atributo,Elemento,Id_Elemento
+
+                            objCarrito_Producto_Elemento_AtributoBE = new Carrito_Producto_Elemento_AtributoBE();
+                            objCarrito_Producto_Elemento_AtributoBE.Id_Elemento_Atributo = Convert.ToInt32(arrElemento[2]);
+                            objCarrito_Producto_Elemento_AtributoBE.Atributo = arrElemento[0];
+                            objCarrito_Producto_Elemento_AtributoBE.Elemento = arrElemento[1];
+                            objCarrito_ProductoBE.lstCarrito_Producto_Elemento_AtributoBE.Add(objCarrito_Producto_Elemento_AtributoBE);
+                        }
                     }
 
-                    //total += cp.Cantidad * cp.Precio;
+                    objCarritoBE.Total += cantidad * objProductoBE.Precio;
+                    
+                    if (HttpContext.Current.Session["USUARIO"] != null)
+                    {
+                        objCarritoBE.Id_Usuario = ((UsuarioBE)HttpContext.Current.Session["USUARIO"]).Id_Usuario;
+
+                        CarritoBC objCarritoBC = new CarritoBC();
+                        Carrito_ProductoBC objCarrito_ProductoBC = new Carrito_ProductoBC();
+
+                        if (objCarritoBE.lstCarrito_ProductoBE.Count == 0) //El carrito no existe
+                            objCarritoBE.Id_Carrito = objCarritoBC.Insert_Carrito(objCarritoBE);
+                        //else
+                        //    objCarritoBC.Update_Carrito(objCarritoBE);
+
+                        objCarrito_ProductoBE.Id_Carrito = objCarritoBE.Id_Carrito;
+                        objCarrito_ProductoBE.Id_Carrito_Producto = objCarrito_ProductoBC.Insert_Carrito_Producto_Completo(objCarrito_ProductoBE);
+                    }
+
+                    objCarritoBE.lstCarrito_ProductoBE.Add(objCarrito_ProductoBE);
+
+                    objCarritoBE.PasosCarrito = EtapaCompra.Compra0;
+
+                    HttpContext.Current.Session["CARRITO"] = objCarritoBE;
+
+                    return true;
                 }
-
-                objProductoBE = objProductoBC.Get_Producto(idProducto);
-
-                objCarrito_ProductoBE.Id_Producto = objProductoBE.Id_Producto;
-                objCarrito_ProductoBE.Imagen = objProductoBE.lstImagen_ProductoBE[0].Nombre;
-                objCarrito_ProductoBE.Nombre = objProductoBE.Nombre;
-                objCarrito_ProductoBE.Precio = objProductoBE.Precio;
-                objCarrito_ProductoBE.Cantidad = cantidad;
-                objCarrito_ProductoBE.Id_Color = idColor;
-                objCarritoBE.Total += cantidad * objProductoBE.Precio;
-                objCarritoBE.lstCarrito_ProductoBE.Add(objCarrito_ProductoBE);
-
-                if (HttpContext.Current.Session["USUARIO"] != null)
-                {
-                    objCarritoBE.Id_Usuario = ((UsuarioBE)HttpContext.Current.Session["USUARIO"]).Id_Usuario;
-
-                    CarritoBC objCarritoBC = new CarritoBC();
-                    Carrito_ProductoBC objCarrito_ProductoBC = new Carrito_ProductoBC();
-
-                    if (objCarritoBE.lstCarrito_ProductoBE.Count == 1) //El carrito no existe
-                        objCarritoBE.Id_Carrito = objCarritoBC.Insert_Carrito(objCarritoBE);
-                    //else
-                    //    objCarritoBC.Update_Carrito(objCarritoBE);
-
-                    objCarrito_ProductoBE.Id_Carrito = objCarritoBE.Id_Carrito;
-                    objCarrito_ProductoBC.Insert_Carrito_Producto(objCarrito_ProductoBE);
-                }
-
-                objCarritoBE.PasosCarrito = EtapaCompra.Compra0;
-
-                HttpContext.Current.Session["CARRITO"] = objCarritoBE;
-
-                return true;
+                else
+                    return false;
             }
             catch (Exception)
             {
@@ -102,17 +166,24 @@ namespace TuImportas.eShop.PL.Web
             {
                 String control = "";
 
-                control += "<div class=\"item-in-cart clearfix\" id=\"pnlItemCart" + objCarrito_ProductoBE.Id_Producto + "\">";
+                string textoAtributos = "";
+                string idAtributos = "";
+
+                foreach (Carrito_Producto_Elemento_AtributoBE cp in objCarrito_ProductoBE.lstCarrito_Producto_Elemento_AtributoBE)
+                {
+                    textoAtributos += cp.Atributo + ": " + cp.Elemento + "<br/>";
+                    idAtributos += cp.Id_Elemento_Atributo + "_";
+                }
+
+                control += "<div class=\"item-in-cart clearfix\" id=\"pnlItemCart" + objCarrito_ProductoBE.Id_Producto + "_" + idAtributos + "\">";
                 control += "<div class=\"image\">";
                 control += "<img src=\"/images/productos/" + objCarrito_ProductoBE.Imagen + "\" width=\"124\" height=\"124\" alt=\"cart item\" />";
                 control += "</div>";
                 control += "<div class=\"desc\">";
-                control += "<strong><a href=\"/Producto/" + objCarrito_ProductoBE.Id_Producto + "\">" + objCarrito_ProductoBE.Nombre + "</a></strong>";
+                control += "<strong><a href=\"/Producto/" + objCarrito_ProductoBE.Id_Producto + "\">" + objCarrito_ProductoBE.Nombre + "</a> <a href=\"#\" class=\"icon-remover\" title=\"Remover Item\" onclick=\"QuitarCarrito(" + objCarrito_ProductoBE.Id_Producto + ",'" + idAtributos + "');\"></a></strong>";
                 control += "<span class=\"light-clr qty\">";
+                control += textoAtributos;
                 control += "Cantidad: " + objCarrito_ProductoBE.Cantidad.ToString();
-                control += "&nbsp;";
-                control += "<input type=\"hidden\" name=\"country\" value=\"Norway\">";
-                control += "<a href=\"#\" class=\"icon-remover\" title=\"Remover Item\" onclick=\"QuitarCarrito(" + objCarrito_ProductoBE.Id_Producto + ");\"></a>";
                 control += "</span>";
                 control += "</div>";
                 control += "<div class=\"price\">";
@@ -250,9 +321,8 @@ namespace TuImportas.eShop.PL.Web
         public static PedidoBE LlenarPedido()
         {
             PedidoBE objPedidoBE = new PedidoBE();
-            Pedido_DireccionBC objPedidoDireccionBC = new Pedido_DireccionBC();
-            Pedido_ProductoBC objPedidoProductoBC = new Pedido_ProductoBC();
             Pedido_ProductoBE objPedidoProductoBE = new Pedido_ProductoBE();
+            Pedido_Producto_Elemento_AtributoBE objPedido_Producto_Elemento_AtributoBE = new Pedido_Producto_Elemento_AtributoBE();
 
             try
             {
@@ -292,6 +362,15 @@ namespace TuImportas.eShop.PL.Web
                     //objPedidoProductoBE.Id_Pedido = objPedidoBE.Id_Pedido;
                     objPedidoProductoBE.Id_Producto = cp.Id_Producto;
                     objPedidoProductoBE.Precio = cp.Precio;
+
+                    foreach (Carrito_Producto_Elemento_AtributoBE cpe in cp.lstCarrito_Producto_Elemento_AtributoBE)
+                    {
+                        objPedido_Producto_Elemento_AtributoBE = new Pedido_Producto_Elemento_AtributoBE();
+                        objPedido_Producto_Elemento_AtributoBE.Atributo = cpe.Atributo;
+                        objPedido_Producto_Elemento_AtributoBE.Element = cpe.Elemento;
+
+                        objPedidoProductoBE.lstPedido_Producto_Elemento_AtributoBE.Add(objPedido_Producto_Elemento_AtributoBE);
+                    }
 
                     objPedidoBE.lstPedido_ProductoBE.Add(objPedidoProductoBE);
                 }
@@ -347,6 +426,14 @@ namespace TuImportas.eShop.PL.Web
             }
 
             grid.HeaderRow.Cells[columnIndex].Controls.Add(sortImage);
+        }
+
+        public static void DropDownPlaceHolder(DropDownList ddl, string placeholder)
+        {
+            ddl.Items.Insert(0, new ListItem(placeholder, "-1"));
+            ddl.Items[0].Attributes.Add("disabled", "disabled");
+            ddl.Items[0].Attributes.Add("selected", "selected");
+            ddl.Items[0].Attributes.Add("style", "display:none;");
         }
     }
 }

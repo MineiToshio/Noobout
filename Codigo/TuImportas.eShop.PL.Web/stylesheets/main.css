@@ -1815,6 +1815,27 @@ label { font-weight: bold; color: #333333; }
 	color:white;
 }
 
+.opciones-admin {
+	border-style:dashed;
+	border-width:1px;
+	padding:15px;
+	font-size:150%;
+	color:#73BDE4;;
+	cursor:pointer;
+	font-family: 'Open Sans', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	margin:10px;
+	height:auto;
+	width:250px;
+	text-align:center;
+	vertical-align:middle;
+}
+
+.opciones-admin:hover {
+	background-color:#55b0df;
+	color:white;
+}
+
 .product-formapago {
 	font-size:7pt;
 	line-height:13px;
@@ -1856,4 +1877,9 @@ label { font-weight: bold; color: #333333; }
 	font-size: 15pt;
 	padding: 30px 5px 5px 0;
 	color:whitesmoke;
+}
+
+.compra-atributos {
+	font-weight: initial;
+	font-size: 9pt;
 }

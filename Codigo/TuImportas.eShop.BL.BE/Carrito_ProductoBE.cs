@@ -15,5 +15,12 @@ namespace TuImportas.eShop.BL.BE
         public Decimal Precio { get; set; }
         public int? Id_Color { get; set; }
         public string Color { get; set; }
+        public int Id_Carrito_Producto { get; set; }
+        public List<Carrito_Producto_Elemento_AtributoBE> lstCarrito_Producto_Elemento_AtributoBE { get; set; }
+
+        public Carrito_ProductoBE()
+        {
+            lstCarrito_Producto_Elemento_AtributoBE = new List<Carrito_Producto_Elemento_AtributoBE>();
+        }
     }
 }

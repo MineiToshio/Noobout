@@ -44,6 +44,7 @@
     <Compile Include="Boton_InicioDALC.cs" />
     <Compile Include="CarritoDALC.cs" />
     <Compile Include="Carrito_ProductoDALC.cs" />
+    <Compile Include="Carrito_Producto_Elemento_AtributoDALC.cs" />
     <Compile Include="CategoriaDALC.cs" />
     <Compile Include="ColorDALC.cs" />
     <Compile Include="DevolucionDALC.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="PedidoDALC.cs" />
     <Compile Include="Pedido_DireccionDALC.cs" />
     <Compile Include="Pedido_ProductoDALC.cs" />
+    <Compile Include="Pedido_Producto_Elemento_AtributoDALC.cs" />
     <Compile Include="ProductoDALC.cs" />
     <Compile Include="Producto_CategoriaDALC.cs" />
     <Compile Include="Producto_ColorDALC.cs" />

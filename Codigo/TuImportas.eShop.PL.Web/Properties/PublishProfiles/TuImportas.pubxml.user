@@ -16,7 +16,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/03/2014 11:53:51</publishTime>
     </File>
     <File Include="Admin.Master">
-      <publishTime>08/08/2014 15:37:51</publishTime>
+      <publishTime>08/26/2014 14:06:34</publishTime>
+    </File>
+    <File Include="administrador/Atributos.aspx">
+      <publishTime>08/21/2014 17:39:09</publishTime>
     </File>
     <File Include="administrador/Botones_Inicio.aspx">
       <publishTime>08/08/2014 14:21:11</publishTime>
@@ -33,8 +36,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="administrador/CostoEnvio.aspx">
       <publishTime>08/08/2014 14:21:11</publishTime>
     </File>
+    <File Include="administrador/Elemento_Atributo.aspx">
+      <publishTime>08/21/2014 17:19:48</publishTime>
+    </File>
     <File Include="administrador/Inicio.aspx">
-      <publishTime>08/08/2014 15:41:35</publishTime>
+      <publishTime>09/04/2014 17:56:20</publishTime>
     </File>
     <File Include="administrador/Login.aspx">
       <publishTime>06/18/2014 12:24:18</publishTime>
@@ -43,13 +49,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/08/2014 15:01:55</publishTime>
     </File>
     <File Include="administrador/Pedidos.aspx">
-      <publishTime>08/08/2014 15:13:56</publishTime>
+      <publishTime>09/04/2014 17:39:24</publishTime>
     </File>
     <File Include="administrador/Perfil.aspx">
       <publishTime>08/08/2014 14:21:11</publishTime>
     </File>
     <File Include="administrador/Producto.aspx">
-      <publishTime>08/08/2014 14:21:10</publishTime>
+      <publishTime>08/26/2014 17:34:27</publishTime>
     </File>
     <File Include="administrador/Productos.aspx">
       <publishTime>08/08/2014 15:12:40</publishTime>
@@ -694,19 +700,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/23/2014 10:05:32</publishTime>
     </File>
     <File Include="bin/TuImportas.eShop.BL.BC.dll">
-      <publishTime>08/08/2014 18:33:21</publishTime>
+      <publishTime>09/04/2014 17:58:54</publishTime>
     </File>
     <File Include="bin/TuImportas.eShop.BL.BE.dll">
-      <publishTime>08/08/2014 18:33:20</publishTime>
+      <publishTime>09/04/2014 17:58:54</publishTime>
     </File>
     <File Include="bin/TuImportas.eShop.BL.Helper.dll">
-      <publishTime>08/08/2014 18:33:20</publishTime>
+      <publishTime>09/04/2014 17:58:54</publishTime>
     </File>
     <File Include="bin/TuImportas.eShop.DL.DALC.dll">
-      <publishTime>08/08/2014 18:33:20</publishTime>
+      <publishTime>09/04/2014 17:58:54</publishTime>
     </File>
     <File Include="bin/TuImportas.eShop.PL.Web.dll">
-      <publishTime>08/08/2014 18:39:00</publishTime>
+      <publishTime>09/04/2014 17:58:55</publishTime>
     </File>
     <File Include="CImage.aspx">
       <publishTime>05/22/2014 09:56:30</publishTime>
@@ -721,7 +727,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/03/2014 11:54:01</publishTime>
     </File>
     <File Include="Comprar-Paso1.aspx">
-      <publishTime>06/03/2014 11:54:35</publishTime>
+      <publishTime>09/04/2014 01:32:50</publishTime>
     </File>
     <File Include="Comprar-Paso2.aspx">
       <publishTime>06/20/2014 14:02:43</publishTime>
@@ -730,13 +736,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/03/2014 11:54:48</publishTime>
     </File>
     <File Include="Comprar-Paso4.aspx">
-      <publishTime>06/03/2014 11:57:00</publishTime>
+      <publishTime>09/03/2014 16:18:01</publishTime>
     </File>
     <File Include="Contacto.aspx">
       <publishTime>06/03/2014 11:16:42</publishTime>
     </File>
     <File Include="Cuenta.aspx">
-      <publishTime>06/25/2014 09:49:37</publishTime>
+      <publishTime>09/04/2014 17:39:42</publishTime>
     </File>
     <File Include="default.aspx">
       <publishTime>05/28/2014 14:52:07</publishTime>
@@ -745,7 +751,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/09/2014 14:17:59</publishTime>
     </File>
     <File Include="eshop.Master">
-      <publishTime>06/24/2014 14:33:17</publishTime>
+      <publishTime>09/03/2014 13:50:39</publishTime>
     </File>
     <File Include="Faq.aspx">
       <publishTime>06/24/2014 15:04:36</publishTime>
@@ -816,6 +822,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="images/backgrounds/pattern-9.gif">
       <publishTime>02/07/2014 14:15:32</publishTime>
     </File>
+    <File Include="images/bg.gif">
+      <publishTime>08/26/2014 16:31:56</publishTime>
+    </File>
     <File Include="images/bg.jpg">
       <publishTime>02/07/2014 14:15:34</publishTime>
     </File>
@@ -830,6 +839,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="images/cambio.png">
       <publishTime>04/14/2014 15:26:48</publishTime>
+    </File>
+    <File Include="images/cancel.png">
+      <publishTime>08/25/2014 11:11:19</publishTime>
     </File>
     <File Include="images/checkbox_checked.png">
       <publishTime>04/14/2014 14:20:48</publishTime>
@@ -1197,6 +1209,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="images/productos/3.jpg">
       <publishTime>02/12/2014 16:17:01</publishTime>
     </File>
+    <File Include="images/productos/30.jpg">
+      <publishTime>08/26/2014 15:34:56</publishTime>
+    </File>
     <File Include="images/productos/4.png">
       <publishTime>02/13/2014 14:51:24</publishTime>
     </File>
@@ -1255,7 +1270,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/07/2014 14:15:34</publishTime>
     </File>
     <File Include="Inicio.aspx">
-      <publishTime>08/05/2014 16:38:35</publishTime>
+      <publishTime>09/02/2014 10:00:39</publishTime>
     </File>
     <File Include="js/bootstrap-tour/.git">
       <publishTime>02/07/2014 14:15:34</publishTime>
@@ -2791,7 +2806,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/11/2014 16:26:49</publishTime>
     </File>
     <File Include="Producto.aspx">
-      <publishTime>06/24/2014 13:44:05</publishTime>
+      <publishTime>09/03/2014 14:12:38</publishTime>
     </File>
     <File Include="RecuperarPass.aspx">
       <publishTime>06/03/2014 11:36:40</publishTime>
@@ -2803,7 +2818,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/09/2014 15:37:58</publishTime>
     </File>
     <File Include="stylesheets/bootstrap.css">
-      <publishTime>02/11/2014 15:32:12</publishTime>
+      <publishTime>08/26/2014 16:44:00</publishTime>
     </File>
     <File Include="stylesheets/flipswitch.css">
       <publishTime>07/30/2014 10:49:16</publishTime>
@@ -2893,13 +2908,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/09/2014 15:36:37</publishTime>
     </File>
     <File Include="stylesheets/main.css">
-      <publishTime>08/08/2014 15:13:49</publishTime>
+      <publishTime>09/04/2014 17:56:20</publishTime>
     </File>
     <File Include="stylesheets/menu.css">
       <publishTime>08/08/2014 12:41:47</publishTime>
     </File>
     <File Include="stylesheets/menu2.css">
-      <publishTime>08/08/2014 13:10:19</publishTime>
+      <publishTime>09/04/2014 17:48:14</publishTime>
     </File>
     <File Include="stylesheets/metallic.css">
       <publishTime>08/04/2014 14:01:26</publishTime>
@@ -2917,7 +2932,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/04/2014 13:00:37</publishTime>
     </File>
     <File Include="stylesheets/metallic/Thumbs.db">
-      <publishTime>08/04/2014 13:00:37</publishTime>
+      <publishTime>08/26/2014 18:02:53</publishTime>
     </File>
     <File Include="stylesheets/oil-green.css">
       <publishTime>02/07/2014 14:15:43</publishTime>
@@ -2932,22 +2947,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/24/2014 16:17:46</publishTime>
     </File>
     <File Include="Tienda.aspx">
-      <publishTime>06/19/2014 14:45:27</publishTime>
+      <publishTime>09/02/2014 17:54:13</publishTime>
     </File>
     <File Include="urlNotificacion.aspx">
       <publishTime>06/12/2014 11:50:17</publishTime>
     </File>
     <File Include="usercontrol/ucCarrito.ascx">
-      <publishTime>03/07/2014 11:55:43</publishTime>
+      <publishTime>09/02/2014 14:37:03</publishTime>
     </File>
     <File Include="usercontrol/ucProducto.ascx">
-      <publishTime>05/12/2014 11:27:13</publishTime>
+      <publishTime>08/29/2014 11:27:10</publishTime>
     </File>
     <File Include="usercontrol/ucProductoDestacado.ascx">
-      <publishTime>05/12/2014 12:33:43</publishTime>
+      <publishTime>09/02/2014 09:51:26</publishTime>
     </File>
     <File Include="usercontrol/ucProductoFiltro.ascx">
-      <publishTime>05/12/2014 12:59:43</publishTime>
+      <publishTime>09/02/2014 09:51:26</publishTime>
     </File>
     <File Include="Valores.aspx">
       <publishTime>06/03/2014 11:14:46</publishTime>
@@ -2956,7 +2971,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/03/2014 11:14:46</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/08/2014 18:33:23</publishTime>
+      <publishTime>09/04/2014 17:58:56</publishTime>
     </File>
   </ItemGroup>
 </Project>

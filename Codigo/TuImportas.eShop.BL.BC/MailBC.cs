@@ -278,7 +278,15 @@ namespace TuImportas.eShop.BL.BC
                 mensaje.Body += "<tr style='font-weight:bold;text-align:center;'><td>ÍTEM</td><td>CANTIDAD</td><td>PRECIO</td><td>IMPORTE</td></tr>";
                 foreach (Carrito_ProductoBE cp in objCarritoBE.lstCarrito_ProductoBE)
                 {
-                    mensaje.Body += "<tr><td>" + cp.Nombre + "</td><td style='text-align:center;'>" + cp.Cantidad + "</td><td style='text-align:center;'>S/. " + cp.Precio + "</td><td style='text-align:center;'>S/. " + (cp.Precio * cp.Cantidad) + "</td></tr>";
+                    mensaje.Body += "<tr style=\"vertical-align:top;\"><td>";
+                    mensaje.Body += cp.Nombre.ToUpper();
+
+                    foreach (Carrito_Producto_Elemento_AtributoBE cpe in cp.lstCarrito_Producto_Elemento_AtributoBE)
+                    {
+                        mensaje.Body += "<br/><span style=\"font-size:8pt;\">&nbsp;&nbsp;" + cpe.Atributo + ": " + cpe.Elemento + "</span>";
+                    }
+
+                    mensaje.Body += "</td><td style='text-align:center;'>" + cp.Cantidad + "</td><td style='text-align:center;'>S/. " + cp.Precio + "</td><td style='text-align:center;'>S/. " + (cp.Precio * cp.Cantidad) + "</td></tr>";
                     subtotal += cp.Precio * cp.Cantidad;
                 }
                 mensaje.Body += "<tr><td colspan='2'></td><td style='text-align:right;'>SubTotal:</td><td style='font-weight:bold;text-align:center;'>S/. " + subtotal + "</td></tr>";

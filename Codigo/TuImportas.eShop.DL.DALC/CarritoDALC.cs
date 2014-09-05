@@ -296,6 +296,7 @@ namespace TuImportas.eShop.DL.DALC
             SqlParameter[] arrParameters = new SqlParameter[1];
             CarritoBE objCarritoBE = null;
             Carrito_ProductoBE objCarrito_ProductoBE = new Carrito_ProductoBE();
+            Carrito_Producto_Elemento_AtributoBE objCarrito_Producto_Elemento_AtributoBE = new Carrito_Producto_Elemento_AtributoBE();
 
             try
             {
@@ -339,8 +340,29 @@ namespace TuImportas.eShop.DL.DALC
                                 objCarrito_ProductoBE.Imagen = dr["nombre_imagen"].ToString();
                                 objCarrito_ProductoBE.Precio = Convert.ToDecimal(dr["precio"]);
                                 objCarrito_ProductoBE.Id_Color = dr["id_color"] != DBNull.Value ? (Int32?)Convert.ToInt32(dr["id_color"]) : null;
+                                objCarrito_ProductoBE.Id_Carrito_Producto = Convert.ToInt32(dr["id_carrito_producto"]);
 
                                 objCarritoBE.lstCarrito_ProductoBE.Add(objCarrito_ProductoBE);
+                            }
+
+                            dr.NextResult();
+
+                            while (dr.Read())
+                            {
+                                objCarrito_Producto_Elemento_AtributoBE = new Carrito_Producto_Elemento_AtributoBE();
+                                objCarrito_Producto_Elemento_AtributoBE.Id_Carrito_Producto = Convert.ToInt32(dr["id_carrito_producto"]);
+                                objCarrito_Producto_Elemento_AtributoBE.Id_Elemento_Atributo = Convert.ToInt32(dr["id_elemento_atributo"]);
+                                objCarrito_Producto_Elemento_AtributoBE.Elemento = dr["elemento"].ToString();
+                                objCarrito_Producto_Elemento_AtributoBE.Atributo = dr["atributo"].ToString();
+
+                                foreach (Carrito_ProductoBE cp in objCarritoBE.lstCarrito_ProductoBE)
+                                {
+                                    if (cp.Id_Carrito_Producto == objCarrito_Producto_Elemento_AtributoBE.Id_Carrito_Producto)
+                                    {
+                                        cp.lstCarrito_Producto_Elemento_AtributoBE.Add(objCarrito_Producto_Elemento_AtributoBE);
+                                        break;
+                                    }
+                                }
                             }
                         }
                     }
