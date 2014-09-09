@@ -13,12 +13,19 @@ namespace TuImportas.eShop.PL.Web.administrador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            try
             {
-                if (Tools.EsAdmin())
+                if (!Page.IsPostBack)
                 {
-                    LlenarCategoria();
+                    if (Tools.EsAdmin())
+                    {
+                        LlenarCategoria();
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Tools.Error(GetType(), this, ex);
             }
         }
 
@@ -83,7 +90,7 @@ namespace TuImportas.eShop.PL.Web.administrador
 
                 #region Editar
 
-                if (e.CommandName.Equals("Editar"))
+                else if (e.CommandName.Equals("Editar"))
                 {
                     GridViewRow gvRow = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
 
@@ -95,7 +102,7 @@ namespace TuImportas.eShop.PL.Web.administrador
 
                 #region Cancelar
 
-                if (e.CommandName.Equals("Cancelar"))
+                else if (e.CommandName.Equals("Cancelar"))
                 {
                     gvCategorias.EditIndex = -1;
                     LlenarCategoria();
@@ -105,7 +112,7 @@ namespace TuImportas.eShop.PL.Web.administrador
 
                 #region Actualizar
 
-                if (e.CommandName.Equals("Actualizar"))
+                else if (e.CommandName.Equals("Actualizar"))
                 {
                     GridViewRow gvRow = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
 
@@ -123,6 +130,18 @@ namespace TuImportas.eShop.PL.Web.administrador
                     LlenarCategoria();
 
                     Tools.Unload(GetType(), this);
+                }
+
+                #endregion
+
+                #region Actualizar
+
+                else if (e.CommandName.Equals("Eliminar"))
+                {
+                    CategoriaBC objCategoriaBC = new CategoriaBC();
+
+                    objCategoriaBC.Delete_Categoria(Convert.ToInt32(e.CommandArgument));
+                    LlenarCategoria();
                 }
 
                 #endregion

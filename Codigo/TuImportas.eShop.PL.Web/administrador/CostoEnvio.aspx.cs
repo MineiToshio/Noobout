@@ -13,12 +13,19 @@ namespace TuImportas.eShop.PL.Web.administrador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            try
             {
-                if (Tools.EsAdmin())
+                if (!Page.IsPostBack)
                 {
-                    LlenarDepartamentos();
+                    if (Tools.EsAdmin())
+                    {
+                        LlenarDepartamentos();
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Tools.Error(GetType(), this, ex);
             }
         }
 
@@ -53,10 +60,9 @@ namespace TuImportas.eShop.PL.Web.administrador
             {
                 LlenarProvincia();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Tools.Error(GetType(), this, ex);
             }
         }
 
@@ -145,7 +151,14 @@ namespace TuImportas.eShop.PL.Web.administrador
 
         protected void ddlProvincia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LlenarDistritos();
+            try
+            {
+                LlenarDistritos();
+            }
+            catch (Exception ex)
+            {
+                Tools.Error(GetType(), this, ex);
+            }
         }
 
         private void LlenarDistritos()
@@ -159,9 +172,9 @@ namespace TuImportas.eShop.PL.Web.administrador
                 gvDistrito.DataSource = lstUbigeoBE;
                 gvDistrito.DataBind();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Tools.Error(GetType(), this, ex);
+                throw;
             }
         }
     }

@@ -73,6 +73,7 @@
     <Content Include="administrador\Perfil.aspx" />
     <Content Include="administrador\Producto.aspx" />
     <Content Include="administrador\Productos.aspx" />
+    <Content Include="administrador\Salir.aspx" />
     <Content Include="administrador\Slider.aspx" />
     <Content Include="administrador\Sliders.aspx" />
     <Content Include="administrador\Terminos.aspx" />
@@ -807,6 +808,13 @@
     </Compile>
     <Compile Include="administrador\Productos.aspx.designer.cs">
       <DependentUpon>Productos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="administrador\Salir.aspx.cs">
+      <DependentUpon>Salir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="administrador\Salir.aspx.designer.cs">
+      <DependentUpon>Salir.aspx</DependentUpon>
     </Compile>
     <Compile Include="administrador\Slider.aspx.cs">
       <DependentUpon>Slider.aspx</DependentUpon>

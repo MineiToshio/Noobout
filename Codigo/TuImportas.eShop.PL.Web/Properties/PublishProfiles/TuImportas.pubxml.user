@@ -700,7 +700,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/23/2014 10:05:32</publishTime>
     </File>
     <File Include="bin/TuImportas.eShop.BL.BC.dll">
-      <publishTime>09/04/2014 17:58:54</publishTime>
+      <publishTime>09/08/2014 10:29:02</publishTime>
     </File>
     <File Include="bin/TuImportas.eShop.BL.BE.dll">
       <publishTime>09/04/2014 17:58:54</publishTime>
@@ -709,10 +709,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/04/2014 17:58:54</publishTime>
     </File>
     <File Include="bin/TuImportas.eShop.DL.DALC.dll">
-      <publishTime>09/04/2014 17:58:54</publishTime>
+      <publishTime>09/08/2014 10:29:02</publishTime>
     </File>
     <File Include="bin/TuImportas.eShop.PL.Web.dll">
-      <publishTime>09/04/2014 17:58:55</publishTime>
+      <publishTime>09/08/2014 10:29:03</publishTime>
     </File>
     <File Include="CImage.aspx">
       <publishTime>05/22/2014 09:56:30</publishTime>
@@ -2806,7 +2806,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/11/2014 16:26:49</publishTime>
     </File>
     <File Include="Producto.aspx">
-      <publishTime>09/03/2014 14:12:38</publishTime>
+      <publishTime>09/04/2014 23:52:50</publishTime>
     </File>
     <File Include="RecuperarPass.aspx">
       <publishTime>06/03/2014 11:36:40</publishTime>
@@ -2908,7 +2908,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/09/2014 15:36:37</publishTime>
     </File>
     <File Include="stylesheets/main.css">
-      <publishTime>09/04/2014 17:56:20</publishTime>
+      <publishTime>09/04/2014 20:48:34</publishTime>
     </File>
     <File Include="stylesheets/menu.css">
       <publishTime>08/08/2014 12:41:47</publishTime>

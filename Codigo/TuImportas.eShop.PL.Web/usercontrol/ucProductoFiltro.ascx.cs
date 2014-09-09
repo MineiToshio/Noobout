@@ -36,15 +36,6 @@ namespace TuImportas.eShop.PL.Web.usercontrol
                     pnlNuevo.Visible = true;
 
                 pnlProducto.Attributes.Add("data-price", objProductoBE.Precio.ToString());
-
-                String color = "";
-
-                foreach (ColorBE c in objProductoBE.lstColorBE)
-                    color += c.Nombre + "|";
-
-                color = color.Remove(color.Length - 1);
-
-                pnlProducto.Attributes.Add("data-color", color);
                 pnlProducto.Attributes.Add("data-popularity", objProductoBE.Cantidad_Vendidos.ToString());
 
                 String categoria = "";

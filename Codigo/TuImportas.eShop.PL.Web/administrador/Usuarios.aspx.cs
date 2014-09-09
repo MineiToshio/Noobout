@@ -24,10 +24,9 @@ namespace TuImportas.eShop.PL.Web.administrador
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                Tools.Error(GetType(), this, ex);
             }
         }
 
@@ -63,31 +62,38 @@ namespace TuImportas.eShop.PL.Web.administrador
 
         protected void gvUsuarios_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName.Equals("Habilitado"))
+            try
             {
-                UsuarioBC objUsuarioBC = new UsuarioBC();
-
-                objUsuarioBC.Update_Activo_Usuario(Convert.ToInt32(e.CommandArgument));
-
-                List<UsuarioBE> lstUsuarioBE = (List<UsuarioBE>)ViewState["USUARIOS"];
-
-                for (int i = 0; i < lstUsuarioBE.Count; i++)
+                if (e.CommandName.Equals("Habilitado"))
                 {
-                    if (lstUsuarioBE[i].Id_Usuario == Convert.ToInt32(e.CommandArgument))
+                    UsuarioBC objUsuarioBC = new UsuarioBC();
+
+                    objUsuarioBC.Update_Activo_Usuario(Convert.ToInt32(e.CommandArgument));
+
+                    List<UsuarioBE> lstUsuarioBE = (List<UsuarioBE>)ViewState["USUARIOS"];
+
+                    for (int i = 0; i < lstUsuarioBE.Count; i++)
                     {
-                        lstUsuarioBE[i].Activo = !lstUsuarioBE[i].Activo;
-                        lstUsuarioBE[i].Img_Habilitado = "/images/" + ((bool)lstUsuarioBE[i].Activo ? "checkbox_checked.png" : "checkbox_unchecked.png");
-                        break;
+                        if (lstUsuarioBE[i].Id_Usuario == Convert.ToInt32(e.CommandArgument))
+                        {
+                            lstUsuarioBE[i].Activo = !lstUsuarioBE[i].Activo;
+                            lstUsuarioBE[i].Img_Habilitado = "/images/" + ((bool)lstUsuarioBE[i].Activo ? "checkbox_checked.png" : "checkbox_unchecked.png");
+                            break;
+                        }
                     }
+
+                    ViewState["PRODUCTOS"] = lstUsuarioBE;
+
+                    LlenarUsuarios();
                 }
-
-                ViewState["PRODUCTOS"] = lstUsuarioBE;
-
-                LlenarUsuarios();
+                else if (e.CommandName.Equals("Edicion"))
+                {
+                    Response.Redirect("/administrador/usuario.aspx?id_usuario=" + e.CommandArgument);
+                }
             }
-            else if (e.CommandName.Equals("Edicion"))
+            catch (Exception ex)
             {
-                Response.Redirect("/administrador/usuario.aspx?id_usuario=" + e.CommandArgument);
+                Tools.Error(GetType(), this, ex);
             }
         }
 
@@ -115,17 +121,23 @@ namespace TuImportas.eShop.PL.Web.administrador
                 ViewState["USUARIOS"] = objUsuarioBC.Get_Usuario_Buscar(objUsuarioBE);
                 LlenarUsuarios();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                Tools.Error(GetType(), this, ex);
             }
         }
 
         protected void gvUsuarios_Sorting(object sender, GridViewSortEventArgs e)
         {
-            Admin masterPage = (Admin)Page.Master;
-            ViewState["USUARIOS"] = masterPage.SortGrid<UsuarioBE>(gvUsuarios, e.SortExpression, (List<UsuarioBE>)ViewState["USUARIOS"]);
+            try
+            {
+                Admin masterPage = (Admin)Page.Master;
+                ViewState["USUARIOS"] = masterPage.SortGrid<UsuarioBE>(gvUsuarios, e.SortExpression, (List<UsuarioBE>)ViewState["USUARIOS"]);
+            }
+            catch (Exception ex)
+            {
+                Tools.Error(GetType(), this, ex);
+            }
         }
 
         

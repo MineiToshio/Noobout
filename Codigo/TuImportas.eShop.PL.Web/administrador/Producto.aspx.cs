@@ -19,32 +19,40 @@ namespace TuImportas.eShop.PL.Web.administrador
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            try
             {
-                if (Tools.EsAdmin())
+                if (!Page.IsPostBack)
                 {
-                    //LlenarColores();
-                    LlenarCategorias();
-
-                    if (Request.QueryString["id_producto"] == null)
+                    if (Tools.EsAdmin())
                     {
-                        ViewState["MODO"] = Modo.Insertar;
-                        ViewState["ATRIBUTOS"] = "";
-                    }
-                    else
-                    {
-                        ViewState["MODO"] = Modo.Editar;
-                        ViewState["ID_PRODUCTO"] = Request.QueryString["id_producto"];
+                        //LlenarColores();
+                        LlenarCategorias();
 
-                        MostrarProducto();
-                    }
+                        if (Request.QueryString["id_producto"] == null)
+                        {
+                            ViewState["MODO"] = Modo.Insertar;
+                            ViewState["ATRIBUTOS"] = "";
+                        }
+                        else
+                        {
+                            ViewState["MODO"] = Modo.Editar;
+                            ViewState["ID_PRODUCTO"] = Request.QueryString["id_producto"];
 
-                    LlenarAtributos();
-                    MostrarModo();
+                            MostrarProducto();
+                        }
+
+                        MostrarModo();
+                        LlenarAtributos();
+                        
+                    }
                 }
-            }
 
-            CrearAtributos();
+                CrearAtributos();
+            }
+            catch (Exception ex)
+            {
+                Tools.Error(GetType(), this, ex);
+            }
         }
 
         private void MostrarProducto()
@@ -99,10 +107,15 @@ namespace TuImportas.eShop.PL.Web.administrador
                 else
                     lnkEliminarImagen4.Visible = false;
 
-                foreach (AtributoBE a in objProductoBE.lstAtributoBE)
+                if (objProductoBE.lstAtributoBE.Count > 0)
                 {
-                    ViewState["ATRIBUTOS"] = ViewState["ATRIBUTOS"] + "|" + a.Id_Atributo + "," + a.Nombre;
+                    foreach (AtributoBE a in objProductoBE.lstAtributoBE)
+                    {
+                        ViewState["ATRIBUTOS"] = ViewState["ATRIBUTOS"] + "|" + a.Id_Atributo + "," + a.Nombre;
+                    }
                 }
+                else
+                    ViewState["ATRIBUTOS"] = "";
 
                 CrearAtributos();
 
@@ -117,15 +130,23 @@ namespace TuImportas.eShop.PL.Web.administrador
 
         private void MostrarModo()
         {
-            if ((Modo)ViewState["MODO"] == Modo.Insertar)
+            try
             {
-                pnlImagenInsertar.Visible = true;
-                pnlImagenActualizar.Visible = false;
+                if ((Modo)ViewState["MODO"] == Modo.Insertar)
+                {
+                    pnlImagenInsertar.Visible = true;
+                    pnlImagenActualizar.Visible = false;
+                }
+                else if ((Modo)ViewState["MODO"] == Modo.Editar)
+                {
+                    pnlImagenInsertar.Visible = false;
+                    pnlImagenActualizar.Visible = true;
+                }
             }
-            else if ((Modo)ViewState["MODO"] == Modo.Editar)
+            catch (Exception)
             {
-                pnlImagenInsertar.Visible = false;
-                pnlImagenActualizar.Visible = true;
+                
+                throw;
             }
         }
 
@@ -179,38 +200,46 @@ namespace TuImportas.eShop.PL.Web.administrador
 
         private string ValidarImagenes()
         {
-            string error = "";
-            string ext = "";
-
-            if (fuImagen1.HasFile)
+            try
             {
-                ext = Path.GetExtension(fuImagen1.FileName);
-                if (!Tools.EsImagen(ext))
-                    return "La extensión " + ext + " no es soportada por el sistema.";
-            }
+                string error = "";
+                string ext = "";
 
-            if (fuImagen2.HasFile)
+                if (fuImagen1.HasFile)
+                {
+                    ext = Path.GetExtension(fuImagen1.FileName);
+                    if (!Tools.EsImagen(ext))
+                        return "La extensión " + ext + " no es soportada por el sistema.";
+                }
+
+                if (fuImagen2.HasFile)
+                {
+                    ext = Path.GetExtension(fuImagen2.FileName);
+                    if (!Tools.EsImagen(ext))
+                        return "La extensión " + ext + " no es soportada por el sistema.";
+                }
+
+                if (fuImagen3.HasFile)
+                {
+                    ext = Path.GetExtension(fuImagen3.FileName);
+                    if (!Tools.EsImagen(ext))
+                        return "La extensión " + ext + " no es soportada por el sistema.";
+                }
+
+                if (fuImagen4.HasFile)
+                {
+                    ext = Path.GetExtension(fuImagen4.FileName);
+                    if (!Tools.EsImagen(ext))
+                        return "La extensión " + ext + " no es soportada por el sistema.";
+                }
+
+                return error;
+            }
+            catch (Exception)
             {
-                ext = Path.GetExtension(fuImagen2.FileName);
-                if (!Tools.EsImagen(ext))
-                    return "La extensión " + ext + " no es soportada por el sistema.";
+                
+                throw;
             }
-
-            if (fuImagen3.HasFile)
-            {
-                ext = Path.GetExtension(fuImagen3.FileName);
-                if (!Tools.EsImagen(ext))
-                    return "La extensión " + ext + " no es soportada por el sistema.";
-            }
-
-            if (fuImagen4.HasFile)
-            {
-                ext = Path.GetExtension(fuImagen4.FileName);
-                if (!Tools.EsImagen(ext))
-                    return "La extensión " + ext + " no es soportada por el sistema.";
-            }
-
-            return error;
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -218,7 +247,6 @@ namespace TuImportas.eShop.PL.Web.administrador
             ProductoBC objProductoBC = new ProductoBC();
             ProductoBE objProductoBE = new ProductoBE();
             Imagen_ProductoBE objImagen_ProductoBE = new Imagen_ProductoBE();
-            ColorBE objColorBE = new ColorBE();
             CategoriaBE objCategoriaBE = new CategoriaBE();
 
             try
@@ -322,37 +350,51 @@ namespace TuImportas.eShop.PL.Web.administrador
 
                 Response.Redirect("/Administrador/Productos.aspx");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                Tools.Error(GetType(), this, ex);
             }
         }
 
         private void GuardarImagen(FileUpload fu, string nombre)
         {
-            if (fu.HasFile)
+            try
             {
-                string path;
+                if (fu.HasFile)
+                {
+                    string path;
 
-                path = MapPath("../images/productos/") + nombre;
-                fu.SaveAs(path);
+                    path = MapPath("../images/productos/") + nombre;
+                    fu.SaveAs(path);
+                }
+            }
+            catch (Exception ex)
+            {
+                Tools.Error(GetType(), this, ex);
             }
         }
 
         private Imagen_ProductoBE AgregarImagen(FileUpload fu, bool esPrimero = false)
         {
-            Imagen_ProductoBE objImagen_ProductoBE = new Imagen_ProductoBE();
-
-            string ext = Path.GetExtension(fu.FileName);
-
-            if (Tools.EsImagen(ext))
+            try
             {
-                objImagen_ProductoBE.Mostrar_Primero = esPrimero;
-                objImagen_ProductoBE.Nombre = ext;
-            }
+                Imagen_ProductoBE objImagen_ProductoBE = new Imagen_ProductoBE();
 
-            return objImagen_ProductoBE;
+                string ext = Path.GetExtension(fu.FileName);
+
+                if (Tools.EsImagen(ext))
+                {
+                    objImagen_ProductoBE.Mostrar_Primero = esPrimero;
+                    objImagen_ProductoBE.Nombre = ext;
+                }
+
+                return objImagen_ProductoBE;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
         }
 
         protected void btnGuardarImagen_Click(object sender, EventArgs e)
@@ -407,10 +449,9 @@ namespace TuImportas.eShop.PL.Web.administrador
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                Tools.Error(GetType(), this, ex);
             }
         }
 
@@ -420,10 +461,9 @@ namespace TuImportas.eShop.PL.Web.administrador
             {
                 EliminarImagen(pnlImagen2, lnkEliminarImagen2);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                Tools.Error(GetType(), this, ex);
             }
         }
 
@@ -433,10 +473,9 @@ namespace TuImportas.eShop.PL.Web.administrador
             {
                 EliminarImagen(pnlImagen3, lnkEliminarImagen3);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Tools.Error(GetType(), this, ex);
             }
         }
 
@@ -446,10 +485,9 @@ namespace TuImportas.eShop.PL.Web.administrador
             {
                 EliminarImagen(pnlImagen4, lnkEliminarImagen4);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Tools.Error(GetType(), this, ex);
             }
         }
 
@@ -481,20 +519,36 @@ namespace TuImportas.eShop.PL.Web.administrador
         }
 
         private string ObtenerRutaPnlImagen(Panel pnl)
-        { 
-            string imagen = pnl.Style["background-image"].ToString();
-            imagen = imagen.Replace("url('", "").Replace("')", "");
+        {
+            try
+            {
+                string imagen = pnl.Style["background-image"].ToString();
+                imagen = imagen.Replace("url('", "").Replace("')", "");
 
-            return imagen;
+                return imagen;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
         }
 
         private string ObtenerCodigoPnlImagen(Panel pnl)
         {
-            string imagen = ObtenerRutaPnlImagen(pnl);
+            try
+            {
+                string imagen = ObtenerRutaPnlImagen(pnl);
 
-            string codigo = Path.GetFileName(imagen).Replace(Path.GetExtension(imagen), "");
+                string codigo = Path.GetFileName(imagen).Replace(Path.GetExtension(imagen), "");
 
-            return codigo;
+                return codigo;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
         }
 
         private void LlenarAtributos()
@@ -517,15 +571,22 @@ namespace TuImportas.eShop.PL.Web.administrador
 
         protected void lnkAgregarAtributo_Click(object sender, EventArgs e)
         {
-            string atributo = ddlAtributo.SelectedItem.Value + "," + ddlAtributo.SelectedItem.Text;
+            try
+            {
+                string atributo = ddlAtributo.SelectedItem.Value + "," + ddlAtributo.SelectedItem.Text;
 
-            CrearAtributo(atributo);
+                CrearAtributo(atributo);
 
-            ViewState["ATRIBUTOS"] = ViewState["ATRIBUTOS"] + "|" + atributo;
+                ViewState["ATRIBUTOS"] = ViewState["ATRIBUTOS"] + "|" + atributo;
 
-            MostrarTab(3);
+                MostrarTab(3);
 
-            ddlAtributo.Items.Remove(ddlAtributo.SelectedItem);
+                ddlAtributo.Items.Remove(ddlAtributo.SelectedItem);
+            }
+            catch (Exception ex)
+            {
+                Tools.Error(GetType(), this, ex);
+            }
         }
 
         private void CrearAtributo(string atributo)
@@ -608,10 +669,9 @@ namespace TuImportas.eShop.PL.Web.administrador
                     e.Row.Cells[0].Controls.Add(chk);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                Tools.Error(GetType(), this, ex);
             }
         }
 
@@ -619,87 +679,117 @@ namespace TuImportas.eShop.PL.Web.administrador
         {
             ImageButton ibtn = (ImageButton)sender;
 
-            string id = ibtn.ID.Replace("ibtnCancel", "");
+            try
+            {
+                string id = ibtn.ID.Replace("ibtnCancel", "");
 
-            Label lbl = (Label)ibtn.Parent.FindControl("lblAtributo" + id);
+                Label lbl = (Label)ibtn.Parent.FindControl("lblAtributo" + id);
 
-            ddlAtributo.Items.Add(new ListItem(lbl.Text, id));
+                ddlAtributo.Items.Add(new ListItem(lbl.Text, id));
 
-            pnlAtributos.Controls.Remove(ibtn.Parent);
+                pnlAtributos.Controls.Remove(ibtn.Parent);
 
-            ViewState["ATRIBUTOS"] = ViewState["ATRIBUTOS"].ToString().Replace("|" + id + "," + lbl.Text, "");
+                ViewState["ATRIBUTOS"] = ViewState["ATRIBUTOS"].ToString().Replace("|" + id + "," + lbl.Text, "");
+            }
+            catch (Exception ex)
+            {
+                Tools.Error(GetType(), this, ex);
+            }
         }
 
         private void CrearAtributos()
         {
-            if (pnlAtributos.Controls.Count == 0)
+            try
             {
-                string[] atributos = ViewState["ATRIBUTOS"].ToString().Split('|');
+                if (pnlAtributos.Controls.Count == 0)
+                {
+                    string[] atributos = ViewState["ATRIBUTOS"].ToString().Split('|');
 
-                foreach (string s in atributos)
-                    if (!string.IsNullOrEmpty(s))
-                        CrearAtributo(s);
+                    foreach (string s in atributos)
+                        if (!string.IsNullOrEmpty(s))
+                            CrearAtributo(s);
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
             }
         }
 
         private void MostrarTab(int tab)
         {
-            liInformacion.Attributes.Add("class", "");
-            liMedia.Attributes.Add("class", "");
-            liAtributos.Attributes.Add("class", "");
-
-            tabInformacion.Attributes.Add("class", "fade tab-pane");
-            tabMedia.Attributes.Add("class", "fade tab-pane");
-            tabAtributos.Attributes.Add("class", "fade tab-pane");
-
-            switch(tab)
+            try
             {
-                case 1:
-                    liInformacion.Attributes.Add("class", "active");
-                    tabInformacion.Attributes.Add("class", "fade in tab-pane active");
-                    break;
-                case 2: 
-                    liMedia.Attributes.Add("class", "active");
-                    tabMedia.Attributes.Add("class", "fade in tab-pane active");
-                    break;
-                case 3: 
-                    liAtributos.Attributes.Add("class", "active");
-                    tabAtributos.Attributes.Add("class", "fade in tab-pane active");
-                    break;
+                liInformacion.Attributes.Add("class", "");
+                liMedia.Attributes.Add("class", "");
+                liAtributos.Attributes.Add("class", "");
+
+                tabInformacion.Attributes.Add("class", "fade tab-pane");
+                tabMedia.Attributes.Add("class", "fade tab-pane");
+                tabAtributos.Attributes.Add("class", "fade tab-pane");
+
+                switch (tab)
+                {
+                    case 1:
+                        liInformacion.Attributes.Add("class", "active");
+                        tabInformacion.Attributes.Add("class", "fade in tab-pane active");
+                        break;
+                    case 2:
+                        liMedia.Attributes.Add("class", "active");
+                        tabMedia.Attributes.Add("class", "fade in tab-pane active");
+                        break;
+                    case 3:
+                        liAtributos.Attributes.Add("class", "active");
+                        tabAtributos.Attributes.Add("class", "fade in tab-pane active");
+                        break;
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
             }
         }
 
         private void LlenarElementoAtributo(ProductoBE objProductoBE)
         {
-            string[] atributos = ViewState["ATRIBUTOS"].ToString().Split('|');
-
-            GridView gv = new GridView();
-
-            foreach (string s in atributos)
+            try
             {
-                string[] atributo = s.Split(',');
+                string[] atributos = ViewState["ATRIBUTOS"].ToString().Split('|');
 
-                if (!string.IsNullOrEmpty(s))
+                GridView gv = new GridView();
+
+                foreach (string s in atributos)
                 {
-                    gv = new GridView();
-                    gv = (GridView)pnlAtributos.FindControl("gvElementoAtributo" + atributo[0]);
+                    string[] atributo = s.Split(',');
 
-                    foreach (GridViewRow r in gv.Rows)
+                    if (!string.IsNullOrEmpty(s))
                     {
-                        CheckBox chk = (CheckBox)r.Cells[0].Controls[0];
-                        int idElemento_Atributo = Convert.ToInt32(chk.ID.Replace("chk", ""));
+                        gv = new GridView();
+                        gv = (GridView)pnlAtributos.FindControl("gvElementoAtributo" + atributo[0]);
 
-                        foreach (Elemento_AtributoBE ea in objProductoBE.lstElemento_AtributoBE)
+                        foreach (GridViewRow r in gv.Rows)
                         {
-                            if (idElemento_Atributo == ea.Id_Elemento_Atributo)
+                            CheckBox chk = (CheckBox)r.Cells[0].Controls[0];
+                            int idElemento_Atributo = Convert.ToInt32(chk.ID.Replace("chk", ""));
+
+                            foreach (Elemento_AtributoBE ea in objProductoBE.lstElemento_AtributoBE)
                             {
-                                chk.Checked = true;
-                                objProductoBE.lstElemento_AtributoBE.Remove(ea);
-                                break;
+                                if (idElemento_Atributo == ea.Id_Elemento_Atributo)
+                                {
+                                    chk.Checked = true;
+                                    objProductoBE.lstElemento_AtributoBE.Remove(ea);
+                                    break;
+                                }
                             }
                         }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                Tools.Error(GetType(), this, ex);
             }
         }
     }

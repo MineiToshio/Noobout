@@ -15,12 +15,19 @@ namespace TuImportas.eShop.PL.Web.administrador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            try
             {
-                if (Tools.EsAdmin())
+                if (!Page.IsPostBack)
                 {
-                    LlenarDatosUsuario();
+                    if (Tools.EsAdmin())
+                    {
+                        LlenarDatosUsuario();
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Tools.Error(GetType(), this, ex);
             }
         }
 

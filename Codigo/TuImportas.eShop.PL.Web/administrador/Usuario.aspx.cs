@@ -39,26 +39,33 @@ namespace TuImportas.eShop.PL.Web.administrador
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                Tools.Error(GetType(), this, ex);
             }
         }
 
         private void MostrarModo()
         {
-            if ((Modo)ViewState["MODO"] == Modo.Insertar)
+            try
             {
-                divUsuario.Style.Add("display", "");
-                divContrasena.Style.Add("display", "");
-                divContrasena2.Style.Add("display", "");
+                if ((Modo)ViewState["MODO"] == Modo.Insertar)
+                {
+                    divUsuario.Style.Add("display", "");
+                    divContrasena.Style.Add("display", "");
+                    divContrasena2.Style.Add("display", "");
+                }
+                else if ((Modo)ViewState["MODO"] == Modo.Editar)
+                {
+                    divUsuario.Style.Add("display", "none");
+                    divContrasena.Style.Add("display", "none");
+                    divContrasena2.Style.Add("display", "none");
+                }
             }
-            else if ((Modo)ViewState["MODO"] == Modo.Editar)
+            catch (Exception)
             {
-                divUsuario.Style.Add("display", "none");
-                divContrasena.Style.Add("display", "none");
-                divContrasena2.Style.Add("display", "none");
+                
+                throw;
             }
         }
 
@@ -185,10 +192,9 @@ namespace TuImportas.eShop.PL.Web.administrador
 
                 //Response.Redirect("/administrador/usuarios.aspx");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                Tools.Error(GetType(), this, ex);
             }
         }
     }

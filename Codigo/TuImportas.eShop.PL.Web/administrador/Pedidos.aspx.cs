@@ -22,10 +22,9 @@ namespace TuImportas.eShop.PL.Web.administrador
                     LlenarPedidosTodos();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                Tools.Error(GetType(), this, ex);
             }
         }
 
@@ -137,8 +136,15 @@ namespace TuImportas.eShop.PL.Web.administrador
 
         protected void gvPedidos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            gvPedidos.PageIndex = e.NewPageIndex;
-            LlenarPedidos();
+            try
+            {
+                gvPedidos.PageIndex = e.NewPageIndex;
+                LlenarPedidos();
+            }
+            catch (Exception ex)
+            {
+                Tools.Error(GetType(), this, ex);
+            }
         }
 
         protected void btnCambiarEstado_Click(object sender, EventArgs e)
@@ -150,10 +156,9 @@ namespace TuImportas.eShop.PL.Web.administrador
                 objPedidoBC.Update_Pedido_Estado(Convert.ToInt32(hdIdPedidoSel.Value), (int)EstadoPedido.Entregado);
                 LlenarPedidos();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Tools.Error(GetType(), this, ex);
             }
         }
 
@@ -171,17 +176,23 @@ namespace TuImportas.eShop.PL.Web.administrador
 
                 LlenarPedidos();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                Tools.Error(GetType(), this, ex);
             }
         }
 
         protected void gvPedidos_Sorting(object sender, GridViewSortEventArgs e)
         {
-            Admin masterPage = (Admin)Page.Master;
-            ViewState["PEDIDOS"] = masterPage.SortGrid<PedidoBE>(gvPedidos, e.SortExpression, (List<PedidoBE>)ViewState["PEDIDOS"]);
+            try
+            {
+                Admin masterPage = (Admin)Page.Master;
+                ViewState["PEDIDOS"] = masterPage.SortGrid<PedidoBE>(gvPedidos, e.SortExpression, (List<PedidoBE>)ViewState["PEDIDOS"]);
+            }
+            catch (Exception ex)
+            {
+                Tools.Error(GetType(), this, ex);
+            }
         }
     }
 }

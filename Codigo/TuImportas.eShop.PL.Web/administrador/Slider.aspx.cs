@@ -16,43 +16,58 @@ namespace TuImportas.eShop.PL.Web.administrador
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            try
             {
-                if (Tools.EsAdmin())
+                if (!Page.IsPostBack)
                 {
-
-                    if (Request.QueryString["id"] == null)
+                    if (Tools.EsAdmin())
                     {
-                        ViewState["MODO"] = Modo.Insertar;
-                    }
-                    else
-                    {
-                        ViewState["MODO"] = Modo.Editar;
-                        ViewState["ID_SLIDER"] = Request.QueryString["id"];
 
-                        MostrarSlider();
-                    }
+                        if (Request.QueryString["id"] == null)
+                        {
+                            ViewState["MODO"] = Modo.Insertar;
+                        }
+                        else
+                        {
+                            ViewState["MODO"] = Modo.Editar;
+                            ViewState["ID_SLIDER"] = Request.QueryString["id"];
 
-                    MostrarModo();
+                            MostrarSlider();
+                        }
+
+                        MostrarModo();
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Tools.Error(GetType(), this, ex);
             }
         }
 
         private void MostrarModo()
         {
-            if ((Modo)ViewState["MODO"] == Modo.Insertar)
+            try
             {
-                fuFondo.Visible = true;
-                fuImagen.Visible = true;
-                pnlImagen1.Visible = false;
-                pnlImagen2.Visible = false;
+                if ((Modo)ViewState["MODO"] == Modo.Insertar)
+                {
+                    fuFondo.Visible = true;
+                    fuImagen.Visible = true;
+                    pnlImagen1.Visible = false;
+                    pnlImagen2.Visible = false;
+                }
+                else if ((Modo)ViewState["MODO"] == Modo.Editar)
+                {
+                    fuFondo.Visible = false;
+                    fuImagen.Visible = false;
+                    pnlImagen1.Visible = true;
+                    pnlImagen2.Visible = true;
+                }
             }
-            else if ((Modo)ViewState["MODO"] == Modo.Editar)
+            catch (Exception)
             {
-                fuFondo.Visible = false;
-                fuImagen.Visible = false;
-                pnlImagen1.Visible = true;
-                pnlImagen2.Visible = true;
+                
+                throw;
             }
         }
 
@@ -95,7 +110,7 @@ namespace TuImportas.eShop.PL.Web.administrador
                 {
                     objSliderBE.Background = Path.GetExtension(fuFondo.FileName);
                     objSliderBE.Imagen = Path.GetExtension(fuImagen.FileName);
-                    string path = MapPath(PATH_IMG_BACK);
+                    string path = MapPath(".." + PATH_IMG_BACK);
 
                     int codigo = objSliderBC.Insert_Slider(objSliderBE);
 
@@ -110,10 +125,9 @@ namespace TuImportas.eShop.PL.Web.administrador
 
                 Response.Redirect("/Administrador/Sliders.aspx");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                Tools.Error(GetType(), this, ex);
             }
         }
 
@@ -154,7 +168,7 @@ namespace TuImportas.eShop.PL.Web.administrador
                                 break;
                         }
 
-                        string path = MapPath(PATH_IMG_BACK);
+                        string path = MapPath(".." + PATH_IMG_BACK);
                         File.Delete(path + Path.GetFileName(rutaImagen));
                         fuNuevaImagen.SaveAs(path + nombre_img);
                     }
@@ -162,10 +176,9 @@ namespace TuImportas.eShop.PL.Web.administrador
                     
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Tools.Error(GetType(), this, ex);
             }
         }
     }

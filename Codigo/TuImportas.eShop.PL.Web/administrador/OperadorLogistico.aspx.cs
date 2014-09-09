@@ -13,12 +13,19 @@ namespace TuImportas.eShop.PL.Web.administrador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            try
             {
-                if (Tools.EsAdmin())
+                if (!Page.IsPostBack)
                 {
-                    LlenarOperadorLogistico();
+                    if (Tools.EsAdmin())
+                    {
+                        LlenarOperadorLogistico();
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Tools.Error(GetType(), this, ex);
             }
         }
 

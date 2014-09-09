@@ -26,10 +26,9 @@ namespace TuImportas.eShop.PL.Web.administrador
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                Tools.Error(GetType(), this, ex);
             }
         }
 
@@ -51,18 +50,25 @@ namespace TuImportas.eShop.PL.Web.administrador
 
         protected void gvSliders_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName.Equals("Eliminar"))
+            try
             {
-                SliderBC objSliderBC = new SliderBC();
+                if (e.CommandName.Equals("Eliminar"))
+                {
+                    SliderBC objSliderBC = new SliderBC();
 
-                String[] arg = e.CommandArgument.ToString().Split(',');
+                    String[] arg = e.CommandArgument.ToString().Split(',');
 
-                objSliderBC.Delete_Slider(Convert.ToInt32(arg[0]));
-                string path = MapPath(PATH_IMG_BACK);
-                File.Delete(path + arg[1]);
-                File.Delete(path + arg[2]);
+                    objSliderBC.Delete_Slider(Convert.ToInt32(arg[0]));
+                    string path = MapPath(".." + PATH_IMG_BACK);
+                    File.Delete(path + arg[1]);
+                    File.Delete(path + arg[2]);
 
-                LlenarSlider();
+                    LlenarSlider();
+                }
+            }
+            catch (Exception ex)
+            {
+                Tools.Error(GetType(), this, ex);
             }
         }
 
@@ -87,10 +93,9 @@ namespace TuImportas.eShop.PL.Web.administrador
                 //Tools.Alert("El orden se actualizó satisfactoriamente", "Cambiar Orden", GetType(), this);
                 LlenarSlider();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                Tools.Error(GetType(), this, ex);
             }
         }
     }

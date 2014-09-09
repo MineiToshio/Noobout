@@ -13,12 +13,19 @@ namespace TuImportas.eShop.PL.Web.administrador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            try
             {
-                if (Tools.EsAdmin())
+                if (!Page.IsPostBack)
                 {
-                    LlenarProductosTodos();
+                    if (Tools.EsAdmin())
+                    {
+                        LlenarProductosTodos();
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Tools.Error(GetType(), this, ex);
             }
         }
 
@@ -56,61 +63,88 @@ namespace TuImportas.eShop.PL.Web.administrador
 
         protected void gvProductos_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName.Equals("Habilitado"))
+            try
             {
-                ProductoBC objProductoBC = new ProductoBC();
-
-                objProductoBC.Update_Producto_Activo(Convert.ToInt32(e.CommandArgument));
-
-                List<ProductoBE> lstProductoBE = (List<ProductoBE>)ViewState["PRODUCTOS"];
-
-                for (int i = 0; i < lstProductoBE.Count; i++)
+                if (e.CommandName.Equals("Habilitado"))
                 {
-                    if (lstProductoBE[i].Id_Producto == Convert.ToInt32(e.CommandArgument))
+                    ProductoBC objProductoBC = new ProductoBC();
+
+                    objProductoBC.Update_Producto_Activo(Convert.ToInt32(e.CommandArgument));
+
+                    List<ProductoBE> lstProductoBE = (List<ProductoBE>)ViewState["PRODUCTOS"];
+
+                    for (int i = 0; i < lstProductoBE.Count; i++)
                     {
-                        lstProductoBE[i].Activo = !lstProductoBE[i].Activo;
-                        lstProductoBE[i].Img_Habilitado = "/images/" + (lstProductoBE[i].Activo ? "checkbox_checked.png" : "checkbox_unchecked.png");
-                        break;
+                        if (lstProductoBE[i].Id_Producto == Convert.ToInt32(e.CommandArgument))
+                        {
+                            lstProductoBE[i].Activo = !lstProductoBE[i].Activo;
+                            lstProductoBE[i].Img_Habilitado = "/images/" + (lstProductoBE[i].Activo ? "checkbox_checked.png" : "checkbox_unchecked.png");
+                            break;
+                        }
                     }
+
+                    ViewState["PRODUCTOS"] = lstProductoBE;
+
+                    LlenarProductos();
                 }
-
-                ViewState["PRODUCTOS"] = lstProductoBE;
-
-                LlenarProductos();
+                else if (e.CommandName.Equals("Edicion"))
+                {
+                    Response.Redirect("/administrador/producto.aspx?id_producto=" + e.CommandArgument);
+                }
             }
-            else if (e.CommandName.Equals("Edicion"))
+            catch (Exception ex)
             {
-                Response.Redirect("/administrador/producto.aspx?id_producto=" + e.CommandArgument);
+                Tools.Error(GetType(), this, ex);
             }
         }
 
         protected void gvProductos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            gvProductos.PageIndex = e.NewPageIndex;
-            LlenarProductos();
+            try
+            {
+                gvProductos.PageIndex = e.NewPageIndex;
+                LlenarProductos();
+            }
+            catch (Exception ex)
+            {
+                Tools.Error(GetType(), this, ex);
+            }
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
             ProductoBC objProductoBC = new ProductoBC();
-
             bool? activo;
 
-            switch (ddlActivoBuscar.SelectedValue)
+            try
             {
-                case "0": activo = false; break;
-                case "1": activo = true; break;
-                default: activo = null; break;
-            }
+                switch (ddlActivoBuscar.SelectedValue)
+                {
+                    case "0": activo = false; break;
+                    case "1": activo = true; break;
+                    default: activo = null; break;
+                }
 
-            ViewState["PRODUCTOS"] = objProductoBC.Get_Producto_Buscar(txtNombreBuscar.Text.Trim(), activo);
-            LlenarProductos();
+                ViewState["PRODUCTOS"] = objProductoBC.Get_Producto_Buscar(txtNombreBuscar.Text.Trim(), activo);
+                LlenarProductos();
+            }
+            catch (Exception ex)
+            {
+                Tools.Error(GetType(), this, ex);
+            }
         }
 
         protected void gvProductos_Sorting(object sender, GridViewSortEventArgs e)
         {
-            Admin masterPage = (Admin)Page.Master;
-            ViewState["PRODUCTOS"] = masterPage.SortGrid<ProductoBE>(gvProductos, e.SortExpression, (List<ProductoBE>)ViewState["PRODUCTOS"]);
+            try
+            {
+                Admin masterPage = (Admin)Page.Master;
+                ViewState["PRODUCTOS"] = masterPage.SortGrid<ProductoBE>(gvProductos, e.SortExpression, (List<ProductoBE>)ViewState["PRODUCTOS"]);
+            }
+            catch (Exception ex)
+            {
+                Tools.Error(GetType(), this, ex);
+            }
         }
     }
 }

@@ -37,7 +37,7 @@
 							<ul class="sub-menu">
 								<li><a href="/administrador/Perfil.aspx"><i class="icon-user"></i> Mi Perfil</a></li>
 								<li><a href="/administrador/Contrasena.aspx"><i class="icon-lock"></i> Contraseña</a></li>
-								<li><a href="/Salir"><i class="icon-off"></i> Salir</a></li>
+								<li><a href="/administrador/Salir.aspx"><i class="icon-off"></i> Salir</a></li>
 							</ul>
 						</li>
 					</ul>

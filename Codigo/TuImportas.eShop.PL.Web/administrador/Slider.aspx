@@ -49,8 +49,8 @@
         </div>
         <div class="control-group">
             <div class="controls">
-                <asp:Button runat="server" id="btnRegresar" Text="REGRESAR" class="btn btn-dark higher bold" PostBackUrl="~/administrador/Sliders.aspx"/>
                 <asp:Button runat="server" id="btnGuardar" Text="GUARDAR" class="btn btn-dark higher bold" OnClick="btnGuardar_Click" OnClientClick="return Guardar()"/>
+                <asp:Button runat="server" id="btnRegresar" Text="REGRESAR" class="btn btn-dark higher bold" PostBackUrl="~/administrador/Sliders.aspx"/>
             </div>
         </div>
     </div>

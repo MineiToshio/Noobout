@@ -49,6 +49,11 @@
                             <asp:LinkButton ID="lnkNuevo" runat="server" CausesValidation="True" CommandName="Nuevo" Text="Guardar" ValidationGroup="vgRegistro" OnClientClick="if(Page_ClientValidate('vgRegistro')){ Loading() }"></asp:LinkButton>
                         </FooterTemplate>
                     </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Eliminar" ItemStyle-HorizontalAlign="Center">
+                        <ItemTemplate>
+                            <asp:LinkButton Text="Eliminar" ID="lnkEliminar" runat="server" CausesValidation="false" CommandName="Eliminar" CommandArgument='<%#Eval("Id_Categoria")%>' OnClientClick="return confirm('¿Está seguro que desea eliminar el registro?');" />  
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
             </asp:GridView>
         </center>

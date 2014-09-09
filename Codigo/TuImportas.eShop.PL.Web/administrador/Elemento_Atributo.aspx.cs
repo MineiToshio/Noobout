@@ -13,13 +13,20 @@ namespace TuImportas.eShop.PL.Web.administrador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            try
             {
-                if (Tools.EsAdmin())
+                if (!Page.IsPostBack)
                 {
-                    ViewState["ID_ATRIBUTO"] = Request.QueryString["id"];
-                    LlenarElementos();
+                    if (Tools.EsAdmin())
+                    {
+                        ViewState["ID_ATRIBUTO"] = Request.QueryString["id"];
+                        LlenarElementos();
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Tools.Error(GetType(), this, ex);
             }
         }
 
