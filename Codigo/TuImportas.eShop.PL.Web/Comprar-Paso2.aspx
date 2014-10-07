@@ -95,7 +95,7 @@
 										<th><div class="align-center" style="min-width:100px;">Tiempo de Entrega</div></th>
 									</tr>
 								</thead>
-								<tbody id="bodyOperadorLogistico" runat="server">
+								<tbody id="bodyOperadorLogistico" class="validationEngineContainer" runat="server">
 								</tbody>
 							</table>
 							<br />
@@ -176,21 +176,23 @@
 			if ($("#<%=ddlDireccionFacturacion.ClientID%>").val() != null && $("#<%=ddlDireccionFacturacion.ClientID%>").val() != "-1")
 				DatosDireccion(2);
 
-			$("#trDirecciones").validationEngine({ scroll: false, autoHidePrompt: true });
-
+		    $("#trDirecciones").validationEngine({ scroll: false, autoHidePrompt: true });
+		    $("#<%=bodyOperadorLogistico.ClientID%>").validationEngine({ scroll: false, autoHidePrompt: true });
+			
 			if ($("#<%=hdIdOperador.ClientID%>").val() != 0) {
-				$("#check" + $("#<%=hdIdOperador.ClientID%>").val()).attr("class", "icon-chevron-right");
+			    //$("#check" + $("#<%=hdIdOperador.ClientID%>").val()).attr("class", "icon-chevron-right");
+			    $("#rb" + $("#<%=hdIdOperador.ClientID%>").val()).attr('checked', 'checked');
 			}
 		});
 
 		function Continuar()
 		{
-			if ($("#<%=hdIdOperador.ClientID%>").val() != 0) {
-				if ($("#trDirecciones").validationEngine('validate')) {
+			<%--if ($("#<%=hdIdOperador.ClientID%>").val() != 0) {--%>
+		    if ($("#trDirecciones").validationEngine('validate') && $("#<%=bodyOperadorLogistico.ClientID%>").validationEngine('validate')) {
 					<%= Page.ClientScript.GetPostBackEventReference(lnkContinuar, "") %>
 				}
-			}
-			else { jAlert("Por favor seleccione un operador logístico", "Operador Logístico"); }
+			//}
+			//else { jAlert("Por favor seleccione un operador logístico", "Operador Logístico"); }
 		}
 
 		function DatosDireccion(direccion)
@@ -232,11 +234,11 @@
 		}
 
 		function SeleccionarOperador(operador) {
-			$('i[name^=checkOperador]').each(function () {
-				$(this).attr("class", "icon-chevron");
-			});
+			//$('i[name^=checkOperador]').each(function () {
+			//	$(this).attr("class", "icon-chevron");
+			//});
 
-			$("#check" + operador).attr("class", "icon-chevron-right");
+			//$("#check" + operador).attr("class", "icon-chevron-right");
 			$("#<%=hdIdOperador.ClientID%>").val(operador);
 		}
 	</script>

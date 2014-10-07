@@ -107,7 +107,8 @@ namespace TuImportas.eShop.PL.Web
             try
             {
                 wishitem += "<tr>";
-                wishitem += "<td class=\"price\" style=\"width:40px;\"><span class=\"btn btn-danger circle pull-left\" onclick=\"SeleccionarOperador(" + objOperador_LogisticoBE.Id_Operador + ");\"><i class=\"icon-chevron\" name=\"checkOperador\" id=\"check" + objOperador_LogisticoBE.Id_Operador + "\"></i></span></td>";
+                //wishitem += "<td class=\"price\" style=\"width:40px;\"><span class=\"btn btn-danger circle pull-left\" onclick=\"SeleccionarOperador(" + objOperador_LogisticoBE.Id_Operador + ");\"><i class=\"icon-chevron\" name=\"checkOperador\" id=\"check" + objOperador_LogisticoBE.Id_Operador + "\"></i></span></td>";
+                wishitem += "<td class=\"price\" style=\"width:40px;\"><input class=\"validate[required] radio\" type=\"radio\" name=\"operador\" id=\"rb" + objOperador_LogisticoBE.Id_Operador + "\" onclick=\"SeleccionarOperador(" + objOperador_LogisticoBE.Id_Operador + ");\"/></td>";
                 wishitem += "<td class=\"price\">" + objOperador_LogisticoBE.Nombre + "</td>";
                 wishitem += "<td class=\"price\">S/. " + objOperador_LogisticoBE.Costo_Lima + "</td>";
                 wishitem += "<td class=\"price\">S/. " + objOperador_LogisticoBE.Costo_Provincia + "</td>";

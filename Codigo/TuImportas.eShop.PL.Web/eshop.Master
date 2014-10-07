@@ -615,15 +615,19 @@
                             switch (response.d) {
                                 case -1: //Usuario_Repetido
                                     jAlert("Lo sentimos, el usuario que ha escogido ya se encuentra registrado.", "Usuario Repetido");
+                                    ReloadCaptcha();
                                     break;
                                 case -2: //Email_Repetido
                                     jAlert("Lo sentimos, el email que ha escogido ya se encuentra registrado.", "Email Repetido");
+                                    ReloadCaptcha();
                                     break;
                                 case -3: //Dni_Repetido
                                     jAlert("Lo sentimos, el DNI que ha escogido ya se encuentra registrado.", "DNI Repetido");
+                                    ReloadCaptcha();
                                     break;
                                 case -4: //Dni_Repetido
                                     jAlert("El código captcha se encuentra errado.", "Captcha Errado");
+                                    ReloadCaptcha();
                                     break;
                                 default:
                                     jAlert("Su cuenta ha sido creada satisfactoriamente. Por favor revise su correo para activar su cuenta.", "Cuenta Creada");
@@ -638,6 +642,12 @@
             }
 
             $(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
+
+            function ReloadCaptcha()
+            {
+                d = new Date();
+                $("#imgCaptcha").attr("src", "CImage.aspx?" + d.getTime());
+            }
 
             function Notificacion(texto)
             {
