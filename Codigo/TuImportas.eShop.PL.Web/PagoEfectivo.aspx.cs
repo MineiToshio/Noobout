@@ -15,20 +15,36 @@ namespace TuImportas.eShop.PL.Web
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			if (!Page.IsPostBack)
+			try
 			{
-				GenerarCip();
-				Tools.Comprar();
+				if (!Page.IsPostBack)
+				{
+					GenerarCip();
+					Tools.Comprar();
+				}
+			}
+			catch (Exception ex)
+			{
+				//Tools.Error(GetType(), this, ex);
+                throw;
 			}
 		}
 
 		private string GenerarRandom()
 		{
 			int value;
-			Random randNumber = new Random(DateTime.Now.Millisecond);
-			value = randNumber.Next(0, 99999999);
+			try
+			{
+				Random randNumber = new Random(DateTime.Now.Millisecond);
+				value = randNumber.Next(0, 99999999);
 
-			return value.ToString("D8");
+				return value.ToString("D8");
+			}
+			catch (Exception)
+			{
+				
+				throw;
+			}
 		}
 
 		private void GenerarCip()
@@ -36,9 +52,13 @@ namespace TuImportas.eShop.PL.Web
 			try
 			{
 				BEWSGenCIPRequestMod1 request = new BEWSGenCIPRequestMod1();
-				string pathPublicKeyContraparte = ConfigurationManager.AppSettings["pathPublicKeyContraparte"];
-				string pathPrivateKey = ConfigurationManager.AppSettings["pathPrivateKey"];
+				//string pathPublicKeyContraparte = ConfigurationManager.AppSettings["pathPublicKeyContraparte"];
+				//string pathPrivateKey = ConfigurationManager.AppSettings["pathPrivateKey"];
 				string CodServicio = ConfigurationManager.AppSettings["cCodServicio"];
+
+                string path = MapPath("/claves/");
+                string pathPublicKeyContraparte = path + ConfigurationManager.AppSettings["pathPublicKeyContraparte"];
+                string pathPrivateKey = path + ConfigurationManager.AppSettings["pathPrivateKey"];
 
 				request.CodServ = CodServicio;
 				request.Xml = GenerarXML();
@@ -74,44 +94,52 @@ namespace TuImportas.eShop.PL.Web
 		private string GenerarXML() 
 		{ 
 			string xml = "";
-			string moneda = ConfigurationManager.AppSettings["cCodMoneda"];
-			string codServicio = ConfigurationManager.AppSettings["cCodServicio"];
-			string contacto = ConfigurationManager.AppSettings["Contacto"];
-			UsuarioBE objUsuarioBE = (UsuarioBE)Session["USUARIO"];
-			CarritoBE objCarritoBE = (CarritoBE)Session["CARRITO"];
-			string codTransaccion = GenerarRandom();
-			DateTime fechaExpiracion = DateTime.Now.AddDays(5);
+			try
+			{
+				string moneda = ConfigurationManager.AppSettings["cCodMoneda"];
+				string codServicio = ConfigurationManager.AppSettings["cCodServicio"];
+				string contacto = ConfigurationManager.AppSettings["Contacto"];
+				UsuarioBE objUsuarioBE = (UsuarioBE)Session["USUARIO"];
+				CarritoBE objCarritoBE = (CarritoBE)Session["CARRITO"];
+				string codTransaccion = GenerarRandom();
+				DateTime fechaExpiracion = DateTime.Now.AddDays(5);
 
-			xml += "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
-			xml += "<SolPago>";
-			xml += "  <IdMoneda>" + moneda + "</IdMoneda>";
-			xml += "  <Total>" + objCarritoBE.Total + "</Total>";
-			xml += "  <MetodosPago>1,2</MetodosPago>";
-			xml += "  <CodServicio>" + codServicio + "</CodServicio>";
-			xml += "  <Codtransaccion>" + codTransaccion + "</Codtransaccion>";
-			xml += "  <EmailComercio>" + contacto + "</EmailComercio>";
-			xml += "  <FechaAExpirar>" + fechaExpiracion.Day + "/" + fechaExpiracion.Month + "/" + fechaExpiracion.Year + " " + fechaExpiracion.Hour + ":" + fechaExpiracion.Minute + ":" + fechaExpiracion.Second + "</FechaAExpirar>";
-			xml += "  <UsuarioId>" + objUsuarioBE.Id_Usuario + "</UsuarioId>";
-			xml += "  <DataAdicional />";
-			xml += "  <UsuarioNombre>" + objUsuarioBE.Nombre + "</UsuarioNombre>";
-			xml += "  <UsuarioApellidos>" + objUsuarioBE.Apellido_Paterno + "</UsuarioApellidos>";
-			xml += "  <UsuarioLocalidad>" + objCarritoBE.Direccion_Envio.Nombre_Distrito + "</UsuarioLocalidad>";
-			xml += "  <UsuarioProvincia>" + objCarritoBE.Direccion_Envio.Id_Provincia + "</UsuarioProvincia>";
-			xml += "  <UsuarioPais>PERU</UsuarioPais>";
-			xml += "  <UsuarioAlias>" + objUsuarioBE.Usuario + "</UsuarioAlias>";
-			xml += "  <UsuarioTipoDoc>DNI</UsuarioTipoDoc>";
-			xml += "  <UsuarioNumeroDoc>" + objUsuarioBE.Dni + "</UsuarioNumeroDoc>";
-			xml += "  <UsuarioEmail>" + objUsuarioBE.Email + "</UsuarioEmail>";
-			xml += "  <ConceptoPago>Orden " + codTransaccion + "</ConceptoPago>";
-			xml += "  <Detalles>";
-			xml += "    <Detalle>";
-			xml += "      <ConceptoPago>Orden " + codTransaccion + "</ConceptoPago>";
-			xml += "      <Importe>" + objCarritoBE.Total + "</Importe>";
-			xml += "    </Detalle>";
-			xml += "  </Detalles>";
-			xml += "</SolPago>";
+				xml += "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
+				xml += "<SolPago>";
+				xml += "  <IdMoneda>" + moneda + "</IdMoneda>";
+				xml += "  <Total>" + objCarritoBE.Total + "</Total>";
+				xml += "  <MetodosPago>1,2</MetodosPago>";
+				xml += "  <CodServicio>" + codServicio + "</CodServicio>";
+				xml += "  <Codtransaccion>" + codTransaccion + "</Codtransaccion>";
+				xml += "  <EmailComercio>" + contacto + "</EmailComercio>";
+				xml += "  <FechaAExpirar>" + fechaExpiracion.Day + "/" + fechaExpiracion.Month + "/" + fechaExpiracion.Year + " " + fechaExpiracion.Hour + ":" + fechaExpiracion.Minute + ":" + fechaExpiracion.Second + "</FechaAExpirar>";
+				xml += "  <UsuarioId>" + objUsuarioBE.Id_Usuario + "</UsuarioId>";
+				xml += "  <DataAdicional />";
+				xml += "  <UsuarioNombre>" + objUsuarioBE.Nombre + "</UsuarioNombre>";
+				xml += "  <UsuarioApellidos>" + objUsuarioBE.Apellido_Paterno + "</UsuarioApellidos>";
+				xml += "  <UsuarioLocalidad>" + objCarritoBE.Direccion_Envio.Nombre_Distrito + "</UsuarioLocalidad>";
+				xml += "  <UsuarioProvincia>" + objCarritoBE.Direccion_Envio.Id_Provincia + "</UsuarioProvincia>";
+				xml += "  <UsuarioPais>PERU</UsuarioPais>";
+				xml += "  <UsuarioAlias>" + objUsuarioBE.Usuario + "</UsuarioAlias>";
+				xml += "  <UsuarioTipoDoc>DNI</UsuarioTipoDoc>";
+				xml += "  <UsuarioNumeroDoc>" + objUsuarioBE.Dni + "</UsuarioNumeroDoc>";
+				xml += "  <UsuarioEmail>" + objUsuarioBE.Email + "</UsuarioEmail>";
+				xml += "  <ConceptoPago>Orden " + codTransaccion + "</ConceptoPago>";
+				xml += "  <Detalles>";
+				xml += "    <Detalle>";
+				xml += "      <ConceptoPago>Orden " + codTransaccion + "</ConceptoPago>";
+				xml += "      <Importe>" + objCarritoBE.Total + "</Importe>";
+				xml += "    </Detalle>";
+				xml += "  </Detalles>";
+				xml += "</SolPago>";
 
-			return xml;
+				return xml;
+			}
+			catch (Exception)
+			{
+				
+				throw;
+			}
 		}
 	}
 }

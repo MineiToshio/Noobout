@@ -15,7 +15,8 @@ namespace TuImportas.eShop.BL.BE
     public enum ServidorCorreo
     {
         GMail = 1,
-        GoDaddy = 2
+        GoDaddy = 2,
+        Arvixe = 3
     }
 
     public enum ErrorRegistroUsuario

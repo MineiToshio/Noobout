@@ -173,14 +173,20 @@
                 </asp:Panel>
             </div>
             <div class="fade tab-pane" id="tabAtributos" runat="server" ClientIDMode="Static">
-                <asp:DropDownList runat="server" ID="ddlAtributo"></asp:DropDownList> <asp:LinkButton ID="lnkAgregarAtributo" runat="server" Text="Agregar" OnClick="lnkAgregarAtributo_Click"></asp:LinkButton>
-                <asp:Panel runat="server" ID="pnlAtributos"></asp:Panel>
+                <asp:ScriptManager runat="server" ID="sm"></asp:ScriptManager>
+                <asp:UpdatePanel runat="server" id="upAtributos">
+                    <ContentTemplate>
+                        <asp:DropDownList runat="server" ID="ddlAtributo"></asp:DropDownList> <asp:LinkButton ID="lnkAgregarAtributo" runat="server" Text="Agregar" OnClick="lnkAgregarAtributo_Click" OnClientClick="AgregarCategoria();"></asp:LinkButton>
+                        <asp:Panel runat="server" ID="pnlAtributos"></asp:Panel>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+                
             </div>
         </div>
         <br />
         <div class="control-group">
             <div class="controls">
-                <asp:Button runat="server" id="btnGuardar" Text="GUARDAR" class="btn btn-dark higher bold" OnClick="btnGuardar_Click" OnClientClick="return Guardar();"/>
+                <asp:Button runat="server" id="btnGuardar" Text="GUARDAR" class="btn btn-dark higher bold" OnClick="btnGuardar_Click" />
                 <asp:Button runat="server" id="btnRegresar" Text="REGRESAR" class="btn btn-dark higher bold" PostBackUrl="~/administrador/Productos.aspx"/>
                 <%--<input type="button" value="GUARDAR2" onclick="$('#divProducto').validationEngine('validate')" class="btn btn-primary higher bold"/>--%>
             </div>
@@ -309,6 +315,12 @@
             $('#hdRutaImagen').val($("#pnlImagen" + codigo).css("background-image"));
             $('#imagenModal').modal('show');
         }
+
+        //function AgregarCategoria()
+        //{
+        //    CKEDITOR.instances.txtDetalle.updateElement();
+        //    CKEDITOR.instances.txtCaracteristicaTecnica.updateElement();
+        //}
 
         function Guardar()
         {

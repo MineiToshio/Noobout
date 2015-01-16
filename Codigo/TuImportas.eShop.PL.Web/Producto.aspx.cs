@@ -205,12 +205,15 @@ namespace TuImportas.eShop.PL.Web
             {
                 lstProductoBE = objProductoBC.Select_Producto_Top_Categoria(idCategoria, idProducto);
 
-                foreach (ProductoBE p in lstProductoBE)
+                if (lstProductoBE != null)
                 {
-                    producto = (ucProducto)Page.LoadControl("~/usercontrol/ucProducto.ascx");
-                    producto.SetParametros(p);
+                    foreach (ProductoBE p in lstProductoBE)
+                    {
+                        producto = (ucProducto)Page.LoadControl("~/usercontrol/ucProducto.ascx");
+                        producto.SetParametros(p);
 
-                    pnlRelacionados.Controls.Add(producto);
+                        pnlRelacionados.Controls.Add(producto);
+                    }
                 }
             }
             catch (Exception)

@@ -34,6 +34,12 @@ namespace TuImportas.eShop.BL.BC
                         smtpclient.Port = 25;
                         smtpclient.EnableSsl = false;
                         break;
+                    case (int)ServidorCorreo.Arvixe:
+                        smtpclient.Host = "mail.woad.arvixe.com";
+                        //smtpclient.Port = 465;
+                        smtpclient.Credentials = new System.Net.NetworkCredential("noreply@noobout.com", "n0r3ply");
+                        smtpclient.EnableSsl = false;
+                        break;
                 }
                 return smtpclient;
             }

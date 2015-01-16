@@ -283,6 +283,24 @@ namespace TuImportas.eShop.PL.Web.administrador {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl tabAtributos;
         
         /// <summary>
+        /// sm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager sm;
+        
+        /// <summary>
+        /// upAtributos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upAtributos;
+        
+        /// <summary>
         /// ddlAtributo control.
         /// </summary>
         /// <remarks>
