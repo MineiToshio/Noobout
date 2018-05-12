@@ -9,7 +9,7 @@
     <title>Noobout</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Venta de productos">
-    <meta name="author" content="Linnso SAC">
+    <meta name="author" content="Toshio Minei">
 
     <!--  = Google Fonts =  -->
     <script type="text/javascript">
@@ -365,7 +365,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="span6">
-                            &copy; Copyright <% Response.Write(DateTime.Now.Year.ToString()); %>. Página desarrollada por <a target="_blank" href="http://www.linnso.com/">Linnso</a>.
+                            &copy; Copyright <% Response.Write(DateTime.Now.Year.ToString()); %>. Página desarrollada por <a target="_blank" href="http://www.toshiominei.com/">Toshio Minei</a>.
                         </div>
                     </div>
                 </div>

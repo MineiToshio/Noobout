@@ -2476,3 +2476,40 @@ StackTrace:    en System.Threading.Thread.AbortInternal()
    en TuImportas.eShop.PL.Web.Comprar_Paso4.lnkContinuar_Click(Object sender, EventArgs e) en c:\Users\Sergio Minei\Desktop\Tu Importas\Noobout\Codigo\TuImportas.eShop.PL.Web\Comprar-Paso4.aspx.cs:línea 147
 Día/Hora: 14/11/2014 11:41:31 a.m.
 ===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.eshop.lnkSalir_Click(Object sender, EventArgs e) en C:\Users\Sergio Minei\Desktop\tu-importas-noobout\Codigo\TuImportas.eShop.PL.Web\eshop.Master.cs:línea 373
+Día/Hora: 12/05/2018 12:25:40 a. m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.administrador.Productos.gvProductos_RowCommand(Object sender, GridViewCommandEventArgs e) en C:\Users\Sergio Minei\Desktop\tu-importas-noobout\Codigo\TuImportas.eShop.PL.Web\administrador\Productos.aspx.cs:línea 92
+Día/Hora: 12/05/2018 12:31:46 a. m.
+===========================================================================================
+Tipo: System.Threading.ThreadAbortException
+Mensaje: Subproceso anulado.
+Fuente: mscorlib
+StackTrace:    en System.Threading.Thread.AbortInternal()
+   en System.Threading.Thread.Abort(Object stateInfo)
+   en System.Web.HttpResponse.AbortCurrentThread()
+   en System.Web.HttpResponse.End()
+   en System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   en System.Web.HttpResponse.Redirect(String url)
+   en TuImportas.eShop.PL.Web.Tools.EsAdmin() en C:\Users\Sergio Minei\Desktop\tu-importas-noobout\Codigo\TuImportas.eShop.PL.Web\Tools.cs:línea 297
+   en TuImportas.eShop.PL.Web.administrador.Productos.Page_Load(Object sender, EventArgs e) en C:\Users\Sergio Minei\Desktop\tu-importas-noobout\Codigo\TuImportas.eShop.PL.Web\administrador\Productos.aspx.cs:línea 20
+Día/Hora: 12/05/2018 1:45:16 a. m.
+===========================================================================================

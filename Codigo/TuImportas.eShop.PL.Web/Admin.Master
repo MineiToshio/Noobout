@@ -7,7 +7,11 @@
 	<title>Admin Noobout</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<link rel="shortcut icon" href="/images/favicon.ico" />
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../images/apple-touch/144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../images/apple-touch/114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../images/apple-touch/72.png" />
+    <link rel="apple-touch-icon-precomposed" href="../images/apple-touch/57.png" />
+    <link rel="shortcut icon" href="../images/apple-touch/57.png" />
 
 	<link rel="stylesheet" type="text/css" href="/stylesheets/menu.css" />
 	<link href="/stylesheets/bootstrap.css" rel="stylesheet" />
