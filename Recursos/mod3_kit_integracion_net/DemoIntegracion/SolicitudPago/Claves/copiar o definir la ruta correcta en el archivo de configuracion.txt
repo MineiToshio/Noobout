@@ -1,1 +1,0 @@
-copiar o definir la ruta correcta en el archivo de configuracion

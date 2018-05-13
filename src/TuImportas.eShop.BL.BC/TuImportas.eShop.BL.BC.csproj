@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0DC60B8B-3840-4182-B48A-1E66CC2C3594}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TuImportas.eShop.BL.BC</RootNamespace>
+    <AssemblyName>TuImportas.eShop.BL.BC</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AtributoBC.cs" />
+    <Compile Include="Boton_InicioBC.cs" />
+    <Compile Include="CarritoBC.cs" />
+    <Compile Include="Carrito_ProductoBC.cs" />
+    <Compile Include="Carrito_Producto_Elemento_AtributoBC.cs" />
+    <Compile Include="CategoriaBC.cs" />
+    <Compile Include="ColorBC.cs" />
+    <Compile Include="DevolucionBC.cs" />
+    <Compile Include="DireccionBC.cs" />
+    <Compile Include="Elemento_AtributoBC.cs" />
+    <Compile Include="Forma_PagoBC.cs" />
+    <Compile Include="Imagen_ProductoBC.cs" />
+    <Compile Include="MailBC.cs" />
+    <Compile Include="Operador_LogisticoBC.cs" />
+    <Compile Include="PedidoBC.cs" />
+    <Compile Include="Pedido_DireccionBC.cs" />
+    <Compile Include="Pedido_ProductoBC.cs" />
+    <Compile Include="Pedido_Producto_Elemento_AtributoBC.cs" />
+    <Compile Include="ProductoBC.cs" />
+    <Compile Include="Producto_CategoriaBC.cs" />
+    <Compile Include="Producto_ColorBC.cs" />
+    <Compile Include="Producto_Elemento_AtributoBC.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RolBC.cs" />
+    <Compile Include="SliderBC.cs" />
+    <Compile Include="UbigeoBC.cs" />
+    <Compile Include="UsuarioBC.cs" />
+    <Compile Include="WhishlistBC.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TuImportas.eShop.BL.BE\TuImportas.eShop.BL.BE.csproj">
+      <Project>{3ec88567-075c-4bbc-9319-1a99f2a1a37f}</Project>
+      <Name>TuImportas.eShop.BL.BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TuImportas.eShop.DL.DALC\TuImportas.eShop.DL.DALC.csproj">
+      <Project>{32597c7a-f453-48f3-9e0d-590f02172dba}</Project>
+      <Name>TuImportas.eShop.DL.DALC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
